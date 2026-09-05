@@ -1,6 +1,6 @@
 # Track 1 report: variant identification, PROBAND01
 
-Team: henkvaness (individual). Model 1: `henkvaness_bub1b-rules-v1.csv`. Date: 5 September 2026.
+Team: henkvaness (individual). Model 1: `henkvaness_bub1b-rules-v1.csv` (rule-based, known genes). Model 2: same CSV, confirmed by phenotype-driven genome-wide ranking (section 3b). Date: 5 September 2026.
 
 ## 1. Approach
 
@@ -21,7 +21,7 @@ Generative AI: Claude Code (Anthropic), Max plan, model-improvement sharing disa
 | Rank | Variant (GRCh38) | Protein (ENST00000287598) | GT, AD | Consequence | ClinVar | gnomAD v4.1 |
 |---|---|---|---|---|---|---|
 | 1 (pair) | chr15:40209701 T>G | p.Leu737Ter | 0/1, 21/25 | stop gained, exon 17/23 | Pathogenic/Likely pathogenic, 2 submitters, no conflicts, MVA syndrome 1 | exomes 115/1,461,846 (7.9e-5), genomes 5/152,174, 0 homozygotes |
-| 1 (pair) | chr15:40220612 T>G | p.Asn1002Lys | 0/1, 15/13 | missense, exon 23/23, kinase domain | none for T>G (T>A at the same base: VUS; T>C: likely benign) | exomes 1/1,461,878 (6.8e-7), genomes absent, 0 homozygotes |
+| 1 (pair) | chr15:40220612 T>G | p.Asn1002Lys | 0/1, 15/13 | missense, exon 23/23, kinase domain | same protein change via c.3006T>A: VUS, Ambry 2025 (VCV004600147); c.3006T>G itself unsubmitted | exomes 1/1,461,878 (6.8e-7), genomes absent, 0 homozygotes |
 
 Rows 2 and 3 carry each variant alone at lower EPCR so that a single-variant answer key still scores. No other coding or ClinVar-flagged variant exists in the three genes; the remaining 18 calls are intronic or UTR and, except one deep-intronic BUB1B variant absent from gnomAD (about 1 kb from the nearest exon, no splice prediction run), all are common dbSNP polymorphisms.
 
@@ -29,9 +29,13 @@ Genome-wide, 314 genes pass the crude recessive-compatible filter. BUB1B is one 
 
 ## 3. Interpretation and limits
 
-The genotype matches the published BUB1B pattern for MVA1: one truncating allele and one missense allele, biallelic truncation being reported as not viable. The phenotype terms supplied (HP:0002859, HP:0000121, HP:0004322, HP:0001508, HP:0003202, HP:0001622, HP:0001518, HP:0200067) are consistent with MVA1 as described in OMIM 257300.
+The genotype matches the pattern of the original MVA1 cohort: all five biallelic BUB1B families in Hanks et al. 2004 (PMID 15475955) carried one truncating allele and one missense allele, and every kinase-domain missense allele UniProt records for MVA1 (R814H, L844F, I909T, Q921H, L1012P) occurs in that configuration. p.Asn1002Lys lies between Q921 and L1012, six residues from the PLK1 phosphosite T1008. Two cautions: p.Leu737Ter has not been reported in a published MVA patient (its ClinVar classification rests on the nonsense mechanism, and it has 115 heterozygous carriers in gnomAD v4), and p.Asn1002Lys is formally a variant of uncertain significance with no functional data; the case for causality is the combination, the gene, and the phenotype. The phenotype terms supplied (HP:0002859, HP:0000121, HP:0004322, HP:0001508, HP:0003202, HP:0001622, HP:0001518, HP:0200067) are consistent with MVA1 as described in OMIM 257300.
 
 Phase is not determinable from this dataset. The variants are 10.9 kb apart, no read-backed phase (PGT/PID) is present on either, and there is no parental data. The trans inference rests on two rare heterozygous variants in a recessive gene that matches the phenotype. The nonsense allele is present in 115 of 1.46 million exome alleles; a cis configuration with the missense allele cannot be excluded from this file.
+
+## 3b. Model 2: phenotype-driven genome-wide ranking (Exomiser)
+
+To test whether the pair is found without a gene list, all 4.74 M PASS variants were run through Exomiser 15.1.0 (data release 2512, hg38) with the eight HPO terms, gnomAD/ExAC/TOPMed/UK10K/1000G frequencies at a 2% cutoff, REVEL and MVP, hiPhive prioritisation, and all inheritance models. BUB1B ranks 1 (dominant model) and 2 (recessive compound-heterozygous model, p = 0.0009) of 389 genes surviving the filters, with exactly the two submitted variants as the contributing pair; phenotype match to ORPHA:1052, score 0.79. Exomiser's ACMG engine classifies p.Leu737Ter as Pathogenic (PVS1, PM2_Supporting, PP4_Moderate, PP5_Strong) and p.Asn1002Lys as Uncertain significance (PM2_Supporting, PP4_Moderate; MVP 0.71). Rank 3 is FANCD2 with two ClinVar-benign splice-region calls. Run time 30 s after a 37 GB reference download. Configuration: `pipeline/exomiser_analysis.yml`. The submission CSV is unchanged by this run; the model number changes because the methods differ.
 
 ## 4. Mosaic aneuploidy measured from the VCF
 
