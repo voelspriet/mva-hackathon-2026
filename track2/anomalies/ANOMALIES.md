@@ -67,9 +67,20 @@ The report does address the growth and nutrition axis functionally, through mid-
 
 **Measurement.** 17,318 calls survive, concentrated at chr6:32 Mb (794 calls), chr7:142 Mb (718), chr22:22 Mb (287) and segmental duplication blocks.
 
-**Class: EXPECTED.** chr7:142 Mb is the T-cell receptor beta locus and chr22:22 Mb the immunoglobulin lambda locus, both of which undergo somatic recombination in lymphocytes; the sample is blood. chr6:32 Mb is the major histocompatibility complex, the most polymorphic region of the genome.
+**Class: ARTEFACT, revised from EXPECTED, and the positive-control claim is withdrawn.** An earlier version of this entry read these as somatic recombination at the T-cell receptor and immunoglobulin loci and used them as the scan's positive control. **The measurement does not support that.** Somatic deletion in a fraction of cells removes DNA and lowers depth over the deleted segment; paralogous mismapping skews allele balance while leaving depth intact. Measured against flanking control windows:
 
-**Detection capability: this is the positive control for the allele-balance scan.** It recovers a somatic process known to be present, so the absence of focal signal elsewhere carries weight.
+| Region | Median depth | Median allele balance |
+|---|---|---|
+| T-cell receptor beta, chr7:142.3 to 142.8 Mb | 45 | 0.277 |
+| Flank, chr7:141.0 to 141.5 Mb | 43 | 0.510 |
+| Immunoglobulin lambda, chr22:22.0 to 22.5 Mb | 45 | 0.400 |
+| Flank, chr22:23.5 to 24.0 Mb | 43 | 0.412 |
+| Major histocompatibility complex, chr6:32.0 to 32.5 Mb | 46 | 0.444 |
+| Flank, chr6:34.0 to 34.5 Mb | 42 | 0.500 |
+
+Against a genome median of 42, **depth is not reduced at any of the three**, so no somatic deletion is detectable. The T-cell receptor skew is large with depth intact, which is the mismapping signature, and the immunoglobulin skew is barely distinguishable from its own flank.
+
+**Consequence, stated because the prompt requires it.** The allele-balance scan has **no established positive control**, so by this analysis's own rule its negative result elsewhere is recorded as uninformative rather than as clean. It does not bear on the mosaic aneuploidy conclusion, which comes from the binned allele-balance method in the appendix rather than from this per-variant scan.
 
 ### D6. Chromosome Y at 73x mean depth against 42.7x autosomal
 
@@ -109,7 +120,9 @@ The report does address the growth and nutrition axis functionally, through mid-
 
 **Measurement.** Thirteen variants, all at or near homoplasmy. Highest minor fraction 2.1 percent, at position 16093 in the hypervariable control region. Six of the thirteen are the near-universal differences from the reference sequence.
 
-**Class: EXPECTED.** Common background. **Detection capability: adequate**, since the depth would have shown heteroplasmy of a few percent.
+**Class: EXPECTED.** Common background.
+
+**Detection capability: narrower than an earlier version of this entry claimed.** That version said the depth would have shown heteroplasmy of a few percent. It would have shown it **only at positions the caller emitted a record for**. A germline diploid caller reports minor allele fractions at sites it called; a heteroplasmy at 5 to 20 percent may produce no record at all, so the 2.1 percent maximum is a property of the called sites and not of the sample. Two further limits: blood heteroplasmy can be low where muscle is high, and this contig says nothing about nuclear-encoded mitochondrial disease. **That last one was checked**: across a 67-gene nuclear mitochondrial disease panel, this genome carries **zero** rare coding variants, against 1,694 in the genome as a whole. So the mitochondrial explanation is weakened from both directions, but the mitochondrial genome itself is not excluded to the depth the earlier wording implied.
 
 ---
 
