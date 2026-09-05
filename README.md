@@ -38,6 +38,12 @@ The verification and referee passes changed the output. What they caught is list
 
 No patient data is committed. `data/` and `work/` are gitignored; the only proband-derived content in this repository is the two submitted variant coordinates, per-chromosome aggregate figures and the reports. Annotation ran offline; public resources were read as static files rather than queried with patient coordinates. All data will be deleted within 30 days of the hackathon close and the deletion confirmed by email, per the rules.
 
-Generative AI: Anthropic, Claude Code on a Max plan, model-improvement sharing disabled, no output rating.
+Generative AI, stated in full because three vendors were used and an earlier version of this line named only one:
+
+- **Anthropic, Claude Code on a Max plan**, model-improvement sharing disabled, no output rating. This did all of the analysis, computation and writing.
+- **Anthropic API, Fable 5.1.** Cross-model checking and an external read of this project's own derived files.
+- **OpenAI API, GPT-5**, and **Google Vertex AI, Gemini 3.1 Pro** (run on the author's own server). Four neutral prompts each, for cross-model checking only. Neither contributed content; both are used as checks and their outputs are in `vertex/out/`.
+
+**What was sent, and what was not.** No patient data left this machine. The whole-genome VCF was never sent to any model. What was sent to the second, third and fourth of the above is a de-identified corpus of this project's own documents: variant coordinates, protein changes, sample and proband identifiers, HPO identifiers and the named clinical features were replaced with stable tokens before transmission, 331 substitutions across 68 files, leak-checked afterwards, with the substitution counts recorded in `vertex/redaction_report.json` and the script at `vertex/redact.py`. The mapping is kept locally and is not sent.
 
 Requirements: bcftools/htslib 1.24 with libcurl, Python 3.11 with pysam, matplotlib, openpyxl. Reference data downloads on first run.
