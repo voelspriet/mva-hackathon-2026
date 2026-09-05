@@ -4,7 +4,7 @@ Team: henkvaness (individual). Model 1: `submissions/henkvaness_bub1b-rules-v1.c
 
 ## 1. Approach
 
-A single-sample GRCh38 whole-genome VCF (Sentieon 202308.02 calls, GATK VariantFiltration, 4.74 M PASS variants, autosomal depth 44x) and eight HPO terms were the inputs. The pipeline (`pipeline/run.sh`) runs seven steps in one minute:
+A single-sample GRCh38 whole-genome VCF (Sentieon 202308.02 calls, GATK VariantFiltration, 4.74 M PASS variants, autosomal median depth 44x over PASS single-nucleotide variants at depth 20 to 120, which is the subset `mosaic_baf.py` uses; 43x over all PASS autosomal variants) and eight HPO terms were the inputs. The pipeline (`pipeline/run.sh`) runs seven steps in one minute:
 
 1. Header facts: reference build, caller, sample, contig naming (this VCF uses `1..22, X, Y, M`; the submission adds the `chr` prefix).
 2. Known-gene pass. PASS variants in BUB1B, CEP57 and TRIP13 (the three genes with published biallelic MVA causation) are annotated offline with `bcftools csq` against Ensembl 116 and with the current ClinVar GRCh38 VCF.
