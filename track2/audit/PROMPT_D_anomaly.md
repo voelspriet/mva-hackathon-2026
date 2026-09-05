@@ -2,77 +2,72 @@
 
 ## Purpose
 
-The audit asks whether stated claims are true. The re-analysis asks specific questions of the primary data. Neither finds what nobody thought to ask about. This pass looks for what is odd, without a hypothesis, and reports what remains odd after the ordinary explanations have been tried.
+Claims already stated are checked elsewhere. Specific questions of the primary data are asked elsewhere. This pass examines the supplied material for deviations that no question was framed to detect.
 
-## What counts as an anomaly
+## Definition
 
-A measurement that differs from what the data itself predicts. Not a surprising fact, and not a gap in knowledge. Three kinds qualify:
+An anomaly is a measurement that differs from what the supplied data itself predicts. Three forms:
 
-1. **An internal contradiction.** Two things in the supplied material cannot both be true, or a stated fact is incompatible with a mechanism assumed elsewhere.
-2. **A distributional outlier.** A value that sits far from what the rest of the same data implies, where the expected value can be written down in advance.
-3. **A missing thing that should be present.** An absence where the data's own density predicts presence.
+1. Two statements in the supplied material that cannot both be true.
+2. A value distant from what the remainder of the same data implies, where the implied value can be stated in advance.
+3. An absence at a location where the data's own density implies presence.
 
-**Anything that fails this test is not an anomaly and is not reported**: an unexpected finding that is common in the population, a value that is unusual only against an assumption imported from outside, a result that would look identical whether or not the underlying claim were true.
+Excluded by this definition: a finding that is unexpected to the reader but common in the population; a value that departs only from an expectation imported from outside the supplied material; a measurement whose result would be the same whether or not the thing it tests is true.
 
 ## Data in scope
 
-Everything the challenge supplied, and everything derived from it, treated as equally likely to hold the anomaly:
-
-1. The whole-genome VCF: genotypes, allele depths, total depths, genotype qualities, quality scores, filter fields, phase sets, contig set.
-2. **The clinical phenotype document.** It is data, not background. Every term, every note attached to a term, and every statement about timing or family history.
-3. The dataset README and the challenge's stated terms.
-4. Derived outputs already computed, and the reports and working files that summarise them.
+1. The whole-genome VCF: genotypes, allele depths, total depths, genotype qualities, quality scores, filter fields, phase fields, the contig set, and the header's declared fields.
+2. The clinical phenotype document: every term, every note attached to a term, and every statement of timing, sequence or family history.
+3. The dataset documentation and the stated terms of use.
+4. Outputs already derived from the above, and the files that summarise them.
 
 ## Method
 
-### Expectation before measurement
+### Order of operations
 
-For every scan, write the expected value or distribution **before** looking, and say what would count as a deviation. A scan whose expectation is written afterwards cannot detect anything, because any result confirms it. Where the expectation comes from the data itself, say which part.
+State the expected value or distribution, and what would constitute a departure from it, before taking the measurement. Record where the expectation comes from. An expectation recorded after the measurement is not used.
 
-### Triage every deviation into one of four
+### Classification
 
-- **ARTEFACT.** Explained by a known technical cause: mapping into repeats, segmental duplication, reference bias, filter behaviour, an assembly gap. Give the evidence, usually that the deviation is confined to regions where that cause operates.
-- **EXPECTED BIOLOGY.** Real, and predicted by something ordinary about the sample or the person. Somatic rearrangement in a blood sample, sex chromosome dosage, population polymorphism.
-- **UNEXPLAINED.** Survives both. This is the output that matters.
-- **UNDECIDABLE HERE.** Distinguishing the above would need data not held. Say which data.
+Assign each departure to one class, with the evidence for that class:
 
-An anomaly reported without this triage is noise. The commonest failure is calling an artefact a finding, and the second commonest is dismissing a real signal as an artefact without checking where it sits.
+- **ARTEFACT.** Attributable to a stated technical cause. Evidence takes the form of showing the departure is confined to the conditions under which that cause operates.
+- **EXPECTED.** Attributable to a stated property of the sample, the tissue, the individual or the population.
+- **UNEXPLAINED.** Neither of the above applies after both were tested.
+- **UNDECIDABLE.** Separating the above requires data not held. Name the data.
 
-### Required positive control
+A departure recorded without a class is not reported.
 
-At least one scan must recover something already known to be present, and the report must say which. A scan that finds nothing has told you nothing unless it has been shown capable of finding something. If no positive control can be constructed for a scan, its negative result is reported as uninformative rather than as clean.
+### Detection capability
 
-### Cross-source consistency, run first
+For each scan, state whether a departure of the kind sought would have been detected had one been present, and on what basis. Where a positive control exists in the data, name it. Where none exists, the negative result is recorded as uninformative rather than as clean.
 
-The highest-yield class is a fact in one supplied source that contradicts an assumption in another. Check at minimum:
+### Cross-source consistency
 
-- Every phenotype term against the mechanism the analysis assumes for it, **including timing**: when a feature is stated to have appeared, and whether every cause under consideration could have operated by then.
-- Every statement about family history against what the genome shows and against what the analysis infers from it.
-- Perinatal facts against the exposures any explanation requires.
-- The derived outputs against the documents that summarise them, in both directions.
+Compare statements across the supplied sources against each other and against the mechanisms assumed for them elsewhere. Include any stated timing, sequence, or order of events. Where sources disagree, record the disagreement rather than selecting between them.
 
-## Scans to run, as detectors rather than questions
+## Scans
 
-Not a list to work through in order, and not exhaustive. Each needs its expectation written first.
+Each requires its expectation stated first. The list is neither ordered nor exhaustive.
 
-- Global sample quality: heterozygous to homozygous ratio, transition to transversion ratio, depth distribution. These have published expected ranges and a sample that fails them invalidates everything downstream.
-- Allele balance across all heterozygous calls, with the low and high tails localised. Contamination is global; mapping artefact is regional; somatic events are focal.
-- Depth outliers, high and low, at several window sizes.
-- Regions with no calls where the local density predicts calls.
-- Sex chromosome dosage and heterozygosity by region, separating pseudoautosomal from male-specific sequence.
-- Genotype quality and filter behaviour: calls that pass but should not, and classes of call that are systematically absent.
-- Phase set structure: how many, how long, and whether any span something the analysis claims cannot be phased.
-- The mitochondrial contig, including minor allele fractions against read depth.
-- Any contig, field or record class present in the file that no analysis has used.
+- Sample-level metrics with published reference ranges: heterozygous to homozygous-alternate ratio, transition to transversion ratio, depth distribution. State which subset of records the metric is computed over.
+- Allele balance across heterozygous calls, with each tail localised.
+- Depth outliers, high and low, at more than one window size.
+- Locations with no calls where local density implies calls.
+- Sex chromosome dosage and heterozygosity, by region.
+- Genotype quality, quality score and filter behaviour, including which declared filters are used and at what rate.
+- Phase field structure: count, span, and what is and is not phased.
+- The mitochondrial contig, including minor allele fraction against depth.
+- Any contig, field, record class or filter value present in the file that no analysis has used.
 
 ## Output
 
-`track2/anomalies/ANOMALIES.md`, containing:
+`track2/anomalies/ANOMALIES.md`:
 
-- One section per anomaly, each stating the expectation, the measurement, the triage class, and the evidence for that class.
-- A table of everything scanned and found clean, with the positive control for each scan named, so that a later reader knows what was looked at and how well.
-- A separate list of the UNEXPLAINED, ordered by what each would change if resolved, with the single cheapest measurement that would resolve it.
+- One section per departure: the expectation, its source, the measurement, the class assigned, and the evidence for that class.
+- A table of every scan run, its expectation, its result, and its detection capability.
+- A list of the departures classified UNEXPLAINED, each with the measurement that would resolve it and the cost of that measurement.
 
 ## Constraints
 
-Computed results are labelled computed and reproduce from a saved script under `pipeline/`. Inference is labelled inference. An expectation that turned out to be wrong is reported as such rather than quietly revised. Nothing is proposed that requires contact with the family or the organisers. Patient data does not leave the machine; public resources are read as static files, never queried with patient coordinates. No em or en dashes. No adjectives of praise or alarm.
+Computed results are labelled computed and reproduce from a script saved under `pipeline/`. Inference is labelled inference. An expectation that the measurement contradicted is recorded as stated, not revised. Nothing is proposed that requires contact with the family or the organisers. Patient data does not leave the machine; public resources are read as static files and are not queried with patient coordinates. No em or en dashes. No adjectives of praise or alarm. No statement of which scan is expected to yield more than another.
