@@ -30,6 +30,22 @@ Those are the claims a judge can check fastest, because the data is in their han
 
 ---
 
+
+---
+
+## `REPORT_track2.md` — data claims, first pass
+
+| Claim | Recomputed | Verdict |
+|---|---|---|
+| "No rare variant in the NMD machinery or EJC core exists in this genome" | All 14 nonsense-mediated decay genes and all 7 exon junction complex genes are present in the scanned 80-gene set, and the rare coding variant file contains **zero** variants in any of them | **Exact.** The claim was previously an assumption carried from a working file; it is now checked directly |
+| "Every PASS variant in the 60 kb upstream of *BUB1B*, 88 of them and 53 heterozygous" | On PASS calls only: **85 variants, 57 heterozygous**. The earlier figures were taken without the PASS filter and included three failing records | **Wrong, corrected.** The conclusion is unchanged: none absent from gnomAD genomes, the same two below one percent at AF 0.0021 and 0.0026 |
+| Allele 1 "115 gnomAD v4 heterozygotes at AF 7.87e-5" | `AC=115 AN=1461846 AF=7.87e-05` by byte-range read | **Exact** |
+| Allele 2 "gnomAD 1 of 1,461,878" | `AC=1 AN=1461878 AF=6.84e-07` | **Exact** |
+
+**Note on the error found.** It was in text written the same day, by the same process that is auditing it, and it arose the same way as several of the errors this project found in its own earlier work: a query run without a filter that the surrounding argument assumed. The correct figures were one command away and nobody ran it.
+
+---
+
 ## Still to check
 
-`REPORT_track2.md`, `FAMILY_CARD.md`, `track2/anomalies/*`, `track2/reanalysis/*`, `track2/creative/F_math.md`, `track2/gate/*`, and the remaining files that assert something about the supplied data. Then the external sources those files cite, which the audit partitions covered for the literature but not for the database records retrieved live.
+`REPORT_track2.md` remaining claims, `FAMILY_CARD.md`, `track2/anomalies/*`, `track2/reanalysis/*`, `track2/creative/F_math.md`, `track2/gate/*`, and the remaining files that assert something about the supplied data. Then the external sources those files cite, which the audit partitions covered for the literature but not for the database records retrieved live.

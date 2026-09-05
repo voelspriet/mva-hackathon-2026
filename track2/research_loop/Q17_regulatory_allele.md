@@ -22,8 +22,8 @@ The abstract, verbatim on the decisive points: the same seven Japanese families 
 
 | Measure | Value |
 |---|---|
-| Variants called in the window | 88 |
-| Heterozygous | 53 |
+| PASS variants called in the window | 85 |
+| Heterozygous | 57 |
 | gnomAD genomes records in the same window | 13,418 |
 | Our variants absent from gnomAD at that position and allele | **0** |
 | Our variants present at under 1 percent frequency | **2** |
