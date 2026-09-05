@@ -1,0 +1,10 @@
+The attached corpus is a set of files from one research project. Each file begins with <<<FILE: path>>>.
+
+Some conclusions in it rest on a single cited source.
+
+List each conclusion that cites exactly one source. For each, give:
+- the conclusion, quoted, with its file path and section heading
+- the source it cites, by identifier
+
+If a conclusion cites no source, list it in a separate section under that heading.
+If every conclusion cites more than one source, say so.

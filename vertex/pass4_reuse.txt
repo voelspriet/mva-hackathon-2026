@@ -1,0 +1,11 @@
+The attached corpus is a set of files from one research project. Each file begins with <<<FILE: path>>>.
+
+Some sources are cited for more than one conclusion.
+
+For each source cited four or more times, give:
+- the source identifier
+- each conclusion it is cited for, quoted, with the file path for each
+- the count
+
+Do not say whether the reuse is appropriate.
+If no source is cited four or more times, say so.

@@ -1,0 +1,12 @@
+The attached corpus is a set of files from one research project. Each file begins with <<<FILE: path>>>.
+
+Some statements in it contain a number derived from other numbers.
+
+For each derived number, give:
+- the number as stated, with its file path and section heading
+- the inputs the corpus gives for it
+- the value you get when you recompute it from those inputs
+- whether your value and the stated value match
+
+Where the corpus does not state the inputs for a number, say so and move to the next one.
+If you find no derived numbers, say so.

@@ -1,0 +1,11 @@
+The attached corpus is a set of files from one research project. Each file begins with <<<FILE: path>>>.
+
+Some pairs of files may state incompatible things about the same fact.
+
+List each pair you find. For each, give:
+- the two statements, quoted
+- the file path and section heading for each
+- what would have to be true for both statements to hold at once
+
+Do not rank the pairs and do not say which matters more.
+If you find no incompatible pairs, say so.
