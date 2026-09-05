@@ -41,10 +41,10 @@ def delta_min(N,zz,k=1,median=False):
     if median: se*= (sqrt(math.pi/2)/sqrt(k))
     elif k>1: se/=sqrt(k)
     return sd0*sqrt(zz*se/v0)
-N=3900; nbins_auto=561
+N=3900; nbins_auto=563
 print(f"\n N het sites per 5 Mb bin (median over chromosomes) = {N}")
 rows=[("single bin, one-sided 95%",delta_min(N,1.645)),
-      ("single bin, Bonferroni over 561 bins",delta_min(N,z(1-0.05/nbins_auto))),
+      ("single bin, Bonferroni over 563 bins",delta_min(N,z(1-0.05/nbins_auto))),
       ("chr1 median of 45 bins, 95%",delta_min(N,1.645,45,True)),
       ("chr1 median of 45 bins, Bonf over 23 chr",delta_min(N,z(1-0.05/23),45,True)),
       ("chr21 median of 7 bins, 95%",delta_min(N,1.645,7,True)),
@@ -56,7 +56,7 @@ fd=[r[str(i)]['f_depth'] for i in range(1,23)]
 m=sum(fd)/len(fd); s=sqrt(sum((x-m)**2 for x in fd)/(len(fd)-1))
 print(f"   min {min(fd):+.3f} max {max(fd):+.3f} mean {m:+.4f} sd {s:.4f} -> 95% floor 1.645*sd*2sided ~ {1.96*s:.3f} = {1.96*s*100:.1f}% trisomy-equivalent")
 print("\n variegated burden: total aneuploid fraction F needed for one chromosome to clear the floor")
-for fl,lab in ((0.112,"per-bin, Bonferroni"),(0.042,"per-chromosome, Bonferroni")):
+for fl,lab in ((0.1166,"per-bin, Bonferroni"),(0.042,"per-chromosome, Bonferroni")):
     for k in (1,5,22):
         print(f"   floor {fl*100:4.1f}% ({lab:22s}) spread over {k:2d} chromosomes -> F >= {fl*k*100:5.1f}%")
 

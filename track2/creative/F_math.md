@@ -53,7 +53,7 @@ which is what `mosaic_baf.py` and `mosaic_robust.py` invert. The per-bin statist
 | Test level | N or bins | delta_min | f_min |
 |---|---|---|---|
 | single 5 Mb bin, one-sided 95% | N = 3,900 | 0.0183 | **7.6%** |
-| single bin, Bonferroni over 561 bins | N = 3,900 | 0.0276 | **11.7%** |
+| single bin, Bonferroni over 563 bins | N = 3,900 | 0.0276 | **11.7%** |
 | chr1, median of 45 bins, 95% | 45 bins | 0.0079 | **3.2%** |
 | chr1, 45 bins, Bonferroni over 23 chr | 45 bins | 0.0104 | **4.2%** |
 | chr21, 7 bins, Bonferroni over 23 chr | 7 bins | 0.0165 | **6.8%** |
@@ -64,10 +64,10 @@ The median over `k` bins costs a factor `sqrt(pi/2)` in efficiency against the m
 
 **The variegated-aneuploidy correction, which matters more than any of the above.** MVA is variegated: different cells carry different gains. If total aneuploid burden `F` is spread over `k` chromosomes, per-chromosome fraction is `F/k` and the requirement becomes `F >= k * f_min`.
 
-| Spread over k chromosomes | F needed (per-bin, 11.2%) | F needed (per-chromosome, 4.2%) |
+| Spread over k chromosomes | F needed (per-bin, 11.7%) | F needed (per-chromosome, 4.2%) |
 |---|---|---|
-| 1 | 11% | 4.2% |
-| 5 | 56% | 21% |
+| 1 | 11.7% | 4.2% |
+| 5 | 58.3% | 21% |
 | 22 | above 100% (undetectable) | 92% |
 
 So the negative result bounds a single clonal trisomy at roughly 4%, and bounds a genuinely variegated burden hardly at all.
@@ -80,7 +80,7 @@ So the negative result bounds a single clonal trisomy at roughly 4%, and bounds 
 
 **Design.** Three periods, `n` measurements each, contrast treatment against the mean of baseline and withdrawal. On the log scale, `SE = sd * sqrt(1/n + 1/(2n))`, `df = 3n - 3`, and the minimum detectable effect at 80% power and two-sided 0.05 is `MDE = 1 - exp(-(t(0.975,df) + t(0.80,df)) * SE)`.
 
-**(a) Cytokinesis-block micronuclei.** Healthy-child baseline is 4.07 +/- 1.87 per 1,000 binucleated cells at 3 to 15 years and 2.85 +/- 1.60 at 0 to 2 years (Sirin, PMC6944958); the pooled paediatric meta-analysis gives 4.48 (95% CI 3.35 to 5.98) and 5.70 (4.29 to 7.56) per 1,000 (Neri and Bonassi, *Environ Health Perspect* 2005, PMID 16140629); healthy adults 5.06 +/- 3.11 with demonstrated within-subject repeatability across repeat draws (Bolognesi 2018, PMID 30368181). Scoring noise is Poisson, `CV_score = 1/sqrt(lambda * n_BN / 1000)`; total `CV = sqrt(CV_bio^2 + CV_score^2)`. **[A]** `CV_bio = 0.20` within-subject between occasions, with 0.30 shown as sensitivity. **[A]** An MVA1 child, with premature chromatid separation in 48.5 to 83.2% of lymphocytes (Kajii 2001, PMID 11746029), has a baseline near `lambda = 40` per 1,000 rather than 4.
+**(a) Cytokinesis-block micronuclei.** Healthy-child baseline is 4.07 +/- 1.87 per 1,000 binucleated cells at 3 to 15 years and 2.85 +/- 1.60 at 0 to 2 years (Sirin, PMC6944958); the pooled paediatric meta-analysis gives 4.48 (95% CI 3.35 to 5.98) and 5.70 (4.29 to 7.56) per 1,000 (Neri and Bonassi, *Environ Health Perspect* 2005, PMID 16140629); healthy adults 5.06 +/- 3.11 (Gajski 2018, PMID 29127818), with within-subject repeatability across three repeated blood samplings demonstrated separately (Bolognesi 2019, PMID 30368181, ICC 0.905, 95% CI 0.868 to 0.933). Scoring noise is Poisson, `CV_score = 1/sqrt(lambda * n_BN / 1000)`; total `CV = sqrt(CV_bio^2 + CV_score^2)`. **[A]** `CV_bio = 0.20` within-subject between occasions, with 0.30 shown as sensitivity. **[A]** An MVA1 child, with premature chromatid separation in 48.5 to 83.2% of lymphocytes (Kajii 2001, PMID 11746029), has a baseline near `lambda = 40` per 1,000 rather than 4.
 
 | lambda | BN scored | CV_score | CV_total | n per period | MDE (relative reduction) |
 |---|---|---|---|---|---|

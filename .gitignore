@@ -6,3 +6,4 @@ __pycache__/
 
 # video build intermediates
 video/out/
+vertex/.gemini.env
