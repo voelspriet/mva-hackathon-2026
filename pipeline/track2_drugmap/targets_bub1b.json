@@ -1,0 +1,134 @@
+{
+  "gene": "BUB1B",
+  "description": "Consequence targets for BUB1B loss (MVA1). Each entry maps a mechanism name to the HGNC symbols whose ChEMBL/Open Targets drug mechanisms represent that mechanism. Edit freely for another gene. Per mechanism: genes, optional action (ChEMBL action types wanted), optional exclude (drug name: reason).",
+  "consequence_targets": {
+    "CDKN2A/p16 senescence": {
+      "genes": [
+        "CDKN2A",
+        "CDK4",
+        "CDK6",
+        "BCL2",
+        "BCL2L1"
+      ],
+      "note": "p16 itself is undruggable; CDK4/6 sit directly downstream, BCL2 family are the senolytic axis (navitoclax class).",
+      "action": [
+        "INHIBITOR"
+      ]
+    },
+    "autophagy/lysosome": {
+      "genes": [
+        "TLR7",
+        "TLR9",
+        "PIK3C3",
+        "ULK1",
+        "TFEB",
+        "ATP6V1A"
+      ],
+      "note": "Chloroquine and hydroxychloroquine carry TLR7/TLR9 as their ChEMBL mechanism target; autophagy inhibition has no protein target in ChEMBL. Direction asked: antagonist/inhibitor (chloroquine class); TLR7 agonists such as imiquimod are the opposite direction and get demoted.",
+      "action": [
+        "ANTAGONIST",
+        "INHIBITOR"
+      ]
+    },
+    "AMPK": {
+      "genes": [
+        "PRKAA1",
+        "PRKAA2",
+        "PRKAB1"
+      ],
+      "note": "Metformin's ChEMBL mechanism is mitochondrial complex I, so it will not appear under AMPK. Searched separately by name in the seed list.",
+      "action": [
+        "ACTIVATOR"
+      ]
+    },
+    "mTORC1": {
+      "genes": [
+        "MTOR",
+        "RPTOR",
+        "FKBP1A"
+      ],
+      "note": "Rapalogs (sirolimus, everolimus, temsirolimus) are filed under FKBP1A in ChEMBL, not MTOR.",
+      "action": [
+        "INHIBITOR"
+      ],
+      "exclude": {
+        "TACROLIMUS": "binds FKBP12 but inhibits calcineurin, not mTORC1",
+        "TACROLIMUS ANHYDROUS": "binds FKBP12 but inhibits calcineurin, not mTORC1",
+        "PIMECROLIMUS": "topical calcineurin inhibitor via FKBP12, not mTORC1",
+        "PERHEXILINE": "CPT1 inhibitor; MTOR listed as a secondary ChEMBL mechanism, not a rapalog",
+        "ZOTAROLIMUS": "stent-eluting rapalog, no systemic use"
+      }
+    },
+    "HSP90": {
+      "genes": [
+        "HSP90AA1",
+        "HSP90AB1",
+        "HSP90B1",
+        "TRAP1"
+      ],
+      "note": "Pimitespib is approved in Japan only; Open Targets clinical stage may or may not reflect PMDA.",
+      "action": [
+        "INHIBITOR"
+      ]
+    },
+    "SIRT2": {
+      "genes": [
+        "SIRT2",
+        "SIRT1",
+        "NAMPT"
+      ],
+      "note": "NAD+ axis added via SIRT1/NAMPT.",
+      "action": [
+        "ACTIVATOR",
+        "AGONIST"
+      ]
+    },
+    "cGAS-STING": {
+      "genes": [
+        "CGAS",
+        "STING1",
+        "TBK1",
+        "IRF3"
+      ],
+      "note": "Direction asked: antagonist (dampen sterile inflammation from micronuclei); STING agonists are oncology candidates and the opposite direction.",
+      "action": [
+        "ANTAGONIST",
+        "INHIBITOR"
+      ]
+    },
+    "NMD/readthrough": {
+      "genes": [
+        "UPF1",
+        "SMG1",
+        "SMG5",
+        "SMG6",
+        "SMG7"
+      ],
+      "note": "Readthrough compounds (ataluren, aminoglycosides) have no human protein target in ChEMBL; searched by name in the seed list.",
+      "action": [
+        "INHIBITOR",
+        "MODULATOR"
+      ]
+    }
+  },
+  "seed_drugs": {
+    "description": "Drugs whose mechanism class has no protein target in ChEMBL. Looked up by name in ChEMBL and openFDA and tagged with the mechanism given here. They are NOT taken as approved unless ChEMBL max_phase is 4.",
+    "AMPK": [
+      "metformin"
+    ],
+    "autophagy/lysosome": [
+      "chloroquine",
+      "hydroxychloroquine"
+    ],
+    "NMD/readthrough": [
+      "ataluren",
+      "gentamicin"
+    ],
+    "SIRT2": [
+      "niacin",
+      "nicotinamide"
+    ]
+  },
+  "partner_score_threshold": 0.9,
+  "partner_max": 80
+}
