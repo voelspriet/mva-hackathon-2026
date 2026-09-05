@@ -1,55 +1,51 @@
 WEBVTT
 
 1
-00:00:00.000 --> 00:00:11.239
+00:00:00.000 --> 00:00:10.420
 One child. Two changes in one gene, BUB1B. It makes the
 protein that checks chromosomes are shared out correctly when
 a cell divides.
 
 2
-00:00:11.414 --> 00:00:34.197
+00:00:10.595 --> 00:00:28.423
 No approved medicine acts on that protein. So every candidate
 acts on a consequence instead. And no repurposed drug has ever
 been given to anyone with this syndrome, for the syndrome.
 Nothing in this work is expected to reduce this child's cancer
-risk. That is on the first page of the report, and it is said
-here.
+risk.
 
 3
-00:00:34.372 --> 00:00:48.563
+00:00:28.598 --> 00:00:41.755
 So the question changed. How do you search honestly when the
 answer is probably no? Two expert panels worked on the same
 five dossiers, blind to each other. Thirteen seats.
 
 4
-00:00:48.738 --> 00:01:10.681
+00:00:41.930 --> 00:00:59.995
 Then ten divergent files, written without access to either
 panel. Then verification: every claim the arguments actually
 turned on, checked against the primary source. Then three
-independent referees. No seat could defer to the other panel,
-because no seat knew what it had written. This was built to
-find its own errors.
+independent referees. This was built to find its own errors.
 
 5
-00:01:10.856 --> 00:01:17.295
+00:01:00.170 --> 00:01:06.145
 It found them. The two candidates that looked best did not
 survive.
 
 6
-00:01:17.470 --> 00:01:34.853
-Metformin fails on exposure. The concentration that did
-something in a dish is thirty two to a hundred and thirty fold
-above what a child reaches. Dose cannot close that gap. The
-ceiling is lactic acidosis.
+00:01:06.320 --> 00:01:19.308
+Metformin fails on exposure. The concentration that worked in
+a dish is thirty two to a hundred and thirty fold above what a
+child reaches. The ceiling is lactic acidosis.
 
 7
-00:01:35.028 --> 00:01:46.915
+00:01:19.483 --> 00:01:30.498
 Senolytic therapy fails on three independent grounds. Any one
 of them is enough. There is no paediatric senolytic dose in
 any condition.
 
 8
-00:01:47.090 --> 00:02:07.929
+00:01:30.673 --> 00:01:49.981
 Verification caught a survival figure that was wrong, sitting
 inside the clause written to stop cancer treatment being
 withheld. And a supporting allele turned out to be a splice
@@ -58,35 +54,35 @@ readthrough argument at all. Both corrections are printed in
 the report.
 
 9
-00:02:08.104 --> 00:02:25.295
+00:01:50.156 --> 00:02:06.089
 What survives is smaller. First, a list of ordinary medicines
 to avoid, with a carve-out that protects cancer treatment. It
 is written by intent, not as a closed list, so it cannot be
 read as a reason to change a chemotherapy plan.
 
 10
-00:02:25.470 --> 00:02:38.893
-Second, four additions to surveillance at no cost. One of them
-reads UGT1A1, the irinotecan safety marker, out of data that
-has already been sequenced.
+00:02:06.264 --> 00:02:17.451
+Second, four additions to surveillance at no cost. One reads
+UGT1A1, the irinotecan safety marker, out of data already
+sequenced.
 
 11
-00:02:39.068 --> 00:02:55.851
+00:02:17.626 --> 00:02:33.176
 Third, a kidney work-up before any kidney drug, because two
 causes are possible and they need opposite treatments. Fourth,
 a measurement gate. Its first item returns a number that
 exists for no patient with this syndrome.
 
 12
-00:02:56.026 --> 00:03:21.905
+00:02:33.351 --> 00:02:54.777
 The method transfers. Change the gene and the tool runs again:
-it queried a hundred and ten targets and returned twenty nine
-approved drugs in under six minutes. The gate is the part
-worth copying. What is not known: whether the two changes sit
-on separate copies, how much protein this child makes, whether
-the target is there at all. The report says so.
+it returned twenty nine approved drugs in under six minutes.
+The gate is the part worth copying. What is not known: whether
+the two changes sit on separate copies, how much protein this
+child makes, whether the target is there at all. The report
+says so.
 
 13
-00:03:22.080 --> 00:03:26.580
+00:02:54.952 --> 00:02:58.952
 Track 2. A hypothesis for follow-up.
 Not evidence that a medicine works.

@@ -9,6 +9,7 @@ Usage:
     python3 video/build_video.py --slides   # slides only, no audio, no assembly
 """
 
+import hashlib
 import json
 import os
 import pathlib
@@ -35,7 +36,8 @@ MUTED = "#6B655C"
 MARGIN = 140
 FOOTER = "MVA Hackathon 2026, Track 2, henkvaness. Hypothesis for follow-up."
 TAIL = 0.35          # seconds of silence-tail padding per beat
-CLOSING_SECONDS = 4.5  # silent final card
+CLOSING_SECONDS = 4.0  # silent final card
+ATEMPO = 1.08        # narration playback tempo
 
 F_REG = "/System/Library/Fonts/Supplemental/Arial.ttf"
 F_BOLD = "/System/Library/Fonts/Supplemental/Arial Bold.ttf"
@@ -143,7 +145,7 @@ NARRATION = [
     "No approved medicine acts on that protein. So every candidate acts on a "
     "consequence instead. And no repurposed drug has ever been given to anyone with "
     "this syndrome, for the syndrome. Nothing in this work is expected to reduce this "
-    "child's cancer risk. That is on the first page of the report, and it is said here.",
+    "child's cancer risk.",
 
     "So the question changed. How do you search honestly when the answer is probably "
     "no? Two expert panels worked on the same five dossiers, blind to each other. "
@@ -151,14 +153,14 @@ NARRATION = [
 
     "Then ten divergent files, written without access to either panel. Then "
     "verification: every claim the arguments actually turned on, checked against the "
-    "primary source. Then three independent referees. No seat could defer to the other "
-    "panel, because no seat knew what it had written. This was built to find its own errors.",
+    "primary source. Then three independent referees. This was built to find its own "
+    "errors.",
 
     "It found them. The two candidates that looked best did not survive.",
 
-    "Metformin fails on exposure. The concentration that did something in a dish is "
-    "thirty two to a hundred and thirty fold above what a child reaches. Dose cannot "
-    "close that gap. The ceiling is lactic acidosis.",
+    "Metformin fails on exposure. The concentration that worked in a dish is thirty "
+    "two to a hundred and thirty fold above what a child reaches. The ceiling is "
+    "lactic acidosis.",
 
     "Senolytic therapy fails on three independent grounds. Any one of them is enough. "
     "There is no paediatric senolytic dose in any condition.",
@@ -172,21 +174,20 @@ NARRATION = [
     "carve-out that protects cancer treatment. It is written by intent, not as a closed "
     "list, so it cannot be read as a reason to change a chemotherapy plan.",
 
-    "Second, four additions to surveillance at no cost. One of them reads UGT1A1, the "
-    "irinotecan safety marker, out of data that has already been sequenced.",
+    "Second, four additions to surveillance at no cost. One reads UGT1A1, the "
+    "irinotecan safety marker, out of data already sequenced.",
 
     "Third, a kidney work-up before any kidney drug, because two causes are possible "
     "and they need opposite treatments. Fourth, a measurement gate. Its first item "
     "returns a number that exists for no patient with this syndrome.",
 
-    "The method transfers. Change the gene and the tool runs again: it queried a "
-    "hundred and ten targets and returned twenty nine approved drugs in under six "
-    "minutes. The gate is the part worth copying. What is not known: whether the two "
-    "changes sit on separate copies, how much protein this child makes, whether the "
-    "target is there at all. The report says so.",
+    "The method transfers. Change the gene and the tool runs again: it returned twenty "
+    "nine approved drugs in under six minutes. The gate is the part worth copying. "
+    "What is not known: whether the two changes sit on separate copies, how much "
+    "protein this child makes, whether the target is there at all. The report says so.",
 ]
 
-SCRIPT_SECONDS = [12, 20, 12, 20, 6, 14, 10, 20, 16, 10, 14, 26]
+SCRIPT_SECONDS = [11, 18, 13, 18, 6, 13, 11, 19, 16, 11, 16, 22]
 
 
 def slide_1(s):
@@ -486,13 +487,24 @@ def duration(path):
 
 
 def build_audio():
+    """Render each beat. The cache key is a hash of the beat text, so only beats
+    whose narration changed are re-rendered (and re-billed)."""
     key = api_key()
     paths = []
     for i, text in enumerate(NARRATION, 1):
-        p = OUT / f"beat_{i:02d}.mp3"
-        print(f"TTS beat {i:02d} ...")
-        tts(text, p, key)
-        paths.append(p)
+        h = hashlib.sha256(text.encode()).hexdigest()[:10]
+        raw = OUT / f"beat_{i:02d}_{h}.mp3"
+        cached = raw.exists() and raw.stat().st_size > 1000
+        print(f"beat {i:02d} {'cached' if cached else 'TTS ...'}")
+        tts(text, raw, key)
+        # tempo adjustment, pitch preserved
+        fast = OUT / f"beat_{i:02d}_{h}_t{int(ATEMPO * 100)}.mp3"
+        if not fast.exists() or fast.stat().st_mtime < raw.stat().st_mtime:
+            subprocess.run(["ffmpeg", "-y", "-i", str(raw),
+                            "-filter:a", f"atempo={ATEMPO}",
+                            "-b:a", "192k", str(fast)],
+                           check=True, capture_output=True)
+        paths.append(fast)
     return paths
 
 
