@@ -1,6 +1,6 @@
 """Track 2 quantitative appendix. All numbers in track2/creative/F_math.md come from here.
 Run: python3 f_math.py"""
-import math, json
+import math, json, os
 from math import log, exp, sqrt
 
 def z(p):  # inverse normal CDF, Acklam
@@ -51,10 +51,19 @@ rows=[("single bin, one-sided 95%",delta_min(N,1.645)),
       ("chr21 median of 7 bins, Bonf over 23 chr",delta_min(N,z(1-0.05/23),7,True))]
 for lab,d in rows: print(f"   {lab:42s} delta={d:.5f}  f={f_from_delta(d)*100:5.2f}%")
 print("\n depth channel: observed autosomal f_depth range")
-r=json.load(open('/Users/henkvaness/vibecoding/mva-hackathon/work/mosaic_robust.json'))
-fd=[r[str(i)]['f_depth'] for i in range(1,23)]
-m=sum(fd)/len(fd); s=sqrt(sum((x-m)**2 for x in fd)/(len(fd)-1))
-print(f"   min {min(fd):+.3f} max {max(fd):+.3f} mean {m:+.4f} sd {s:.4f} -> 95% floor 1.645*sd*2sided ~ {1.96*s:.3f} = {1.96*s*100:.1f}% trisomy-equivalent")
+_here = os.path.dirname(os.path.abspath(__file__))
+_mosaic = os.environ.get("MOSAIC_JSON") or os.path.join(_here, "..", "..", "work", "mosaic_robust.json")
+if not os.path.exists(_mosaic):
+    print("   [skipped: %s not found. This file is derived from the patient VCF and is"
+          " not committed. Set MOSAIC_JSON to point at it, or run pipeline/run.sh first.]"
+          % _mosaic)
+    r = None
+else:
+    r=json.load(open(_mosaic))
+fd=[r[str(i)]['f_depth'] for i in range(1,23)] if r else []
+if fd:
+    m=sum(fd)/len(fd); s=sqrt(sum((x-m)**2 for x in fd)/(len(fd)-1))
+    print(f"   min {min(fd):+.3f} max {max(fd):+.3f} mean {m:+.4f} sd {s:.4f} -> 95% floor 1.645*sd*2sided ~ {1.96*s:.3f} = {1.96*s*100:.1f}% trisomy-equivalent")
 print("\n variegated burden: total aneuploid fraction F needed for one chromosome to clear the floor")
 for fl,lab in ((0.1166,"per-bin, Bonferroni"),(0.042,"per-chromosome, Bonferroni")):
     for k in (1,5,22):

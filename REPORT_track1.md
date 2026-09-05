@@ -1,6 +1,6 @@
 # Track 1 report: variant identification, PROBAND01
 
-Team: henkvaness (individual). Model 1: `henkvaness_bub1b-rules-v1.csv` (rule-based, known genes). Model 2: same CSV, confirmed by phenotype-driven genome-wide ranking (section 3b). Date: 5 September 2026.
+Team: henkvaness (individual). Model 1: `submissions/henkvaness_bub1b-rules-v1.csv` (rule-based, known genes). Model 2: same CSV, confirmed by phenotype-driven genome-wide ranking (section 3b). Date: 5 September 2026.
 
 ## 1. Approach
 
