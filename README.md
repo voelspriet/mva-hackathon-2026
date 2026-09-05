@@ -12,7 +12,7 @@ Report: `REPORT_track1.md`. Submission: `submissions/`.
 
 ## Track 2: drug repurposing
 
-Report: `REPORT_track2.md`. The short version: no approved medicine acts on BubR1, so what survives evidence is a drug-avoidance rule with a carve-out protecting cancer treatment, four surveillance additions that add no visit and no cost, a renal work-up before any renal drug, and a measurement gate. Two attractive candidates were removed by verification and refereeing rather than by opinion.
+Report: `REPORT_track2.md`. The short version: no approved medicine acts on BubR1. What survives is not a treatment. It is four surveillance additions that add no visit and no cost, a renal work-up before any renal drug, a measurement gate, and a prescribing rule that the report labels a **hypothesis for follow-up** rather than an established finding, with a carve-out so it can never be read as a reason to change cancer treatment. Two attractive candidates were removed by verification and refereeing rather than by opinion.
 
 Two later findings are the most directly usable and are in the lay summary. Cancer risk in this syndrome tracks how severely the mitotic checkpoint fails rather than the aneuploidy itself, and this child's gene is one of the two that break it, for which the source recommends close surveillance in those words; the same result makes the gate's mitotic-arrest measurement prognostic. Separately, the supplied phenotype dates the renal finding to birth while both causes the report considers are postnatal, so one date from the records decides between two opposite prescriptions.
 
@@ -50,7 +50,7 @@ Generative AI, stated in full because three vendors were used and an earlier ver
 
 ## For the family, and for any doctor who prescribes
 
-`FAMILY_CARD.md` is one page, written to be handed to a clinician who does not know this syndrome. It carries the avoidance rule in plain words with its alternatives, the three questions worth asking a specialist team, and the protection clause in the first block so it can never be read as a reason to change cancer treatment. Every line on it is drawn from `REPORT_track2.md` and adds no new claim.
+`FAMILY_CARD.md` is one page, written to be handed to a clinician who does not know this syndrome. It is graded by evidence strength, because an earlier draft was not and read as an instruction where the report has a hypothesis. Part 1 carries what is well established, and the reason there is the kidney finding rather than the syndrome: it is ordinary practice for any child with calcium deposits in the kidneys. Part 2 states the chromosome-separation question as an open question and says plainly that nobody has tested whether cells from a person with this syndrome are more sensitive, and that the two available lines of laboratory evidence point in opposite directions. Part 3 is three questions for the specialist team. The protection clause is in the first block. Every line is drawn from `REPORT_track2.md` and adds no new claim.
 
 It exists because the most immediately useful thing this project produced for a family was buried inside a seventeen-thousand-word document written for specialists.
 
