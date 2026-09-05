@@ -1,13 +1,43 @@
-# MVA Hackathon 2026, Track 1 pipeline (henkvaness)
+# MVA Hackathon 2026 (henkvaness)
 
-Single-sample GRCh38 VCF in, ranked Track 1 CSV plus evidence out. One command, about one minute on a laptop.
+Two tracks for one child with mosaic variegated aneuploidy caused by biallelic *BUB1B* variants.
 
-    pipeline/run.sh data/<sample>.vcf.gz work/
+## Track 1: variant identification
 
-Steps (see `pipeline/run.sh`): header facts; PASS variants in BUB1B, CEP57, TRIP13 with `bcftools csq` (Ensembl 116) and ClinVar (offline); gnomAD v4.1 counts by HTTP range read of the public sites files (no query leaves the machine); genome-wide recessive-compatible scan without a gene list; mosaic aneuploidy profile from allele depths; ACMG SF v3.2 secondary-findings screen; CSV construction by a written rule set (`pipeline/make_csv.py`); offline rehearsal against the Space's own scorer (`scoring/score_local.py`).
+`pipeline/run.sh data/<sample>.vcf.gz work/` runs in 61 seconds and produces the ranked CSV, the evidence and the figures. Steps: header facts; consequences and ClinVar for the known MVA genes, annotated offline; gnomAD v4.1 frequencies by HTTP range read of public sites files; a genome-wide recessive scan with no gene list; a mosaic aneuploidy profile computed from the VCF's own allele depths; an ACMG SF v3.2 secondary-findings screen; CSV construction by a written rule; and a rehearsal against the challenge's own scorer before upload.
 
-Patient data is never committed: `data/` and `work/` are ignored. The only proband-derived content here is the submission CSV (the two candidate variants), the per-chromosome aggregate figure, and the report.
+Result: *BUB1B* c.2210T>G p.Leu737Ter with c.3006T>G p.Asn1002Lys. Scored 100.0 rank points, F-max 1.000. Model 2 confirms the pair ranks first genome-wide under phenotype-driven prioritisation with no gene list (`pipeline/exomiser_analysis.yml`).
 
-Requirements: bcftools/htslib 1.24 with libcurl, Python 3.11 with pysam, matplotlib, openpyxl. Reference files (about 1 GB) download on first run.
+Report: `REPORT_track1.md`. Submission: `submissions/`.
 
-LLM use: Claude Code (Anthropic) on a Max plan with model-improvement sharing disabled, no output rating; used to write and run the scripts. Report: `REPORT_track1.md`.
+## Track 2: drug repurposing
+
+Report: `REPORT_track2.md`. The short version: no approved medicine acts on BubR1, so what survives evidence is a drug-avoidance rule with a carve-out protecting cancer treatment, four no-cost surveillance additions, a renal work-up before any renal drug, and a measurement gate. Two attractive candidates were removed by verification and refereeing rather than by opinion.
+
+How it was produced, in `track2/`:
+
+| Directory | Contents |
+|---|---|
+| `research/` | Five cited dossiers: mechanism and models, clinical care and drug landscape, family perspective, variant context, genome-wide ranking |
+| `creative/` | Ten divergent lenses (allele-directed pharmacology, consequences and tissue, analogies and trial design, two computational, mathematics, open-source investigation, clinical nutrition, dispensing pharmacy, lateral reframing) |
+| `panel/` | Team 1, five specialists, two rounds plus synthesis, the integrated moderator record, and the final objection round from all seats |
+| `panel2/` | Team 2, eight specialists, blind to team 1, two rounds |
+| `verify/` | Three primary-source verification passes, including the supplementary-material lookups that settled two arguments |
+| `referees/` | Three independent referee reports, written without access to the working files |
+
+The verification and referee passes changed the output. What they caught is listed in section 13 of the Track 2 report, including an incorrect survival figure inside a safety clause and a supporting allele that turned out to be a splice variant rather than a nonsense variant.
+
+## Reusable tooling
+
+- `pipeline/` Track 1 end to end, plus the mosaic aneuploidy profiler, which reads whole-chromosome allele balance and depth from a standard germline VCF with a stated detection limit.
+- `pipeline/track2_drugmap/` gene and mechanism to ranked approved drugs, with an openFDA label harm screen. Config-driven, so it transfers to another gene. Its own top-ranked hit was the wrong direction, which is documented rather than hidden.
+- `pipeline/track2_compute/` and `pipeline/track2_math/` offline variant computation and the quantitative appendix.
+- `scoring/score_local.py` rehearses a Track 1 CSV against the challenge's scorer offline.
+
+## Data handling
+
+No patient data is committed. `data/` and `work/` are gitignored; the only proband-derived content in this repository is the two submitted variant coordinates, per-chromosome aggregate figures and the reports. Annotation ran offline; public resources were read as static files rather than queried with patient coordinates. All data will be deleted within 30 days of the hackathon close and the deletion confirmed by email, per the rules.
+
+Generative AI: Anthropic, Claude Code on a Max plan, model-improvement sharing disabled, no output rating.
+
+Requirements: bcftools/htslib 1.24 with libcurl, Python 3.11 with pysam, matplotlib, openpyxl. Reference data downloads on first run.
