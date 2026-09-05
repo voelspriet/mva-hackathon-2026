@@ -48,6 +48,12 @@ Generative AI, stated in full because three vendors were used and an earlier ver
 
 **What was sent, and what was not.** No patient data left this machine. The whole-genome VCF was never sent to any model. What was sent to the second, third and fourth of the above is a de-identified corpus of this project's own documents: variant coordinates, protein changes, sample and proband identifiers, HPO identifiers and the named clinical features were replaced with stable tokens before transmission, 331 substitutions across 68 files, leak-checked afterwards, with the substitution counts recorded in `vertex/redaction_report.json` and the script at `vertex/redact.py`. The mapping is kept locally and is not sent.
 
+## Method note: what the simulated panels were and were not
+
+`SIMULATED_PANELS.md` states the lesson this project learned the hard way. Thirteen simulated specialist seats were good at two things, generating a candidate space no single line of reasoning would reach, and disagreeing with each other productively. They are not a source of evidence, and this project treated them as one when narrowing candidates.
+
+The audit checked 577 claims the report asserts. It never checked what the report dropped, because an exclusion does not present itself as a claim. Checking the exclusions afterwards found five that do not survive, two of them contradicted by files already inside this repository. The rule that follows is to audit exclusions exactly as assertions are audited, and to put that audit after the narrowing rather than only after the writing.
+
 ## For the family, and for any doctor who prescribes
 
 `FAMILY_CARD.md` is one page, written to be handed to a clinician who does not know this syndrome. It is graded by evidence strength, because an earlier draft was not and read as an instruction where the report has a hypothesis. Part 1 carries what is well established, and the reason there is the kidney finding rather than the syndrome: it is ordinary practice for any child with calcium deposits in the kidneys. Part 2 states the chromosome-separation question as an open question and says plainly that nobody has tested whether cells from a person with this syndrome are more sensitive, and that the two available lines of laboratory evidence point in opposite directions. Part 3 is three questions for the specialist team. The protection clause is in the first block. Every line is drawn from `REPORT_track2.md` and adds no new claim.

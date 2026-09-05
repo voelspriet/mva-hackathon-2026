@@ -13,3 +13,14 @@ vertex/bundle/
 vertex/pkg/
 # publisher article copies downloaded during verification, not ours to redistribute
 *.html
+
+# macOS
+.DS_Store
+
+# the organisers' own Space code, forum threads and templates, kept locally for
+# reference. Not ours to redistribute, and the forum threads carry other
+# participants' names and posts. This repository goes public under CC-BY.
+docs/
+
+# gnomAD tabix indexes, downloaded reference data, regenerable
+*.vcf.bgz.tbi
