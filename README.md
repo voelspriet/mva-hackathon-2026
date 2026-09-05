@@ -48,6 +48,12 @@ Generative AI, stated in full because three vendors were used and an earlier ver
 
 **What was sent, and what was not.** No patient data left this machine. The whole-genome VCF was never sent to any model. What was sent to the second, third and fourth of the above is a de-identified corpus of this project's own documents: variant coordinates, protein changes, sample and proband identifiers, HPO identifiers and the named clinical features were replaced with stable tokens before transmission, 331 substitutions across 68 files, leak-checked afterwards, with the substitution counts recorded in `vertex/redaction_report.json` and the script at `vertex/redact.py`. The mapping is kept locally and is not sent.
 
+## For the family, and for any doctor who prescribes
+
+`FAMILY_CARD.md` is one page, written to be handed to a clinician who does not know this syndrome. It carries the avoidance rule in plain words with its alternatives, the three questions worth asking a specialist team, and the protection clause in the first block so it can never be read as a reason to change cancer treatment. Every line on it is drawn from `REPORT_track2.md` and adds no new claim.
+
+It exists because the most immediately useful thing this project produced for a family was buried inside a seventeen-thousand-word document written for specialists.
+
 ## Acknowledgement
 
 Required by the Hackathon rules, reproduced verbatim:
