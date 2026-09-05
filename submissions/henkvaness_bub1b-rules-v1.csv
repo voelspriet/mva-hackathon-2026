@@ -1,0 +1,4 @@
+proband_id,chrom_1,pos_1,ref_1,alt_1,chrom_2,pos_2,ref_2,alt_2,epcr,finding_type,notes
+PROBAND01,chr15,40209701,T,G,chr15,40220612,T,G,0.95,primary,compound heterozygous pair; phase not determinable from single-sample VCF. BUB1B stop_gained 751L>751*; ClinVar Pathogenic/Likely_pathogenic; gnomAD AC=120 + BUB1B missense 1016N>1016K; ClinVar .; gnomAD AC=1
+PROBAND01,chr15,40209701,T,G,,,,,0.60,primary,BUB1B stop_gained 751L>751*; ClinVar Pathogenic/Likely_pathogenic; gnomAD AC=120
+PROBAND01,chr15,40220612,T,G,,,,,0.50,primary,BUB1B missense 1016N>1016K; ClinVar .; gnomAD AC=1
