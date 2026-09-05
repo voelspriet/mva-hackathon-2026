@@ -12,7 +12,9 @@ Report: `REPORT_track1.md`. Submission: `submissions/`.
 
 ## Track 2: drug repurposing
 
-Report: `REPORT_track2.md`. The short version: no approved medicine acts on BubR1, so what survives evidence is a drug-avoidance rule with a carve-out protecting cancer treatment, four no-cost surveillance additions, a renal work-up before any renal drug, and a measurement gate. Two attractive candidates were removed by verification and refereeing rather than by opinion.
+Report: `REPORT_track2.md`. The short version: no approved medicine acts on BubR1, so what survives evidence is a drug-avoidance rule with a carve-out protecting cancer treatment, four surveillance additions that add no visit and no cost, a renal work-up before any renal drug, and a measurement gate. Two attractive candidates were removed by verification and refereeing rather than by opinion.
+
+Two later findings are the most directly usable and are in the lay summary. Cancer risk in this syndrome tracks how severely the mitotic checkpoint fails rather than the aneuploidy itself, and this child's gene is one of the two that break it, for which the source recommends close surveillance in those words; the same result makes the gate's mitotic-arrest measurement prognostic. Separately, the supplied phenotype dates the renal finding to birth while both causes the report considers are postnatal, so one date from the records decides between two opposite prescriptions.
 
 How it was produced, in `track2/`:
 
