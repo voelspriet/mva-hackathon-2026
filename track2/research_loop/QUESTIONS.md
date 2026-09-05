@@ -1,0 +1,22 @@
+# Research question queue
+
+Open questions that remain after the audit round, the cross-model passes, the synthesis and the primary-data re-analysis. Worked one at a time. Each answered question gets a file `track2/research_loop/Q<n>_<slug>.md` and its row here is marked done with the date and the one-line answer.
+
+**Rules for every answer.** Primary sources only. Every claim carries its source and the access level reached. A dead end is written up as a dead end, with the routes tried, so nobody repeats it. Numbers are recomputed, not read across. Nothing requires contact with the family or the organisers. No em or en dashes.
+
+**Ordering.** By what the answer changes per unit of effort, not by how interesting it is.
+
+| # | Question | What the answer changes | Status |
+|---|---|---|---|
+| Q1 | Does the 75 percent cancer-risk figure attributed to Orphanet ORPHA 1052 exist, and if so where does it come from? | The 33.3 percent decision threshold row in section 8, which currently rests on a figure this project could not retrieve. If it cannot be sourced, the row comes out. | **done 6 Sep 2026.** No counted series produces it. Pavone 2022 gives 38.7 percent as 12 of 31; Hanks 2004 gives no percentage; a third figure of 37 percent also circulates. The 75 percent is a pre-2012 database summary with no reachable denominator, and section 8 now says so. |
+| Q2 | Which of the 28 claims citing Suijkerbuijk 2010 have a second independent source, and which are single-sourced? | The robustness of the whole mechanism section against one 2010 paper. The 731X episode showed what happens when that paper is misread. | open |
+| Q3 | Has any MVA or *BUB1B*-deficient patient-derived cell line ever been tested against a spindle agent, in any publication? | The avoidance rule's premise. The report says no such test exists; that is an absence claim and absence claims need a documented search. | open |
+| Q4 | What is the real within-patient variance of micronucleus frequency and interphase FISH aneuploid fraction in any human population? | Section 8's open question 10, and therefore whether any power figure in the report can ever become a sample size. | open |
+| Q5 | Is there a published human within-subject repeatability figure for the aneuploid fraction specifically, as opposed to micronuclei? | Whether the FISH endpoint the gate leads with can be powered at all. | open |
+| Q6 | What does surveillance in this syndrome cost a family in burden: visits, sedation for imaging, false positives? | Four surveillance additions currently justified on the ground that they are free in money. | open |
+| Q7 | Has anything been published since 2024 on single-cell or long-read detection of mosaic aneuploidy that would change the measurement gate? | The gate's instrument choice. It currently leads with RT-PCR and interphase FISH. | open |
+| Q8 | What is the population evidence on *BUB1B* heterozygous carriers: is there any cancer risk in the parents? | Whether the report should say anything to the carrier parents, which it currently does not. | open |
+| Q9 | Do deep intronic or regulatory variants near *BUB1B* exist in this genome that a coding filter discarded? | Whether a third *BUB1B* allele is hiding. Requires a splice prediction model not held offline. | open |
+| Q10 | Is *SGO1* p.Thr425Ala reported anywhere, and is residue 425 in a domain that matters? | The one surviving modifier hypothesis from the re-analysis, currently rated very weak. | open |
+| Q11 | Can the mitochondrial variants be assigned to a haplogroup, and is any of the 13 in a curated pathogenic set? | Closes the mitochondrial angle completely rather than partially. | open |
+| Q12 | What is the false-positive rate of the aneugen avoidance list: how many of the listed drugs have human evidence of aneugenicity at clinical exposures, as opposed to in vitro? | Whether the rule bars drugs it should not. This is the criticism a pharmacologist reviewer would make first. | open |
