@@ -3,3 +3,6 @@ data/
 work/
 __pycache__/
 *.pyc
+
+# video build intermediates
+video/out/
