@@ -12,7 +12,7 @@ Ordered by how much would have to be retracted if it were wrong.
 
 **Claim.** The child carries *BUB1B* c.2210T>G p.Leu737Ter with c.3006T>G p.Asn1002Lys, and that pair is the causal genotype for mosaic variegated aneuploidy.
 
-**Tier: measured in this project, and independently confirmed.** The pair was called from the proband's own VCF by `pipeline/run.sh`, scored 100.0 rank points and F-max 1.000 against the challenge's own scorer, and ranks first genome-wide under phenotype-driven prioritisation with no gene list supplied (Exomiser 15.1.0, `pipeline/exomiser_analysis.yml`).
+**Tier: measured in this project, and independently confirmed as the expected answer.** Agreement with the challenge's scorer and with a phenotype-driven ranking establishes that this is the pair the challenge expects, not that it is causal in this child. For a recessive condition the pair is causal only in trans, and item 2 records that trans is unproven. The pair was called from the proband's own VCF by `pipeline/run.sh`, scored 100.0 rank points and F-max 1.000 against the challenge's own scorer, and ranks first genome-wide under phenotype-driven prioritisation with no gene list supplied (Exomiser 15.1.0, `pipeline/exomiser_analysis.yml`).
 
 **Files.** `REPORT_track1.md`, `submissions/`, `work/exomiser/results/`. It survived every layer, including the audit partition on genetics and databases, which retrieved both ClinVar and gnomAD records live.
 
@@ -101,7 +101,7 @@ The pattern is worth naming: **what could not be reached is overwhelmingly publi
 
 The failures that matter most, because no layer was positioned to find them.
 
-1. **The primary data was re-analysed once and never re-interrogated.** `track2/audit/PROMPT_B_reanalysis.md` lists what the VCF was never asked: phasing information in the PGT and PID fields across the genome, runs of homozygosity, the mitochondrial genome, copy number from depth, absent-coverage regions, structural variant signatures, the X and Y evidence, uniparental disomy, copy-neutral loss of heterozygosity, segmental rather than whole-chromosome mosaicism, and whether the bins the mosaicism filter discarded are informative rather than artefactual. None of this has been run. The prompt exists; the work does not.
+1. **The primary data was re-analysed once and never re-interrogated.** `track2/audit/PROMPT_B_reanalysis.md` lists what the VCF was never asked: phasing information in the PGT and PID fields across the genome, runs of homozygosity, the mitochondrial genome, copy number from depth, absent-coverage regions, structural variant signatures, the X and Y evidence, uniparental disomy, copy-neutral loss of heterozygosity, segmental rather than whole-chromosome mosaicism, and whether the bins the mosaicism filter discarded are informative rather than artefactual. **This paragraph was written before that work was done and is superseded.** All of it has since been run and is reported in `track2/reanalysis/`, with six negatives, and extended in `track2/anomalies/`. What remains unexamined is listed there.
 2. **One paper carries the mechanism.** The cross-model reuse pass counted **28 citations to Suijkerbuijk 2010** across the corpus, more than any other source by a wide margin. Nobody asked what the report would look like if that paper were wrong, retracted, or simply not generalisable from its three patient genotypes. The 731X correction is a warning: one allele in that paper was misunderstood by every layer of this project for the whole of its life.
 3. **Nobody costed surveillance itself.** The report adds four surveillance items on the ground that they are free. Free in money is not free in burden, and the report never asked what three-monthly imaging does to a family, or what the false-positive rate of the additions is.
 4. **No treating clinician has read it.** The report is addressed to a treating team and a family. Thirteen simulated seats and three simulated referees are not one real reader, and the project has no mechanism to get one.
@@ -111,7 +111,7 @@ The failures that matter most, because no layer was positioned to find them.
 
 ## Part 3. The review process, judged on its own output
 
-Six layers ran in sequence. Each is judged on what it caught that no earlier layer had.
+Eight stages ran in sequence, counting the ten creative lenses and the final objection round alongside the six review layers proper. Each is judged on what it caught that no earlier stage had.
 
 | Layer | Caught first | Missed, caught later | Verdict |
 |---|---|---|---|

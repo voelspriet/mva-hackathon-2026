@@ -37,15 +37,15 @@ Run under `track2/audit/PROMPT_D_anomaly.md`, over the whole-genome VCF, the cli
 
 The report does address the growth and nutrition axis functionally, through mid-upper-arm circumference, lean mass index, cyproheptadine and the endocrine gate. It does so without anchoring any of it to the supplied observations.
 
-**Class: UNEXPLAINED.** No technical or biological cause applies. It is an omission, and it is systematic rather than incidental: the omitted features are exactly the growth and perinatal cluster.
+**Class: UNEXPLAINED.** No technical or biological cause applies; it is an omission. An earlier version of this entry said four features and called the omitted set "exactly the growth and perinatal cluster". On the table's own evidence **the count is five or six**, since skeletal muscle atrophy appears only as a dosing consideration and the family's recurrent pregnancy loss is never named as this family's, and **the omitted set is not confined to growth and perinatal**, because reproductive history is neither.
 
-**What would resolve it.** An edit, not a measurement. The most quantitative feature in the whole document, one kilogram at 32 weeks, sits below the third centile for gestational age against a median near 1.8 kg, and is the earliest measurable manifestation of the syndrome, preceding the tumour and the renal finding.
+**What would resolve it.** An edit, not a measurement. The most quantitative feature in the whole document, one kilogram at 32 weeks, sits below the third centile for gestational age against a median near 1.8 kg. An earlier version called it the earliest measurable manifestation of the syndrome, preceding the tumour and the renal finding. **That ordering is withdrawn**: it contradicts the literal reading of "present since birth" that D1 deliberately keeps open, and the parental pregnancy losses precede the birth entirely. The centile also names no growth chart and no sex; with the sex now measured, a z-score against a named preterm reference is obtainable.
 
 ### D3. The metrics reported earlier were computed over a mixture of passing and failing calls
 
 **Expectation.** Sample-level quality metrics are computed over records that passed filtering.
 
-**Measurement.** The file is not PASS-only. It carries 4,740,790 PASS records and roughly 155,000 that fail one or more of six declared filters, dominated by MQ40 at 177,522 filter applications. An earlier pass in this project computed the heterozygous ratio and the transition-to-transversion ratio over all records without restriction.
+**Measurement.** The file is not PASS-only. It carries 4,740,790 PASS records against 4,895,719 records on the primary contigs, so about 155,000 fail on those contigs; MQ40 is applied 177,522 times across the whole file, a larger number because it counts filter applications over all contigs including the non-primary ones and because a record can carry more than one filter. An earlier pass in this project computed the heterozygous ratio and the transition-to-transversion ratio over all records without restriction.
 
 **Class: UNEXPLAINED**, as a fault in this project's own method rather than in the data. Recomputed over PASS autosomal records only: heterozygous to homozygous-alternate 1.62 against an expectation of 1.5 to 2.0, and transition to transversion 2.028 against an expectation of 2.0 to 2.1. **Both sit inside expectation, and the uncorrected figures of 1.57 and 1.968 sat just outside on one measure.** The conclusion does not change; the method did.
 
@@ -77,7 +77,7 @@ The report does address the growth and nutrition axis functionally, through mid-
 
 **Measurement by region.** The male-specific single-copy region, 3 to 22 Mb, runs at median 17 to 21, which is half of autosomal. The excess comes from three blocks: Y 10 to 11 Mb, Y 26 Mb, and Y 56 Mb at median 138 with 94 percent of calls heterozygous. Pseudoautosomal Y 2 Mb shows 21 percent heterozygosity as expected.
 
-**Class: ARTEFACT.** A mean across repeat blocks. The genome is a normal male genome.
+**Class: ARTEFACT.** A mean across repeat blocks. **The X chromosome settles the karyotype, and was not measured in the earlier version of this entry**: non-pseudoautosomal X gives 107,895 calls at median depth 20 against an autosomal 42, a ratio of 0.48, with 2.5 percent heterozygous, where two X chromosomes would give a ratio near 1.0 and heterozygosity near 50 percent. One X and one Y, so 46,XY.
 
 ### D7. Regions with no calls
 
@@ -85,7 +85,7 @@ The report does address the growth and nutrition axis functionally, through mid-
 
 **Measurement.** 33 such gaps, 59.7 Mb in total. Every one of the twenty largest is a known heterochromatic block or centromere: 1q12, 9q12, 16q11, the acrocentric short arms of 13, 14, 21 and 22, and the centromeres of 2, 5, 17 and 19.
 
-**Class: ARTEFACT.** No evidence of a large homozygous deletion.
+**Class: ARTEFACT.** All 33 are now classified, not the 20 largest only: the thirteen smaller gaps run 150 to 203 kb, five of them on the hemizygous X where lower call density is expected and the rest pericentromeric or acrocentric. None sits in autosomal unique sequence, so no evidence of a large homozygous deletion.
 
 ### D8. Sustained low-depth runs at 100 kb resolution
 
@@ -93,7 +93,7 @@ The report does address the growth and nutrition axis functionally, through mid-
 
 **Measurement.** 500 windows of 26,133 fall below half the median of 43. Forty runs of three or more consecutive windows. Every run is centromeric, pericentromeric, or in a named segmental duplication block: chr5:70.1 to 71.3 Mb spans the SMN1 and SMN2 locus, chr15:21.7 to 22.2 Mb the proximal 15q11 duplication region, chr22:18.5 to 18.8 Mb the 22q11 low-copy repeats, chr1:0.5 to 0.8 Mb subtelomeric, and the chromosome 9 entries the 9q12 heterochromatin.
 
-**Class: ARTEFACT**, with a stated blind spot. Those same regions are where recurrent microdeletions occur, including 22q11.2 and 15q11-q13, and this method cannot see into them. A deletion there would be invisible to every scan run in this project.
+**Class: ARTEFACT.** An earlier version of this entry added that a deletion at 22q11.2 or 15q11-q13 "would be invisible to every scan run in this project". **That is wrong and is withdrawn.** Those recurrent deletions are flanked by low-copy repeats but their interiors are unique and mappable, and measuring the interiors rather than the flanks gives median depth 42 with 72.4 percent heterozygosity across chr22:19.0 to 21.4 Mb, and median depth 43 with 66.5 percent heterozygosity across chr15:22.8 to 28.3 Mb, against an autosomal median of 42. A heterozygous deletion would give half that depth with heterozygosity near zero, so **both are positively excluded** (`EXTERNAL_READ_RESPONSE.md`). The blind spot is confined to the repeat blocks themselves.
 
 ### D9. Phase field structure
 
