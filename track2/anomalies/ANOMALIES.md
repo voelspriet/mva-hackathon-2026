@@ -1,6 +1,8 @@
 # Anomaly scan of the hackathon data
 
-An untargeted pass over what the challenge actually supplied: the whole-genome VCF and the clinical phenotype document. Unlike `track2/reanalysis/`, which asked six specific questions, this looks for whatever is odd. One finding is consequential and the report is wrong because of it.
+Run under `track2/audit/PROMPT_D_anomaly.md`, over what the challenge actually supplied: the whole-genome VCF and the clinical phenotype document. Unlike `track2/reanalysis/`, which asked six specific questions, this looks for whatever is odd. One finding is consequential and the report is wrong because of it.
+
+**This is a partial execution of that prompt.** The cross-source consistency pass and the scans listed below were run. Not yet run: the phase-set structure scan, the filter-behaviour scan, the full expectation-first treatment of every scan, and the systematic table of everything checked with its positive control. Those are the remainder.
 
 ---
 
