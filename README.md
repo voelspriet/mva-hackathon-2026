@@ -46,4 +46,24 @@ Generative AI, stated in full because three vendors were used and an earlier ver
 
 **What was sent, and what was not.** No patient data left this machine. The whole-genome VCF was never sent to any model. What was sent to the second, third and fourth of the above is a de-identified corpus of this project's own documents: variant coordinates, protein changes, sample and proband identifiers, HPO identifiers and the named clinical features were replaced with stable tokens before transmission, 331 substitutions across 68 files, leak-checked afterwards, with the substitution counts recorded in `vertex/redaction_report.json` and the script at `vertex/redact.py`. The mapping is kept locally and is not sent.
 
+## Acknowledgement
+
+Required by the Hackathon rules, reproduced verbatim:
+
+> "This work was made possible through the Hackathon, organized by Sage Bionetworks in partnership with the MVA Society, Hugging Face, and BEACON (The Benchmarking, Evaluation, and Assessment Consortium for Science), with prize sponsorship from AWS and Anthropic. We are deeply grateful to the child and their family who generously contributed their data and their story to advance research into this rare disease. We acknowledge their trust in making this Hackathon possible."
+
+The dataset is to be cited using the reference given on the Hackathon Synapse page at the time of publication.
+
+## Licence and data handling
+
+This submission is released under **CC-BY**, per the Hackathon rules.
+
+No patient data is committed to this repository. `data/` and `work/` are gitignored. The only proband-derived content here is the two submitted variant coordinates, per-chromosome aggregate figures, and the reports.
+
+**Deletion commitment.** All data will be deleted within 30 days of Hackathon close from every environment used, which for this project means the local machine, the author's own server, and the scratch directories listed in `track2/anomalies/COMPLIANCE.md`. Deletion will be confirmed by email to **RarediseaserealkidMVAhackathon2026@synapse.org**, the address given in the official rules.
+
+**No recontact.** No approach has been made, or will be made, to the data subject, the family, or any contact at the MVA Society. Where this project's outputs name a next step that would ordinarily involve the family, it is written for the treating team to consider rather than as an approach to be made.
+
+What was sent to third-party model providers, and what was not, is set out in `track2/anomalies/COMPLIANCE.md`.
+
 Requirements: bcftools/htslib 1.24 with libcurl, Python 3.11 with pysam, matplotlib, openpyxl. Reference data downloads on first run.
