@@ -7,3 +7,9 @@ __pycache__/
 # video build intermediates
 video/out/
 vertex/.gemini.env
+
+# de-identified corpus, regenerable from vertex/redact.py, not committed
+vertex/bundle/
+vertex/pkg/
+# publisher article copies downloaded during verification, not ours to redistribute
+*.html

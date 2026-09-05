@@ -38,6 +38,7 @@ The position taken here is that this is processing under a no-training arrangeme
 
 - This machine: `data/`, `work/`, and the scratch directories under `/private/tmp/claude-501/`.
 - The author's own server at `/root/mva_check/`, which holds the de-identified bundle and the Gemini outputs.
-- `vertex/bundle/`, `vertex/pkg/` and `vertex/out/` in this repository, which hold de-identified derived documents rather than data, and are listed here so the deletion is complete rather than partial.
+- `vertex/bundle/` and `vertex/pkg/` on this machine, which hold the de-identified corpus. **These are gitignored and not committed**, because they are regenerable from `vertex/redact.py` and there is no reason to distribute a second copy of the project's own documents. `vertex/out/` is committed, since it holds the third-party models' responses rather than any input.
+- Copies of publisher articles downloaded during verification are gitignored; they are not ours to redistribute.
 
 Deletion confirmation goes to **RarediseaserealkidMVAhackathon2026@synapse.org**.
