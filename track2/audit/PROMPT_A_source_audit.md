@@ -21,7 +21,7 @@ Working files in panel/ and panel2/ rounds 1 and 2 are out of scope except where
 
 A claim is any sentence that asserts a fact about the world and carries or implies a source: a number, a date, a study result, a regulatory status, a dose, a gene or protein fact, a database record, an attribution of a position to a named paper.
 
-Claims already adjudicated in V1, V2 or V3 are re-checked, not assumed. Two of those adjudications reversed a referee, and one reversed an earlier verification pass.
+Claims already adjudicated in V1, V2 or V3 are re-checked against source rather than carried across.
 
 ## Method
 
@@ -37,7 +37,7 @@ Numbers are recomputed rather than read across. Where a claim rests on a figure,
 
 ## Specific checks
 
-These claims have changed at least once during the project and are re-derived from source:
+The following are re-derived from source. Selection rule: each has been stated in more than one value or attribution across project files.
 - The concentrations at which metformin acted in Tang 2011, and in which cell types, for how long.
 - Which figure of Suijkerbuijk 2010 contains the LAP-731X rescue, and what the allele IVS16-2A>G actually is.
 - The RMS 2005 survival figures, their intervals, the primary endpoint and its p value.

@@ -19,10 +19,10 @@ Patient data does not leave this machine. Public resources are read as static fi
 
 Examine the data for what has not been asked. The following are starting points, not a list to work through:
 
-1. Signals in the VCF that no analysis so far has used: phasing information in PGT and PID across the genome, runs of homozygosity, the mitochondrial genome, copy number inferable from depth, regions of poor coverage that could hide a variant, structural variant signatures visible in a germline VCF, and the X and Y evidence.
+1. Signals in the VCF that no analysis so far has used: phasing information in PGT and PID across the genome, runs of homozygosity, the mitochondrial genome, copy number inferable from depth, regions of low or absent coverage, structural variant signatures visible in a germline VCF, and the X and Y evidence.
 2. Whether any second hit, modifier or contributing variant is present that the gene-list and phenotype-driven approaches would both miss: regulatory and deep intronic variants near BUB1B, variants in genes whose products interact with BubR1 at the kinetochore, variants in the mitotic checkpoint that would not be called causal alone.
 3. What the mosaicism computation did not look for: segmental rather than whole-chromosome events, uniparental disomy, copy-neutral loss of heterozygosity, mosaicism in the regions the bin filter discarded, and whether the method's discarded bins are informative rather than artefactual.
-4. Whether the phenotype terms, read again, imply an investigation nobody proposed. The eight terms and their notes are the only clinical information available; the notes name a family history explicitly as phenotypic input.
+4. Whether the phenotype terms, read again, imply an investigation nobody proposed. The eight terms and their notes are the clinical information in the dataset. The notes name a family history as phenotypic input.
 5. What the raw reads would answer that the VCF cannot, and whether any of it changes a decision. Specify what would be run, on what, and what result would change what.
 6. Approaches published since 2024 in chromosomal instability, aneuploidy detection, single-cell and long-read methods, and rare disease diagnosis that apply to this data and were not considered.
 7. Questions answerable from public data alone, without this patient: population-scale evidence about this gene, this variant class, or this disease that nobody in the project has looked up.
