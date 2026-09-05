@@ -2,7 +2,7 @@
 
 ## Facts
 
-- Genotype (Track 1, verified by the organisers' scorer): BUB1B compound heterozygous. Allele 1: c.2209T>G p.Leu737Ter, exon 17 of 23, ClinVar pathogenic/likely pathogenic for MVA syndrome 1. Allele 2: c.3006T>G p.Asn1002Lys, exon 23 of 23, in the C-terminal kinase domain, gnomAD allele count 1 of 1,461,878, no ClinVar record.
+- Genotype (Track 1, verified by the organisers' scorer): BUB1B compound heterozygous. Allele 1: c.2210T>G p.Leu737Ter, exon 17 of 23, ClinVar pathogenic/likely pathogenic for MVA syndrome 1. Allele 2: c.3006T>G p.Asn1002Lys, exon 23 of 23, in the C-terminal kinase domain, gnomAD allele count 1 of 1,461,878, no ClinVar record.
 - Mosaic aneuploidy in the sequenced sample: not detected above about 10% of cells (per-chromosome BAF and depth, 44x WGS).
 - Phenotype terms: HP:0002859 rhabdomyosarcoma, HP:0000121 nephrocalcinosis, HP:0004322 short stature, HP:0001508 failure to thrive, HP:0003202 skeletal muscle atrophy, HP:0001622 premature birth, HP:0001518 small for gestational age, HP:0200067 recurrent spontaneous abortion (parental history).
 - Scope set by the organisers: market-approved medications only; combinations allowed; investigational compounds are out of scope. Judged on scientific rigor 35%, potential impact 25%, innovation 25%, scalability 15%. Deliverables: report (PDF or MD), GitHub repo, 3-minute video. Three uploads; the panel reads the last one.
