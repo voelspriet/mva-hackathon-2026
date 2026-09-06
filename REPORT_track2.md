@@ -355,6 +355,8 @@ Two positions remain unreconciled rather than dissenting: whether senescence in 
 
 ---
 
+**Where the checking is recorded.** Everything above has been checked, and the checking is larger than the report. `VERIFICATION_INDEX.md` maps it: five neutral prompts none of which names a gene, 577 claims audited against primary sources with 185 not supported, 13 numbers corrected against the supplied data, five exclusions that did not survive, and three of four parts of this project's own headline methodological claim withdrawn. It also lists what was not checked and cannot be.
+
 ## 12. Limitations, and what a critic will attack first
 
 **The exclusions were never audited, and five do not survive.** Every check this project ran examined what this report asserts; none examined what it dropped. Candidates were narrowed by simulated panel seats, and a simulated specialist's opinion is not evidence. Checking those exclusions afterwards (`track2/audit/EXCLUSION_AUDIT.md`) found that sirolimus was excluded on a formulation claim contradicted by this project's own pharmacy file, that HSP90 inhibitors were excluded as unapproved when pimitespib is approved in Japan, that hydroxyurea was excluded partly because it would spoil the chosen endpoint rather than because it would harm the child, that the aneugen group was excluded by the same inference section 5 labels a hypothesis, and that growth hormone was excluded on a misread of its source. **No candidate is reinstated here**, because reinstating one needs the work that was skipped rather than a note. What changes is that a reader should not assume the exclusions were held to the standard the assertions were.

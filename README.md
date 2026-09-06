@@ -48,6 +48,12 @@ Generative AI, stated in full because three vendors were used and an earlier ver
 
 **What was sent, and what was not.** No patient data left this machine. The whole-genome VCF was never sent to any model. What was sent to the second, third and fourth of the above is a de-identified corpus of this project's own documents: variant coordinates, protein changes, sample and proband identifiers, HPO identifiers and the named clinical features were replaced with stable tokens before transmission, 331 substitutions across 68 files, leak-checked afterwards, with the substitution counts recorded in `vertex/redaction_report.json` and the script at `vertex/redact.py`. The mapping is kept locally and is not sent.
 
+## Index to the checking
+
+`VERIFICATION_INDEX.md` maps the nineteen files that record what was checked and what it changed, because the checking is the largest part of this submission and it is spread across three directories.
+
+The short version: 577 claims checked against primary sources with 185 not supported; 13 numbers corrected against the supplied data with no conclusion changed; five exclusions that did not survive an audit nothing else had performed; and three of the four parts of this project's own headline methodological claim withdrawn after it was attacked rather than confirmed. The index also names what was not checked and cannot be, starting with the fact that no clinician has read the report.
+
 ## Method note: what the simulated panels were and were not
 
 `SIMULATED_PANELS.md` states the lesson this project learned the hard way. Thirteen simulated specialist seats were good at two things, generating a candidate space no single line of reasoning would reach, and disagreeing with each other productively. They are not a source of evidence, and this project treated them as one when narrowing candidates.
