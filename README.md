@@ -29,6 +29,28 @@ How it was produced, in `track2/`:
 
 The verification and referee passes changed the output. What they caught is listed in section 13 of the Track 2 report, including an incorrect survival figure inside a safety clause and a supporting allele that turned out to be a splice variant rather than a nonsense variant.
 
+## What was measured on the child's own genome
+
+Fourteen re-analyses, in `track2/reanalysis/`. Each asked a question this project had not asked, and several were scoped deliberately wider than any gene list.
+
+| Question | Result |
+|---|---|
+| Every pathogenic position in ClinVar, no gene list | 7 heterozygous hits, nothing homozygous, no gene hit twice |
+| Does any other gene look like *BUB1B*? | Only *BUB1B*. Zero competing recessive diagnoses |
+| Is any protein truncated? | Only the known causal allele |
+| The drug-handling genes | Two genotypes recorded, neither acted on |
+| 49 renal and tubular genes | Nothing pathogenic, and no truncating variant of any kind |
+| The X chromosome, in a male | No hemizygous loss of function |
+| The mitochondrial genome | None of the 78 pathogenic ClinVar records carried |
+| The introns of the causal gene | One novel deep intronic allele, recorded and not built on |
+| Which population the frequency arguments apply to | West Eurasian. Both causal alleles European-private |
+| Mosaic aneuploidy, by depth rather than allele fraction | One copy of each sex chromosome. No mosaic loss of Y |
+| Is the causal gene even well covered? | Yes, 42.3 against a control median of 41.9. Nobody had checked |
+
+**Almost every row is a negative, and that is why they are printed.** An unasked question and an empty result look identical in a pipeline's output, so a screen that was never run and a screen that found nothing are distinguishable only if the scope is written down. This project made that mistake three times and caught it three times.
+
+Three of the fourteen corrected the report rather than confirming it. One corrected the family-facing page, which had promised that a chemotherapy safety result could be looked up for free in sequencing already done; for the allele that matters it cannot be read from this file at all. Two found faults in this project's own scanning, both of which produced confident output with no error message, and both are written up rather than quietly fixed.
+
 ## Reusable tooling
 
 - `pipeline/` Track 1 end to end, plus the mosaic aneuploidy profiler, which reads whole-chromosome allele balance and depth from a standard germline VCF with a stated detection limit.
@@ -52,7 +74,7 @@ Generative AI, stated in full because three vendors were used and an earlier ver
 
 `VERIFICATION_INDEX.md` maps the nineteen files that record what was checked and what it changed, because the checking is the largest part of this submission and it is spread across three directories.
 
-The short version: 577 claims checked against primary sources with 184 not supported; 13 numbers corrected against the supplied data with no conclusion changed; five exclusions that did not survive an audit nothing else had performed; and three of the four parts of this project's own headline methodological claim withdrawn after it was attacked rather than confirmed. The index also names what was not checked and cannot be, starting with the fact that no clinician has read the report.
+The short version: 577 claims checked against primary sources with 184 not supported; fourteen re-analyses of the supplied genome, of which three corrected this report and two found faults in the project's own scanning; 13 numbers corrected against the supplied data with no conclusion changed; five exclusions that did not survive an audit nothing else had performed; and three of the four parts of this project's own headline methodological claim withdrawn after it was attacked rather than confirmed. The index also names what was not checked and cannot be, starting with the fact that no clinician has read the report.
 
 ## Method note: what the simulated panels were and were not
 
