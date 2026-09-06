@@ -72,7 +72,7 @@ Generative AI, stated in full because three vendors were used and an earlier ver
 
 ## Index to the checking
 
-`VERIFICATION_INDEX.md` maps the nineteen files that record what was checked and what it changed, because the checking is the largest part of this submission and it is spread across three directories.
+`VERIFICATION_INDEX.md` maps the eighteen entries that record what was checked and what it changed, several of them directories rather than single files, because the checking is the largest part of this submission and it is spread across seven directories.
 
 The short version: 577 claims checked against primary sources with 184 not supported; fourteen re-analyses of the supplied genome, of which three corrected this report and two found faults in the project's own scanning; 13 numbers corrected against the supplied data with no conclusion changed; five exclusions that did not survive an audit nothing else had performed; and three of the four parts of this project's own headline methodological claim withdrawn after it was attacked rather than confirmed. The index also names what was not checked and cannot be, starting with the fact that no clinician has read the report.
 

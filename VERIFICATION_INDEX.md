@@ -1,6 +1,6 @@
 # Index to the checking
 
-Nineteen files record what was checked and what it changed. This is the map. Each row says what the file is, what it found, and what happened as a result.
+Eighteen entries below record what was checked and what it changed. Several are directories rather than single files: `track2/reanalysis/` alone now holds fourteen. This is the map, and each row says what the entry is, what it found, and what happened as a result.
 
 Nothing here asks to be believed. Every file names its sources, its access level, and what it could not reach.
 
