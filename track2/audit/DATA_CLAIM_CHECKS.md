@@ -64,8 +64,23 @@ The anomaly analysis was computed from a query that did not restrict to `FILTER=
 
 **No conclusion changes. Several numbers do, one by a factor of two.** The pattern is worth naming: an unfiltered query does not bias a measurement randomly when the excluded records cluster in the regions under discussion. Here it inflated exactly the signal the entry was explaining away, which would have made the artefact argument look stronger than the data supports.
 
+
+---
+
+## `track2/reanalysis/` — the same filter fault, three more numbers, no conclusion changed
+
+| Measurement | As published | PASS only | Conclusion |
+|---|---|---|---|
+| Runs of homozygosity | 5 runs, 6.7 Mb | **9 runs, 10.9 Mb**, longest 1.8 Mb, none on chromosome 15 | Unchanged. Ordinary for an outbred genome; first-cousin consanguinity gives runs above 10 Mb and totals above 50 Mb |
+| Depth windows below 0.7x / above 1.4x | 50 / 14 | **11 / 19** | Unchanged. Most apparent low-depth windows were failing calls, which is what filtering should remove |
+| Mitochondrial variants | 13 | **11 PASS of 13 called**. The two that fail, at 4769 and 8860, are near-universal differences from the reference | Unchanged. Highest minor fraction is 2.1 percent at 16093, confirmed on PASS calls |
+| Phase, R1 | no phase set on either variant | Confirmed on PASS; longest phase set genome-wide is 288 bp | Unchanged |
+| Modifier scan, R5 | 1 rare coding variant in the 80-gene network | Already PASS-filtered at source: `run.sh` builds that file with `FILTER="PASS" && INFO/DB=0` | **No fault. The only re-analysis measurement that was filtered correctly the first time** |
+
+**Running total across the anomaly and re-analysis work: nine numbers corrected, no conclusion changed.** Every fault has the same cause and the same shape.
+
 ---
 
 ## Still to check
 
-`REPORT_track2.md` remaining claims, `FAMILY_CARD.md`, `track2/reanalysis/*`, `track2/creative/F_math.md`, `track2/gate/*`, and the remaining files that assert something about the supplied data. Then the external sources those files cite, which the audit partitions covered for the literature but not for the database records retrieved live.
+`REPORT_track2.md` remaining claims, `FAMILY_CARD.md`,  `track2/creative/F_math.md`, `track2/gate/*`, and the remaining files that assert something about the supplied data. Then the external sources those files cite, which the audit partitions covered for the literature but not for the database records retrieved live.

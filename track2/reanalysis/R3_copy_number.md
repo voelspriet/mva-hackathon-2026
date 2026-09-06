@@ -4,7 +4,7 @@
 
 **Data.** In hand. Per-variant depth for all autosomal PASS variants, median per megabase.
 
-**Computed answer. Nothing that is not a known mapping artefact.** Genome median per-window depth is 43. Fifty windows fall below 0.7 times that and fourteen rise above 1.4 times.
+**Computed answer, on PASS calls. Nothing that is not a known mapping artefact.** Genome median per-window depth is 43. **Eleven** windows fall below 0.7 times that and **nineteen** rise above 1.4 times. An earlier version, computed without the PASS filter, gave 50 and 14; most of the apparent low-depth windows were failing calls, which is what a depth filter would be expected to remove.
 
 Every low window is pericentromeric: chromosome 11 at 51 to 53 Mb, chromosome 8 at 44 Mb, chromosome 9 at 44 to 45 Mb, chromosome 17 at 24 to 25 Mb, chromosome 18 at 17 to 19 Mb, chromosome 2 at 93 Mb, chromosome 6 at 59 Mb. Every high window is an acrocentric short arm or a centromere: chromosome 22 at 10 to 11 Mb, chromosome 21 at 7 to 12 Mb, chromosome 15 at 20 Mb, chromosome 17 at 22 Mb.
 

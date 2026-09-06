@@ -4,7 +4,7 @@
 
 **Data.** In hand.
 
-**Computed answer. Thirteen variants, all at or near homoplasmy, no heteroplasmy of note.**
+**Computed answer. Eleven PASS variants of thirteen called, all at or near homoplasmy, no heteroplasmy of note.** An earlier version said thirteen without noting that two of them, at positions 4769 and 8860, fail quality filtering. Both are near-universal differences from the reference sequence, so nothing of substance turns on it, but the count in the table below is of called records rather than of passing ones.
 
 | Position | Change | Genotype | Allele depth | Depth | Minor fraction |
 |---|---|---|---|---|---|

@@ -4,7 +4,9 @@
 
 **Data.** In hand. Genotypes for 4,763,357 autosomal PASS variants, binned per megabase.
 
-**Computed answer. No runs of homozygosity anywhere.**
+**Computed answer, on PASS calls. Nine short runs totalling 10.9 Mb, longest 1.8 Mb, none on chromosome 15.**
+
+**Two corrections to earlier versions of this file.** The first reported zero runs at any threshold, produced by an insensitive metric, the ratio of heterozygous to total calls rather than absolute heterozygous density. The second, using the correct metric, gave 5 runs over 6.7 Mb but was computed without the PASS filter. On PASS calls the figures are **9 runs, 10.9 Mb, median heterozygous density 92 per 100 kb**. The conclusion is unchanged: this is ordinary for an outbred genome, against runs above 10 Mb and totals above 50 Mb at first-cousin consanguinity, and none of the nine is on chromosome 15, so isodisomy at the *BUB1B* locus stays excluded.
 
 | Measure | Value |
 |---|---|
