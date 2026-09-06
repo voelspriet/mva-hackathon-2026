@@ -139,10 +139,10 @@ Against a genome median of 42, **depth is not reduced at any of the three**, so 
 | Depth outliers, 1 Mb and 100 kb | window medians track 43 | outliers all repeat-associated | Partly. Blind inside segmental duplications, D8 |
 | No-call regions, 150 kb | none outside assembly gaps | 33, all heterochromatic | Yes for large deletions outside repeats |
 | Sex chromosome dosage by region | Y at half autosomal | confirmed, D6 | Yes |
-| Filters and declared fields | — | six filters used; 17 INFO, 7 FORMAT fields | Yes, found D3 |
+| Filters and declared fields | not stated | six filters used; 17 INFO, 7 FORMAT fields | Yes, found D3 |
 | Phase field structure | sets of a few hundred bp | max 288 bp | Yes |
 | Mitochondrial contig | no heteroplasmy above a few percent | max 2.1 percent | Yes |
-| Contigs unused by any analysis | — | 78,917 PASS calls on 1,582 non-primary contigs, 1.66 percent, never examined | No. Not examined, recorded as a scope limit |
+| Contigs unused by any analysis | not stated | 78,917 PASS calls on 1,582 non-primary contigs, 1.66 percent, never examined | No. Not examined, recorded as a scope limit |
 | Cross-source phenotype consistency | every feature addressed, every cause able to operate by the stated time | found D1 and D2 | Yes |
 
 ---

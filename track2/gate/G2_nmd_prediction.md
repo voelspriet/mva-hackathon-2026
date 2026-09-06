@@ -1,4 +1,4 @@
-# G2 — Predicted nonsense-mediated decay efficiency of BUB1B c.2210T>G p.(Leu737Ter)
+# G2: Predicted nonsense-mediated decay efficiency of BUB1B c.2210T>G p.(Leu737Ter)
 
 **Variant.** *BUB1B*, ENST00000287598.11 / NM_001211.6 / MANE Select, `NC_000015.10:g.40209701T>G`,
 `c.2210T>G`, `p.(Leu737Ter)`, rs759242053, ClinVar VCV000533901.
@@ -8,9 +8,9 @@ hand calculation agree without needing to be reconciled.
 
 | Source | Value | Meaning |
 |---|---|---|
-| **NMDetective-A** | **0.60** | **[computed]** — inside the published "efficiently triggers NMD" bin (>0.52). ~71st percentile of all human coding positions. |
-| **NMDetective-B** | **0.65** | **[computed]** — the model's **maximum** leaf value. All four escape tests negative. |
-| Hand-applied rules | **10 of 10 predict decay** | [computed] — no published rule rescues this PTC. |
+| **NMDetective-A** | **0.60** | **[computed]**: inside the published "efficiently triggers NMD" bin (>0.52). ~71st percentile of all human coding positions. |
+| **NMDetective-B** | **0.65** | **[computed]**: the model's **maximum** leaf value. All four escape tests negative. |
+| Hand-applied rules | **10 of 10 predict decay** | [computed]: no published rule rescues this PTC. |
 | Measured on this allele | **nothing** | No NMD measurement exists for c.2210T>G in any cell, ever. |
 
 Everything below is labelled **[computed]** (derived in this session from primary files), **[cited]**
@@ -44,7 +44,7 @@ Rivas 2015 is **25954003**, not 25954002 (that is Melé et al.). "Teran 2021" is
 
 ## 1. The models
 
-### 1.1 Lindeboom, Supek & Lehner 2016 — the rule set
+### 1.1 Lindeboom, Supek & Lehner 2016: the rule set
 
 **Lindeboom RGH, Supek F, Lehner B.** "The rules and impact of nonsense-mediated mRNA decay in human
 cancers." *Nat Genet* 2016;48:1112-1118. doi:10.1038/ng.3664. **PMID 27618451**, PMC5045715. [cited]
@@ -55,21 +55,21 @@ of the variance in NMD efficiency from eight features. Reported rules and effect
 
 | Rule | Reported effect |
 |---|---|
-| 50 nt EJC boundary | "a sharp decrease towards a complete NMD insensitivity over the 50 nt boundary upstream of the last exon" — **2.2% vs 84.7%** NMD efficiency, p = 5.3e-5 |
+| 50 nt EJC boundary | "a sharp decrease towards a complete NMD insensitivity over the 50 nt boundary upstream of the last exon": **2.2% vs 84.7%** NMD efficiency, p = 5.3e-5 |
 | Last exon | PTC ≥50 nt upstream of last junction **84.7%**; PTC in last exon **1.7%** |
-| Start-proximal | "PTCs located in the first 100 coding nts are rarely targeted for NMD, followed by a gradual increase up to 200 nt from the start codon" — **35% vs 93%** |
-| Long exon | "reduced NMD efficiency when PTCs are located in exceptionally long exons" — **61% vs 98%**, p < 4.8e-9, for exons **>400 nt** |
+| Start-proximal | "PTCs located in the first 100 coding nts are rarely targeted for NMD, followed by a gradual increase up to 200 nt from the start codon": **35% vs 93%** |
+| Long exon | "reduced NMD efficiency when PTCs are located in exceptionally long exons": **61% vs 98%**, p < 4.8e-9, for exons **>400 nt** |
 | Downstream in-frame AUG | **1.9% vs 57%** |
 | Distance to normal stop | **99% vs 67%** (top 20% longest PTC-to-normal-stop distances) |
 | mRNA half-life | half-life <1 h: **74% vs 1.2%** |
 | 3'UTR intron | penultimate-exon PTC with a 3'UTR intron: **7% vs 81%** |
 
 Two notes. The paper states **50 nt**, not "50-55 nt"; the 55 comes from the older EJC literature.
-And there is **no distinct "first-exon rule"** in this paper — what it reports is that *intronless*
+And there is **no distinct "first-exon rule"** in this paper: what it reports is that *intronless*
 transcripts escape ("as expected from their lack of deposited EJCs"), and the start-proximal effect
 is expressed in nucleotides from the AUG, not in exon index. [cited]
 
-### 1.2 Lindeboom et al. 2019 — NMDetective-A and -B
+### 1.2 Lindeboom et al. 2019: NMDetective-A and -B
 
 **Features.** [cited]
 
@@ -86,7 +86,7 @@ is expressed in nucleotides from the AUG, not in exon index. [cited]
 Note the threshold drift between the two papers: start-proximal is **150 nt** in 2019 (100/200 nt in
 2016), and the long-exon cut is the fitted **407 nt** (prose "~400 nt"). [cited]
 
-**Scale and direction — high means strong NMD.** Verbatim: *"Full NMD efficacy would correspond to a
+**Scale and direction: high means strong NMD.** Verbatim: *"Full NMD efficacy would correspond to a
 score of 1 (50% decrease in mRNA level due to a heterozygous PTC) and completely inefficient NMD a
 score of 0 (no change in mRNA level)."* [cited]
 
@@ -95,7 +95,7 @@ efficiently trigger NMD (NMDetective-A score >0.52)"* and *"22% of PTCs are pred
 NMD (NMDetective-A score <0.25)."* The intermediate 0.25-0.52 band (~27%) is the arithmetic
 remainder, not a labelled bin. [cited]
 
-### 1.3 Availability — the score tables are public, and I fetched them
+### 1.3 Availability: the score tables are public, and I fetched them
 
 Distribution is **figshare, not GitHub**. Record `https://figshare.com/articles/dataset/NMDetective/7803398`,
 DOI `10.6084/m9.figshare.7803398.v1`, GPL-3.0+, author Rik G.H. Lindeboom. The **original source code
@@ -114,7 +114,7 @@ Format, verified by decompression: GTF over **UCSC knownGene**. `transcript` and
 score; each **`CDS`** line carries an `nmd_score` attribute holding one comma-separated value **per
 nucleotide** of that CDS block, in transcript order. So it is a genuine per-position score for every
 possible PTC position. The integration friction is that it is keyed to UCSC `uc…` accessions, not
-Ensembl — handled below.
+Ensembl: handled below.
 
 Not distributed inside dbNSFP, ANNOVAR or gnomAD. The Ensembl **VEP `NMD.pm` plugin** exists and cites
 Lindeboom 2016, but it is **not NMDetective**: it emits a binary escape flag with no score, and still
@@ -122,15 +122,15 @@ uses the 2016 **100 nt** start-proximal figure. [cited]
 
 ### 1.4 Other predictors, for completeness [cited]
 
-- **NMDEscPredictor** — Coban-Akdemir Z, et al. *AJHG* 2018;103:171-187. **PMID 30032986** (the brief's
+- **NMDEscPredictor**: Coban-Akdemir Z, et al. *AJHG* 2018;103:171-187. **PMID 30032986** (the brief's
   30049473 is an unrelated nephrology paper). Rule-based binary escape/no-escape plus a gene-level
   "NMD escape intolerance score".
-- **aenmd** — Klonowski J, Liang Q, Coban-Akdemir Z, Lo C, Kostka D. *Bioinformatics*
+- **aenmd**: Klonowski J, Liang Q, Coban-Akdemir Z, Lo C, Kostka D. *Bioinformatics*
   2023;39(9):btad556. PMID 37688563. R package, five rules with named defaults (`d_pen = 50`,
-  `d_css = 150`, exon >407 bp, last exon, single-exon transcript) — it adopts the 2019 NMDetective-B
+  `d_css = 150`, exon >407 bp, last exon, single-exon transcript): it adopts the 2019 NMDetective-B
   thresholds but returns **rule flags, not an efficacy score**. Its stated edge is handling
   frameshifts and inserted sequence. `github.com/kostkalab/aenmd`.
-- **NMDetective-AI** — Veiner M, Toledano I, Palou-Márquez G, Lehner B, Supek F, bioRxiv 2026
+- **NMDetective-AI**: Veiner M, Toledano I, Palou-Márquez G, Lehner B, Supek F, bioRxiv 2026
   (Europe PMC PPR1218124). Successor from the same lab, genomic language model plus large-scale
   mutational scanning, trained on ~14,000 somatic PTCs. `github.com/Vejni/NMDetectiveAI`. Not used
   here: preprint, not peer-reviewed, and no precomputed track.
@@ -140,7 +140,7 @@ uses the 2016 **100 nt** start-proximal figure. [cited]
 
 ## 1.5 THE COMPUTED SCORE
 
-I did not run the original code — it does not exist publicly. I read the authors' own precomputed
+I did not run the original code: it does not exist publicly. I read the authors' own precomputed
 per-nucleotide track at the exact genomic position. That is the published model's output for this
 variant, not a reimplementation.
 
@@ -161,7 +161,7 @@ chr15  NMDetectiveB  CDS  40209635  40209775  +   uc001zkx.5  exon_number 17
 | Genomic position | Codon | NMDetective-A | NMDetective-B |
 |---|---|---|---|
 | 40,209,700 (c.2209) | 737, base 1 | 0.60 | 0.65 |
-| **40,209,701 (c.2210)** | **737, base 2 — the variant** | **0.60** | **0.65** |
+| **40,209,701 (c.2210)** | **737, base 2: the variant** | **0.60** | **0.65** |
 | 40,209,702 (c.2211) | 737, base 3 | 0.61 | 0.65 |
 
 Both transcripts give identical values. Across exon 17, NMDetective-A ranges 0.60-0.62 and
@@ -172,7 +172,7 @@ NMDetective-B is a flat 0.65. **[computed]**
 - **NMDetective-A = 0.60.** The published bin for "efficiently triggers NMD" is **>0.52**, covering 51%
   of all human PTCs. **0.60 is inside that bin.** [cited threshold, computed score]
 - **NMDetective-B = 0.65.** By empirical tabulation of the track, B emits exactly **five** discrete
-  leaf values — 0, 0.12, 0.20, 0.41, 0.65 — because it is a four-test decision tree. **0.65 is the
+  leaf values (0, 0.12, 0.20, 0.41, 0.65) because it is a four-test decision tree. **0.65 is the
   maximum**, the leaf reached when all four escape tests are negative. There is no higher NMD call
   this model can make. **[computed]**
 
@@ -189,19 +189,19 @@ I sampled 58,198,057 scored coding nucleotide positions from the hg38 NMDetectiv
 | p90 | 0.63 |
 
 **0.60 sits at the ~71st percentile.** My sample reproduces the paper's published bins almost exactly
-— **52.4%** of positions score >0.52 (paper: 51%) and **19.8%** score <0.25 (paper: 22%) — which is
+**52.4%** of positions score >0.52 (paper: 51%) and **19.8%** score <0.25 (paper: 22%), which is
 the check that I am reading the file correctly.
 
 ### Independent validation that the track behaves as documented **[computed]**
 
 Profiling NMDetective-B across the whole *BUB1B* CDS reproduces the four decision-tree rules exactly:
 
-- **Exon 23 (last exon): 0.00** across all 193 nt — the last-exon rule.
+- **Exon 23 (last exon): 0.00** across all 193 nt, the last-exon rule.
 - **Exon 22 (penultimate):** flips 0.65 → 0.20 at chr15:40,218,513, which is **exactly 50 nt** from the
-  exon's 3' end — the penultimate-50 nt rule, to the base.
-- **Exons 1-2 (start-proximal):** 0.12 until chr15:40,165,166, which is **149 nt** from the CDS start —
+  exon's 3' end, the penultimate-50 nt rule, to the base.
+- **Exons 1-2 (start-proximal):** 0.12 until chr15:40,165,166, which is **149 nt** from the CDS start,
   the 150 nt rule, to the base.
-- **Exons 3-21, including exon 17: a flat 0.65** — no escape rule fires.
+- **Exons 3-21, including exon 17: a flat 0.65**, so no escape rule fires.
 
 The model is not being extrapolated or approximated. It is being read at the correct base, and it is
 returning its strongest decay call.
@@ -282,17 +282,17 @@ disposes of the long-exon escape rule for every internal PTC in *BUB1B*, this on
 | **First-exon / intronless rule** | Intronless transcripts escape (no EJCs deposited) | Transcript has 22 introns; PTC is in exon 17. | **DECAY** |
 | **Distance-from-start effect** | NMD efficiency rises with distance from the start codon, then plateaus (35% → 93% by 200 nt) | PTC is at **70.1% of the CDS** (c.2209 of 3,153) and **codon 737 of 1,050 (70.2%)**. Deep in the plateau. | **DECAY** |
 | **Distance to normal stop** | Longer PTC-to-normal-stop distance → more NMD (99% vs 67%) | **942 nt** from the PTC to the native stop. | **DECAY** |
-| **Downstream in-frame AUG / reinitiation** | A close downstream in-frame AUG in good Kozak context permits reinitiation and attenuates NMD (1.9% vs 57%) | There **is** an in-frame ATG at **codon 750**, only **39 nt** downstream (also codons 872, 1019). But its Kozak is `AGACCA-ATG-C`: **-3 = C (pyrimidine, weak)** and **+4 = C (weak)** — both critical positions suboptimal. Decisively, reinitiation requires a **short** upstream ORF (conventionally <30 codons) for the 40S to retain initiation factors; here the upstream ORF is **736 codons**. | **DECAY**; reinitiation effectively excluded |
+| **Downstream in-frame AUG / reinitiation** | A close downstream in-frame AUG in good Kozak context permits reinitiation and attenuates NMD (1.9% vs 57%) | There **is** an in-frame ATG at **codon 750**, only **39 nt** downstream (also codons 872, 1019). But its Kozak is `AGACCA-ATG-C`: **-3 = C (pyrimidine, weak)** and **+4 = C (weak)**, both critical positions suboptimal. Decisively, reinitiation requires a **short** upstream ORF (conventionally <30 codons) for the 40S to retain initiation factors; here the upstream ORF is **736 codons**. | **DECAY**; reinitiation effectively excluded |
 | **3'UTR intron rule** | A 3'UTR intron rescues a penultimate-exon PTC | The 3'UTR (tx 3,306-3,669, **364 nt**) is entirely within the final exon; there is **no 3'UTR intron**. Rule cannot fire, and would not apply to an exon-17 PTC anyway. | not applicable |
 
-**Result: every applicable rule — 11 of 11 — predicts decay, and none is a marginal call.** The
+**Result: every applicable rule, 11 of 11, predicts decay, and none is a marginal call.** The
 smallest margin anywhere in the table is the 73 nt to the nearest EJC, still comfortably above 50 nt.
 This is a textbook-canonical NMD substrate.
 
 ### 2.3 Internal control: the native stop codon **[computed]**
 
 The normal stop (c.3151-3153, tx 3,303-3,305) sits **196 nt into the 560 nt final exon** with **zero**
-downstream junctions and a 364 nt 3'UTR. It escapes NMD, as it must — and NMDetective-B independently
+downstream junctions and a 364 nt 3'UTR. It escapes NMD, as it must, and NMDetective-B independently
 scores **0.00** across that exon. The geometry calculation and the track agree on the control.
 
 ### 2.4 What is lost if the transcript survives **[computed]**
@@ -321,11 +321,11 @@ Codon 737 of 1,050 removes **314 C-terminal residues**: the entire UniProt-annot
 Plus parental heterozygote lines **386X/WT** and **731X/WT** and unrelated healthy controls.
 (194X/[L844F+Q921H in cis], 483X/R550Q and 753X/L1012P had **no patient cells**.)
 
-**What was measured, and how. Northern blot — not qPCR, not RT-PCR.** Supplementary Methods: total
+**What was measured, and how. Northern blot: not qPCR, not RT-PCR.** Supplementary Methods: total
 RNA (RNeasy), 15 µg on 0.8% agarose, GeneScreen membrane, radiolabelled cDNA probes (a 720 bp *BUB1B*
 CDS fragment, bp 1-720; α-tubulin bp 1-650), PhosphorImager/Storm 820 quantification. **Fig. 3A**,
 BUBR1/tubulin band intensity relative to healthy control, described as "representative of 2
-experiments" — **n = 2, no error bars, no statistics.**
+experiments": **n = 2, no error bars, no statistics.**
 
 **The values, verbatim:**
 
@@ -356,7 +356,7 @@ appears when the transcript is supplied from a plasmid.
 
 ### 3.2 What the alleles actually are, at nucleotide level [cited, from Supplemental Table 1]
 
-This is where the brief's caution is correct and then some — **only one of the three truncating
+This is where the brief's caution is correct and then some: **only one of the three truncating
 alleles is a true nonsense allele.**
 
 | Label | Nucleotide | Protein | Class |
@@ -366,7 +366,7 @@ alleles is a true nonsense allele.**
 | 753X | "2211-2insGTTA" (printed malformed; reconstructs as c.2211_2212insGTTA) | p.Ser738fsTer753 | **frameshift insertion** |
 | 194X | 580C>T | p.X194 | nonsense (Hanks 2004) |
 | 483X | IVS10-1G>T, Δexon11 | p.Gln467fsTer483 | splice → frameshift |
-| "absent" | unknown | "no transcript" | — |
+| "absent" | unknown | "no transcript" | not stated |
 
 Table 1's WT windows cross-check as standard NM_001211.6 numbering: the 731X window places **R727**
 exactly where R727C sits, and the 753X window places **L737** exactly where c.2210T>G sits.
@@ -375,20 +375,20 @@ exactly where R727C sits, and the 753X window places **L737** exactly where c.22
 more useful than a flat no.**
 
 *Against:* it is not a nonsense allele. The transcript is aberrantly spliced before it is terminated,
-so the mutant mRNA's own exon structure — and therefore its EJC deposition, the very thing NMD reads —
+so the mutant mRNA's own exon structure, and therefore its EJC deposition, the very thing NMD reads,
 is not the reference structure. Worse, **the splice product is undemonstrated.** The paper reports
 only the predicted consequence and never shows the aberrant transcript. On ENST00000287598, coding
 exon 17 is c.2144-2284 = **141 nt, divisible by 3**, so plain exon-17 skipping would be **in frame**
 (a 47-residue deletion), not a frameshift. Producing p.Ser714fs therefore requires a cryptic acceptor
 or intron retention that nobody has shown. **[computed exon length + cited]**
 
-*For:* if the predicted product is right, the 731X stop lands at **codon 731 — inside exon 17, the
+*For:* if the predicted product is right, the 731X stop lands at **codon 731, inside exon 17, the
 same exon as p.Leu737Ter, 18 nt upstream of it**, with the same 6 downstream junctions. I read
 NMDetective at that base: **A = 0.61, B = 0.65**, against **0.60 / 0.65** for our variant. As an NMD
 substrate the two are near-identical twins. **[computed]**
 
 *Net:* 731X is a good **positional** analogue and a poor **mechanistic** one. **386X (c.1156C>T,
-p.Gln386Ter) is the allele to lean on** — a genuine nonsense codon whose mRNA was undetectable in
+p.Gln386Ter) is the allele to lean on**, a genuine nonsense codon whose mRNA was undetectable in
 patient cells and whose protein reappeared on NMD bypass. It is the real precedent, and the brief
 under-weights it.
 
@@ -396,7 +396,7 @@ under-weights it.
 
 Paywalled, not in PMC; **not verified directly.** Five MVA families with "truncating and missense
 mutations of *BUB1B*". **No mRNA or NMD measurement is described in the abstract**, and Suijkerbuijk
-2010 attributes the prior NMD *suggestion* to Matsuura 2006, not to Hanks — indirect evidence that
+2010 attributes the prior NMD *suggestion* to Matsuura 2006, not to Hanks, indirect evidence that
 Hanks did no transcript work. **[inferred, not verified.]** Its alleles, via the Suijkerbuijk
 supplementary footnote: 580C>T (X194), IVS10-1G>T/Δexon11 (Q467fsX483), 2211-2insGTTA (S738fsX753),
 plus L844F+Q921H in cis, R550Q, R814H, L1012P, I909T.
@@ -408,7 +408,7 @@ plus L844F+Q921H in cis, R550Q, R814H, L1012P, I909T.
 Paywalled, no PMC; abstract only. Seven Japanese PCS families. Verbatim: *"Transcripts derived from
 the patients with the 1833delT mutation and the splice site mutation were significantly reduced,
 probably due to nonsense-mediated mRNA decay."* Method: RT-PCR plus Western. **No quantitative value
-is verifiable** — "significantly reduced" by how much is not in the abstract, and the full text was
+is verifiable**: "significantly reduced" by how much is not in the abstract, and the full text was
 not obtainable. Second alleles showed "a modest decrease".
 
 ### 3.5 The honest summary of section 3
@@ -430,7 +430,7 @@ not obtainable. Second alleles showed "a modest decrease".
 
 ### 4.1 gnomAD v4 constraint for *BUB1B* [cited, gnomAD GraphQL API]
 
-Gene ENSG00000156970; canonical **and** MANE Select transcript **ENST00000287598** — the constraint
+Gene ENSG00000156970; canonical **and** MANE Select transcript **ENST00000287598**, the constraint
 applies to exactly the transcript in question.
 
 | Metric | Value |
@@ -449,7 +449,7 @@ applies to exactly the transcript in question.
 *(gnomAD v2.1.1 for contrast: pLI 7.0e-10, o/e LoF 0.420 (0.309-0.580), obs 27 / exp 64.2.)*
 
 **What this implies.** pLI ≈ 0 means the data give essentially **no support for haploinsufficiency**;
-86 LoF variants are actually observed in the population. LOEUF 0.747 is a mild depletion — non-neutral
+86 LoF variants are actually observed in the population. LOEUF 0.747 is a mild depletion, non-neutral
 (LoF z 3.74, upper CI below 1) but far above the LOEUF <0.35 decile that flags haploinsufficient
 dominant-disease genes. Missense constraint is essentially absent (z 1.30). The synonymous calibration
 is clean (o/e 1.005, z -0.06), so the LoF depletion is not a model artefact.
@@ -470,7 +470,7 @@ way in this argument.
 | Exomes | **115** | 1,461,846 | **7.867e-5** | **0** |
 | Genomes | 5 | 152,174 | 3.286e-5 | 0 |
 
-Variant-level `flags`: **empty** — no low-complexity, no segdup, no discrepant-frequency flag.
+Variant-level `flags`: **empty**, meaning no low-complexity, no segdup and no discrepant-frequency flag.
 **FILTER = PASS** in both exomes and genomes. **LOFTEE: high-confidence (HC)** on both annotated
 transcripts, with **no `lof_filter` and no `lof_flags`** (ENST00000287598 c.2210T>G p.Leu737Ter
 stop_gained HC; ENST00000412359 c.2252T>G p.Leu751Ter HC).
@@ -485,7 +485,7 @@ Note the tension worth stating plainly: Invitae's ClinVar comment calls the popu
 this position "unreliable, as metrics indicate poor data quality", but **gnomAD v4 shows PASS with no
 flags and LOFTEE HC**. The frequency looks real.
 
-### 4.3 pext — available, high, and the wrong tool for this question [cited]
+### 4.3 pext: available, high, and the wrong tool for this question [cited]
 
 **Cummings BB, et al.** "Transcript expression-aware annotation improves rare variant interpretation."
 *Nature* 2020;581:452-458. **PMID 32461655**, PMC7334198. pext = the isoform-expression-weighted
@@ -495,7 +495,7 @@ filtering removed **22.8%** of falsely annotated pLoF variants in haploinsuffici
 while removing **<4%** of high-confidence pathogenic variants.
 
 **Value here.** gnomAD's pext regions for *BUB1B* align to CDS exon boundaries, and coding **exon 17 =
-chr15:40,209,635-40,209,775** — the exon containing our base — has **mean pext = 0.784** (GRCh38).
+chr15:40,209,635-40,209,775**, the exon containing our base, has **mean pext = 0.784** (GRCh38).
 On GRCh37 the containing region has mean pext = 0.852. No pext flags on the gene.
 
 **What that does and does not tell us.** It tells us the exon is **constitutively included**: ~78-85%
@@ -504,7 +504,7 @@ expressed exon" false positive pext was built to catch, and the Cummings filter 
 It tells us **nothing about NMD.** pext measures which isoforms are transcribed, from **reference-allele**
 expression in GTEx individuals who overwhelmingly do not carry this variant. It has no allele-specific
 component and no read-out of transcript degradation. Using high pext to argue the mutant transcript
-survives — or that it is destroyed — is a category error. **[inferred]**
+survives, or that it is destroyed, is a category error. **[inferred]**
 
 ### 4.4 The one large-scale dataset that genuinely bears on this: allele-specific expression of PTCs
 
@@ -541,14 +541,14 @@ individuals, GTEx + Geuvadis, Bayesian ASE classification. [cited]
   vs 0.131 synonymous.
 - **Practically useful:** **fibroblasts predict other tissues' NMD category with balanced accuracy
   0.767** (vs 0.728 for their genomic model); whole blood 0.745. **A patient fibroblast line is an
-  empirically validated surrogate for measuring NMD of this allele** — which matters, because the
+  empirically validated surrogate for measuring NMD of this allele**, which matters, because the
   731X/Y155C MVA line is a fibroblast line and fibroblasts are the obvious biopsy.
 - Also predictive beyond position: allele frequency (**ultra-rare and singleton PTVs show *more*
   imbalance**, and the effect does not plateau). Our variant at AF 7.9e-5 is rare, which pushes
   marginally *toward* efficient decay.
 
 **The number to carry forward:** the prediction here is as strong as the models can make it, but the
-base rate of escape among confidently predicted NMD targets is **not negligible — somewhere between
+base rate of escape among confidently predicted NMD targets is **not negligible: somewhere between
 7.5% (consistent escape, Teran) and 30.5% (no ASE in any tissue, Rivas)**, depending on how escape is
 defined. That is the residual uncertainty on a 0.60/0.65 call, and it is empirical, not hand-waving.
 
@@ -560,9 +560,9 @@ defined. That is the residual uncertainty on a 0.60/0.65 call, and it is empiric
 |---|---|---|---|
 | **What the allele contributes** | Nothing. An effective null. The child's entire BubR1 pool comes from the p.Asn1002Lys allele, and per Rivas that allele will **not** be up-regulated to compensate. | A minority of transcript survives and may be translated to a 736-residue product. | A ~82 kDa kinase-domain-less BubR1 is present at appreciable level. |
 | **Dosage model** | **Firm.** MVA1 in this child is a quantitative-insufficiency disease with one hypomorphic missense allele carrying the whole load. Matsuura 2006's ">50% decrease in BubR1 is involved in the syndrome" applies directly. | Model holds, but the denominator changes and the truncate may add or subtract function. | The dosage framing is **wrong for this allele**. The question becomes what the truncate *does*, not how much protein there is. |
-| **Readthrough (ataluren, aminoglycosides)** | **The substrate is being destroyed before the drug can act.** Readthrough needs a ribosome to reach the PTC on an intact mRNA. If NMD removes the message, a readthrough agent has nothing to read through. **NMD inhibition becomes the mandatory upstream step**, not an optional adjunct. | A real substrate pool exists. **Amlexanox** — which inhibits NMD via UPF1 phosphorylation *and* promotes readthrough — becomes the single most rational candidate. | Readthrough is directly testable alone. But note the codon context is only mid-favourable: UGA is the leakiest stop, yet **-1 = G is the weakest -1 class** (Floquet 2012) and **+4 = A** ranks below C. |
+| **Readthrough (ataluren, aminoglycosides)** | **The substrate is being destroyed before the drug can act.** Readthrough needs a ribosome to reach the PTC on an intact mRNA. If NMD removes the message, a readthrough agent has nothing to read through. **NMD inhibition becomes the mandatory upstream step**, not an optional adjunct. | A real substrate pool exists. **Amlexanox**, which inhibits NMD via UPF1 phosphorylation *and* promotes readthrough, becomes the single most rational candidate. | Readthrough is directly testable alone. But note the codon context is only mid-favourable: UGA is the leakiest stop, yet **-1 = G is the weakest -1 class** (Floquet 2012) and **+4 = A** ranks below C. |
 | **NMD inhibition (cardiac glycosides, amlexanox, SMG1 brakes)** | Becomes the **enabling step for everything else**, and a standalone hypothesis: stabilise the transcript, get a truncate, see whether the truncate helps. | Already partly achieved; marginal gain from a drug is smaller. | Pointless as a lever. The transcript is already there. |
-| **Therapeutic object** | An allele that makes no protein. Either restore the transcript, or forget this allele and work on the *missense* allele's stability (chaperone arm) and on downstream aneuploidy. | Ambiguous. Measure the truncate before choosing. | A protein that exists and may be partly functional — or a **dominant negative** on MCC assembly. |
+| **Therapeutic object** | An allele that makes no protein. Either restore the transcript, or forget this allele and work on the *missense* allele's stability (chaperone arm) and on downstream aneuploidy. | Ambiguous. Measure the truncate before choosing. | A protein that exists and may be partly functional, or a **dominant negative** on MCC assembly. |
 | **First experiment** | **Allele-specific ddPCR at c.2210 in patient fibroblasts**, ± cycloheximide or UPF1 knockdown. A c.2210G fraction rising from near 0 toward 0.5 on NMD block is the direct proof. Teran 2021 validates fibroblasts as the surrogate tissue (balanced accuracy 0.767). | Same assay; quantify the plateau. | Immunoblot for a ~82 kDa band with an epitope-mapped N-terminal antibody (A300-386A detects truncates, per Suijkerbuijk Fig. 2A legend). |
 
 ### 5.1 The Suijkerbuijk counterfactual, and its boundaries
@@ -571,11 +571,11 @@ Branch C is not automatically bad news, and that is worth stating precisely. **S
 Fig. 5A-5C** [cited]: RNAi-insensitive **LAP-tagged** BubR1 truncations co-transfected with *BUB1B*
 shRNA (the transient-replacement scheme of Fig. 4A).
 
-- **5A** — U2OS, flow cytometry, MPM-2 positivity of the 4N population after 16 h nocodazole
+- **5A**: U2OS, flow cytometry, MPM-2 positivity of the 4N population after 16 h nocodazole
   (checkpoint). LAP-731X **restored the nocodazole response**.
-- **5B** — U2OS + H2B-EYFP, live imaging of unperturbed mitosis. LAP-731X **restored proper
+- **5B**: U2OS + H2B-EYFP, live imaging of unperturbed mitosis. LAP-731X **restored proper
   chromosome segregation**.
-- **5C** — **HeLa**, 90 min MG132, chromosome alignment (left) and cold-stable microtubules (right).
+- **5C**: **HeLa**, 90 min MG132, chromosome alignment (left) and cold-stable microtubules (right).
   Verbatim: *"LAP-731X has no kinase domain yet is fully capable of supporting the microtubule
   attachment function of BUBR1."*
 - Contrasts in the same figure: LAP-386X restored nothing and never reached kinetochores (5D);
@@ -593,7 +593,7 @@ dispensable; removing the kinase domain did not affect error-free segregation.
    allele. The whole-animal phenotypes of BubR1 insufficiency (Baker 2004 onward: aneuploidy,
    senescence, progeroid pathology, dwarfism, infertility) were never tested against this construct.
 3. **No construct terminating at 737 was ever tested.** The tested truncation was LAP-731X, described
-   by the authors as containing "only 715 amino acids of BUBR1 sequence" — i.e. BubR1 1-714 plus a
+   by the authors as containing "only 715 amino acids of BUBR1 sequence": i.e. BubR1 1-714 plus a
    **frameshift-derived 16-residue tail** to a stop at 731. A construct stopping cleanly at 736 is a
    *different molecule*: 736 native residues, no foreign tail. The 6-codon difference is probably
    immaterial; the foreign tail may not be. Neither has been shown.
@@ -602,7 +602,7 @@ dispensable; removing the kinase domain did not affect error-free segregation.
    plasmid is a defined ORF. Do not let the shared label carry an inference across.
 5. **Expression level was set by the experimenter.** A truncate that rescues when supplied at or above
    wild-type level says nothing about a truncate present at whatever fraction survives NMD.
-6. **Nothing in that work tests dominant-negative behaviour** — the specific risk of deliberately
+6. **Nothing in that work tests dominant-negative behaviour**, the specific risk of deliberately
    stabilising a truncated MCC component in a checkpoint-weak child.
 
 ### 5.2 Confidence, itemised
