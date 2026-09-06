@@ -18,6 +18,8 @@ Run under `track2/audit/PROMPT_D_anomaly.md`, over the whole-genome VCF, the cli
 
 **Data that would decide it.** The date of the first renal imaging showing nephrocalcinosis, and whether any antenatal scan showed it. Cost: one line in an existing records request.
 
+**Update, 6 September 2026. The third reading has been tested and excluded.** Both readings above assume the cause is acquired. A congenital cause was never examined, and an inherited tubulopathy or hypercalciuric disorder would be present at birth by definition and would resolve the contradiction outright. A 49-gene renal panel was therefore scanned: 1,029 coding intervals, 123 PASS variants, **zero pathogenic or likely pathogenic, and no frameshift, nonsense or splice-site variant of any kind**. Every conflicting and every homozygous call resolves as a common polymorphism on gnomAD frequency, and the one variant with no rsID and no ClinVar record is an intronic indel carried by 1.9 percent of people (`track2/reanalysis/R10_renal_and_x_panels.md`). **D1 is narrowed, not closed.** The explanation that would have dissolved it without new information is absent, so the contradiction stands and still needs the date. The exclusion covers coding sequence and canonical splice sites only.
+
 ### D2. Four of the eight supplied phenotype features are never named in the report
 
 **Expectation, and its source.** A report whose stated purpose is to address this child's phenotype refers to the features it was given.
