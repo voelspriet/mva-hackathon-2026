@@ -107,6 +107,35 @@ def bgzf_blocks(data):
     return out.getvalue()
 
 
+def query_region(chrom, beg, end, kind="exomes"):
+    """Every gnomAD record in (beg, end]. One byte-range read covers the whole
+    window, so a region costs the same as a single position."""
+    url = BASE.format(kind=kind, chrom=chrom)
+    bins, intv = parse_tbi(get_index(url), "chr%s" % chrom)
+    if bins is None:
+        return []
+    chunks = []
+    for b in reg2bins(beg, end):
+        chunks += bins.get(b, [])
+    if not chunks:
+        return []
+    li = intv[beg >> 14] if (beg >> 14) < len(intv) else 0
+    chunks = [(u, v) for u, v in chunks if v > li]
+    if not chunks:
+        return []
+    lo = min(u for u, _ in chunks) >> 16
+    hi = (max(v for _, v in chunks) >> 16) + 65536
+    text = bgzf_blocks(curl(url, "%d-%d" % (lo, hi))).decode("utf-8", "replace")
+    hits = []
+    for line in text.split("\n"):
+        if not line or line[0] == "#":
+            continue
+        f = line.split("\t", 8)
+        if len(f) > 7 and f[1].isdigit() and beg < int(f[1]) <= end:
+            hits.append(f)
+    return hits
+
+
 def query(chrom, pos, kind="exomes"):
     url = BASE.format(kind=kind, chrom=chrom)
     bins, intv = parse_tbi(get_index(url), "chr%s" % chrom)
