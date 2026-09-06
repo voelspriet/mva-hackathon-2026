@@ -41,6 +41,8 @@ The report does address the growth and nutrition axis functionally, through mid-
 
 **What would resolve it.** An edit, not a measurement. The most quantitative feature in the whole document, one kilogram at 32 weeks, sits below the third centile for gestational age against a median near 1.8 kg. An earlier version called it the earliest measurable manifestation of the syndrome, preceding the tumour and the renal finding. **That ordering is withdrawn**: it contradicts the literal reading of "present since birth" that D1 deliberately keeps open, and the parental pregnancy losses precede the birth entirely. The centile also names no growth chart and no sex; with the sex now measured, a z-score against a named preterm reference is obtainable.
 
+**Update, 6 September 2026.** For one of the omitted features there is now a measurement as well as an edit. The proband is heterozygous for Factor V Leiden, the commonest inherited thrombophilia in Europeans and an allele ClinVar lists under recurrent pregnancy loss, so at least one parent carries it. That does not explain this family's losses: both parents are obligate *BUB1B* carriers, aneuploid conceptuses are an established cause of recurrent loss, parent of origin cannot be determined from one sample, the base rates make coincidence likely, and the trials of the intervention it would imply are negative. It is recorded in `track2/reanalysis/R8_pharmacogenomics.md` as a question, not as a resolution of D2.
+
 ### D3. The metrics reported earlier were computed over a mixture of passing and failing calls
 
 **Expectation.** Sample-level quality metrics are computed over records that passed filtering.

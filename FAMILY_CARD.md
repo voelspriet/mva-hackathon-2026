@@ -31,6 +31,17 @@ This child has calcium deposits in the kidneys. **Any** child with that finding 
 
 ---
 
+## One separate finding, about blood clotting
+
+The genome carries one copy of the commonest inherited clotting variant in people of European ancestry, called factor V Leiden. Both halves of what follows are well established.
+
+- It is **common**. Roughly one person in 25 to 50 of European ancestry carries one copy, and most never have a clot.
+- Carrying one copy is **not a reason to start any blood-thinning medicine**, and nothing about this child's care should change because of it.
+
+It is written down for one reason only: if a clot ever happens, or if a long-term drip line into a vein is being planned, the team may want to know this is in the background. It is a fact for the file, not an action.
+
+---
+
 ## Part 2. An open question, not an instruction
 
 A few ordinary medicines interfere with the same step in cell division that this child's gene affects: **colchicine, griseofulvin, albendazole and mebendazole**.
@@ -50,8 +61,8 @@ A few ordinary medicines interfere with the same step in cell division that this
 **1. When was the calcium in the kidneys first seen on a scan? Was it on any scan before birth?**
 The clinical summary says it was present at birth. The two usual explanations both happen after birth. Which one is correct changes which kidney medicine is right, and they point in opposite directions. One date from the records settles it.
 
-**2. Can the *UGT1A1* result be read from genetic testing already done, before any irinotecan is ever needed?**
-The sequencing is already done and paid for. This costs nothing to look up and is a safety check for one specific chemotherapy drug.
+**2. The *UGT1A1* check needs a different test from the one already done. Which test, and is it worth doing before irinotecan is ever needed?**
+This is a safety check for one specific chemotherapy drug. An earlier version of this page said the answer could simply be looked up in sequencing already paid for. **That was wrong, and checking it is how we found out.** The main risk version of this gene is a short piece of repeated text in a switch region, and the sequencing method used here cannot read repeats of that kind. There is no result at that position, and a stretch of about 3,800 letters around it is blank. A separate small test reads it directly. A second, less common version of the same gene was readable, and it is absent.
 
 **3. Given that the change is in this particular gene, how close should cancer surveillance be?**
 Not every gene causing this syndrome carries the same cancer risk. Published work groups this gene with the higher-risk ones and recommends close surveillance for that group. Two additions cost nothing: a blood count added to a blood test already happening, and a preference for ultrasound or non-X-ray scans wherever either would answer the question.

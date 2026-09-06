@@ -21,6 +21,18 @@ import os
 import subprocess
 import sys
 
+# Which ClinVar assertions to keep. Overridable so the same screen can be run for
+# drug response as well as for pathogenicity, without a second copy of the code.
+KEEP = [k for k in os.environ.get(
+    "CLNSIG_KEEP", "Pathogenic,Likely_pathogenic").split(",") if k]
+DROP = [k for k in os.environ.get("CLNSIG_DROP", "Conflicting").split(",") if k]
+
+
+def keep_sig(sig):
+    if any(x in sig for x in DROP):
+        return False
+    return any(x in sig for x in KEEP)
+
 
 def clinvar_plp(path, bed_path):
     """Write a BED of unique positions carrying an unconflicted P/LP assertion."""
@@ -39,9 +51,7 @@ def clinvar_plp(path, bed_path):
                 if kv.startswith("CLNSIG="):
                     sig = kv[7:]
                     break
-            if "Conflicting" in sig:
-                continue
-            if "Pathogenic" not in sig and "Likely_pathogenic" not in sig:
+            if not keep_sig(sig):
                 continue
             kept += 1
             key = (f[0], f[1])
@@ -68,9 +78,7 @@ def clinvar_alleles(path):
                     k, v = kv.split("=", 1)
                     d[k] = v
             sig = d.get("CLNSIG", "")
-            if "Conflicting" in sig:
-                continue
-            if "Pathogenic" not in sig and "Likely_pathogenic" not in sig:
+            if not keep_sig(sig):
                 continue
             for alt in f[4].split(","):
                 out[(f[0], f[1], f[3], alt)] = d
@@ -83,7 +91,7 @@ def main():
     os.makedirs(outdir, exist_ok=True)
     bed = os.path.join(outdir, "clinvar_plp.bed")
 
-    sys.stderr.write("[1/4] reading ClinVar\n")
+    sys.stderr.write("[1/4] reading ClinVar (keep=%s drop=%s)\n" % (KEEP, DROP))
     total, kept, positions = clinvar_plp(cv, bed)
     sys.stderr.write("      %d records, %d P/LP unconflicted, %d unique positions\n"
                      % (total, kept, positions))
