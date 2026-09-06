@@ -128,6 +128,36 @@ The most load-bearing prediction in the report is that allele 1 triggers nonsens
 
 ---
 
-## Still to check
+---
 
-`REPORT_track2.md` remaining claims, `FAMILY_CARD.md`,  `track2/creative/F_math.md`, `track2/gate/*`, and the remaining files that assert something about the supplied data. Then the external sources those files cite, which the audit partitions covered for the literature but not for the database records retrieved live.
+## Final sweep: the remaining files
+
+| File | Data claims | Verdict |
+|---|---|---|
+| `FAMILY_CARD.md` | **None.** The page carries no counts, frequencies or measurements at all | **Nothing to check, by design.** A page handed to a clinician makes no numerical claim it would have to defend |
+| `SIMULATED_PANELS.md` | 13 simulated seats; 577 claims audited; 185 not supported | **All three exact.** Thirteen round-one seat files exist. The five partitions state 110, 57, 71, 110 and 229 audited, summing to **577**, and 28, 22, 31, 54 and 50 non-supported, summing to **185** |
+| `README.md` | Repeats figures checked elsewhere | **No unchecked claim** |
+| `track2/gate/G1` expression table | Re-derived live from the GEO series matrix: **65.8, 108.0 and 93.8 percent** | **Matches** the corrected values of 65.7, 108.0 and 93.8; the first differs by 0.1 only in whether the ratio is taken of means or means of ratios |
+| `track2/gate/G1` cost table | Rows sum to **$16,170** | Table now states the exact sum rather than a rounded $16,200 |
+
+---
+
+## Result
+
+**Every claim in this repository that asserts something about the supplied data, or about a database record that can be retrieved, has been recomputed or re-retrieved.**
+
+| | |
+|---|---|
+| Numbers corrected | **13** |
+| Conclusions changed | **0** |
+| External database records checked | ClinVar, four claims, all exact; gnomAD, three frequencies, all exact; GEO, three ratios, all matching |
+
+**The single recurring fault was a query run without `FILTER="PASS"`.** It produced nine of the thirteen corrections. It matters more than an ordinary slip because the excluded records are not randomly distributed: they concentrate in the low-mappability regions the analyses were reasoning about, so the error inflated exactly the signals those analyses were explaining away.
+
+**The two most load-bearing claims both survive intact.** The Track 1 answer, where ten of eleven claims were exact to the digit and the eleventh was underspecified rather than wrong. And the nonsense-mediated decay prediction, whose transcript arithmetic recomputes exactly from the Ensembl exon structure, and which clears its threshold by more than an order of magnitude.
+
+---
+
+## Nothing further outstanding in this category
+
+What is not covered here is the literature, which the five audit partitions covered separately, and the exclusions, which `EXCLUSION_AUDIT.md` covers.

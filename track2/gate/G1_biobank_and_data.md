@@ -217,7 +217,7 @@ Five lines (patient, two parents, two controls) x two conditions x three biologi
 | Amplicon sequencing, ~100 submissions at $58 | ~$5,800 |
 | Sanger cross-check, 120 reactions | ~$750 |
 | Quantitative immunoblot (antibodies, Revert, gels, membranes) | ~$2,000 |
-| **Total** | **~$16,200** |
+| **Total** | **$16,170** |
 
 **Range: about $13,000** if sequencing goes through a core at $22/sample plus one $798 MiSeq Nano run, **up to about $20,000** with a Nanopore phasing arm you almost certainly do not need.
 
@@ -231,7 +231,7 @@ Against that: the recruitment alternative is a disease with a few dozen document
 
 **Read depth sets your precision, and 50,000 is plenty.** The same paper quotes log2 error of **±0.16 (linear 0.895 to 1.117) at 1,000 reads** and **±0.10 (0.93 to 1.07) at 13,500 reads**. Target 10,000 to 15,000 reads per amplicon. Amplicon-EZ clears that roughly fourfold.
 
-**Run independent PCR and library replicates, not just technical read replicates**, or the confidence intervals are wrong: [Nat Commun 2021;12:3327](https://pmc.ncbi.nlm.nih.gov/articles/PMC8184992/). This roughly doubles the submission count and is already in the $16,200 above.
+**Run independent PCR and library replicates, not just technical read replicates**, or the confidence intervals are wrong: [Nat Commun 2021;12:3327](https://pmc.ncbi.nlm.nih.gov/articles/PMC8184992/). This roughly doubles the submission count and is already in the $16,170 above.
 
 **Correct reference-mapping bias**, which matters most at the missense site: [Castel et al., *Genome Biol* 2015;16:195](https://pmc.ncbi.nlm.nih.gov/articles/PMC4574606/). For expected effect sizes of ASE on protein-truncating variants generally, [Rivas et al., *Science* 2015;348:666](https://pmc.ncbi.nlm.nih.gov/articles/PMC4537935/).
 
