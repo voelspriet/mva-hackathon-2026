@@ -39,7 +39,7 @@ Two problems, both visible in the data rather than assumed.
 
 **So the honest bound on mosaic loss of Y here is set by systematics at roughly 10 to 15 percent, not by counting at 3 percent.** That lands in the same place as the B-allele fraction floor the report already declares, by a completely different route.
 
-## What that is worth
+## What the two methods together show
 
 **Two independent methods now agree that no mosaic aneuploidy is detectable in this blood sample.** B-allele fraction across the autosomes returns zero everywhere; haploid depth across the sex chromosomes returns one copy of each. They share no failure mode: the first is blind to whole-chromosome events that preserve allele ratios and depends on heterozygous sites, the second depends on mappability and GC and needs no heterozygous sites at all.
 

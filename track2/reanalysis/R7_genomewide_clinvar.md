@@ -152,4 +152,3 @@ The script now maps `MT` to `chrM` in both directions. **Re-run, it returns the 
 | Follow-up failures found | One. *LZTR1* at Exomiser rank 4, never pursued |
 | Recommendations added | **None** |
 
-The most useful output is the last row of the previous section. A finding can be real, verified, and correctly excluded from advice, and saying so is the point.

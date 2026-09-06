@@ -101,4 +101,4 @@ Because coverage is equal, this is not a callability artefact. It is the same di
 | Facts established that were previously assumed | The causal gene's coverage is normal, measured against ten controls |
 | Recommendations added | **None** |
 
-The transferable point is the first row. A region query against a contig name that does not exist returns nothing and raises nothing, so an empty result and an unasked question look identical in the output. Both of R7's and R8's faults had that shape.
+A region query against a contig name that does not exist returns nothing and raises nothing, so an empty result and an unasked question look identical in the output. R7's and R8's faults both had that shape.

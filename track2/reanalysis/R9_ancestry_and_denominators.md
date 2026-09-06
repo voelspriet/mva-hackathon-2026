@@ -96,4 +96,4 @@ Three specific consequences worth naming.
 | Independent corroboration found | Yes. Both causal alleles are European-private across 1.6 million alleles |
 | New tool | A region query on the gnomAD reader, reusable by any later analysis |
 
-The useful general point: a rarity argument is a statement about a denominator, and this project stated five of them against a denominator it had never checked. The check took one script and returned the answer that the denominators were close enough not to matter, which is worth knowing precisely because it was not knowable before.
+A rarity argument is a statement about a denominator, and this project had stated five of them against a denominator it had not checked. The check returned that the denominators were close enough not to change any conclusion.

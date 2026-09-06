@@ -47,9 +47,9 @@ Fourteen re-analyses, in `track2/reanalysis/`. Each asked a question this projec
 | Mosaic aneuploidy, by depth rather than allele fraction | One copy of each sex chromosome. No mosaic loss of Y |
 | Is the causal gene even well covered? | Yes, 42.3 against a control median of 41.9. Nobody had checked |
 
-**Almost every row is a negative, and that is why they are printed.** An unasked question and an empty result look identical in a pipeline's output, so a screen that was never run and a screen that found nothing are distinguishable only if the scope is written down. This project made that mistake three times and caught it three times.
+Almost every row is a negative. Each screen's scope is stated, because a screen that was never run and a screen that found nothing produce the same empty output. This project confused the two three times.
 
-Three of the fourteen corrected the report rather than confirming it. One corrected the family-facing page, which had promised that a chemotherapy safety result could be looked up for free in sequencing already done; for the allele that matters it cannot be read from this file at all. Two found faults in this project's own scanning, both of which produced confident output with no error message, and both are written up rather than quietly fixed.
+Three of the fourteen corrected the report. One corrected the family-facing page, which had said a chemotherapy safety result could be looked up in sequencing already done; for the allele that matters there is no call at that position. Two of the scans contained faults of this project's own making, both of which produced confident output with no error message; the faults and their fixes are recorded in the files.
 
 ## Reusable tooling
 

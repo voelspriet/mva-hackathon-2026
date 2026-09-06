@@ -6,7 +6,7 @@
 
 `pipeline/reanalysis/pgx_scan.py` against a 36-variant panel in `pipeline/reanalysis/pgx_panel.tsv`. Both files are committed and the panel is a plain table, so a reader can see exactly which alleles were interrogated and which were not.
 
-**The first version of this scan was wrong, in the direction that matters.** It reported Factor V Leiden as absent in a child who carries it. Two faults, both worth recording because both are generic.
+**The first version of this scan was wrong, in the direction that matters.** It reported Factor V Leiden as absent in a child who carries it. Two faults, both recorded because both are generic.
 
 1. **It matched on rsID.** 423,432 of the 4,740,790 PASS calls in this VCF, **8.9 percent**, carry no rsID at all, and the unlabelled set includes Factor V Leiden and *CYP3A5\*3*. An rsID join reported both as not carried. Everything is now matched on coordinate and allele, with the rsID used only as a label.
 2. **Its fallback query used the wrong contig names.** The supplied VCF names contigs `1`, `2`, `3`; the working copy adds the `chr` prefix. Every fallback lookup silently returned nothing, so every absent variant was reported as reference.
@@ -33,7 +33,7 @@ The current script resolves every absent panel variant a second way, against the
 
 The child carries one no-function allele (\*2) and one increased-function allele (\*17). CPIC assigns \*2/\*17 as an **intermediate metaboliser**, because \*17 does not fully compensate for \*2, and CPIC marks this assignment **provisional** because the supporting data have not been consistently replicated ([CPIC/Medical Genetics Summaries](https://www.ncbi.nlm.nih.gov/books/NBK379740/table/diazepam.T.the_cpic_assignment_of_cyp2c1/)).
 
-This is worth recording rather than acting on, and the reason it is worth recording is voriconazole. A child treated for a solid tumour who becomes neutropenic and febrile may receive an azole antifungal, and *CYP2C19* is the gene with a CPIC guideline for voriconazole dosing. Proton pump inhibitors are the other common exposure. Nothing here says to change a dose. It says the genotype is already in hand if a dose ever needs explaining.
+This is recorded and not acted on. The reason it is recorded is voriconazole. A child treated for a solid tumour who becomes neutropenic and febrile may receive an azole antifungal, and *CYP2C19* is the gene with a CPIC guideline for voriconazole dosing. Proton pump inhibitors are the other common exposure. Nothing here says to change a dose. It says the genotype is already in hand if a dose ever needs explaining.
 
 ### The limitation that applies to *CYP2D6* and is not optional
 
@@ -45,7 +45,7 @@ The child is homozygous for 677C>T. This is the single most over-interpreted res
 
 ## What is not carried, which is most of the clinical value
 
-Negatives are the useful part of a pharmacogenomic screen, and these are stated as measurements rather than as silence.
+The negatives are stated as measurements, with the alleles tested named, rather than left implicit.
 
 | Gene | Alleles tested | Result |
 |---|---|---|
@@ -127,4 +127,4 @@ Now the reasons this is a question and not an answer, which are strong enough th
 | Own errors found and recorded | Two, both of which produced confident wrong output |
 | Recommendations added | **None** |
 
-The most reusable output is the method note at the top. A screen that cannot tell "not carried" from "not looked at" will report the second as the first, and it will do it without an error message.
+A screen that cannot tell "not carried" from "not looked at" reports the second as the first, without an error message. The first version of this one did.

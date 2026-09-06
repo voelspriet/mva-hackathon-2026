@@ -6,7 +6,7 @@
 
 PASS SNVs with GQ >= 90 on the five chromosomes for which a reference FASTA is held locally (3, 5, 9, 11, 15): 909,268 calls. Flanking bases read from `work/ref/Homo_sapiens.GRCh38.dna.chromosome.N.fa.gz`, collapsed to a pyrimidine reference, giving the standard 96 contexts.
 
-## Result: unremarkable, which is the useful answer
+## Result: unremarkable
 
 | | |
 |---|---|

@@ -68,7 +68,7 @@ The contrast with a clean region is stark: around the *ARID1B* candidate below, 
 
 In every full-length transcript the variant sits **2,093 nucleotides inside an intron**. It is a stop codon only in a short 12-exon isoform, and even there it lands in the terminal exon, where the 50 nucleotide rule this project computes elsewhere predicts escape from decay. There is no *ARID1B* haploinsufficiency here, and no Coffin-Siris question to raise.
 
-**The generalisable point, which is the reason this section is long:** a HIGH-impact label is a statement about the most severe transcript, not about the gene. Taking it at face value would have put a nonsense variant in a major intellectual-disability gene into this report. The check that prevented it was reading the whole annotation instead of the first field.
+**What this shows:** a HIGH-impact label is a statement about the most severe transcript, not about the gene. Taking it at face value would have put a nonsense variant in a major intellectual-disability gene into this report. The check that prevented it was reading the whole annotation instead of the first field.
 
 ## Result
 

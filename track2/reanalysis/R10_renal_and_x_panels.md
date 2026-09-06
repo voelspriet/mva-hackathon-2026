@@ -1,6 +1,6 @@
 # R10. Two gene-scope questions the phenotype demanded and nobody asked
 
-**Asked 6 September 2026.** Both are negatives, and both are worth having because in each case the report had been reasoning as though the question were closed when it had never been opened.
+**Asked 6 September 2026.** Both are negatives. In each case the report had been reasoning as though the question were closed when it had never been opened.
 
 ## Part 1. Is there a genetic cause of the nephrocalcinosis?
 
@@ -89,7 +89,7 @@ This gives a general filter worth naming. **Across non-PAR X, this genome has 10
 
 **There is no hemizygous loss-of-function variant of any consequence on this child's X chromosome.**
 
-## The pattern across R7, R8 and R10, which is the reusable part
+## The same failure in R7, R8 and R10
 
 Four separate screens in this project have now produced a confident-looking damaging call that dissolved on population frequency alone:
 
@@ -100,7 +100,7 @@ Four separate screens in this project have now produced a confident-looking dama
 | R10 | *TCEAL6*, *NUDT11*, *PRICKLE3* frameshifts | AF 0.94 to 0.999 |
 | R10 | *SLC3A1*, *CASR*, *SLC34A3* homozygous missense | AF 0.66 to 0.96 |
 
-**A consequence predictor tells you what a variant would do if it were rare. It does not tell you whether it is rare.** In several of these the reference genome carries the minor allele, so a variant call means the child resembles almost everybody. Frequency triage is not a refinement step to run at the end; run without it, every one of these screens returns a false positive with a plausible protein consequence attached.
+**A consequence predictor tells you what a variant would do if it were rare. It does not tell you whether it is rare.** In several of these the reference genome carries the minor allele, so a variant call means the child resembles almost everybody. Run without frequency triage, each of these screens returns a false positive with a plausible protein consequence attached.
 
 ## What R10 changes
 
