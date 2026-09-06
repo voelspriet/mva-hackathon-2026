@@ -134,6 +134,12 @@ Three restraints apply, and they are the reason this is publishable rather than 
 
 The one thing this section cannot settle is whether a real clinical genetics service would return an *LZTR1* result to this family. That is a decision for people with duties to this child, and no part of this repository is a substitute for them.
 
+## Correction, 6 September 2026: this screen was not genome-wide
+
+**It skipped the mitochondrial genome, and reported nothing about having done so.** ClinVar names that contig `MT`; this script prefixed every ClinVar contig with `chr` and produced `chrMT`; the proband VCF calls it `chrM`. The intersection was empty and `bcftools -R` does not warn when a region names a contig that does not exist, so 184 mitochondrial positions were queried against a name that matches nothing.
+
+The script now maps `MT` to `chrM` in both directions. **Re-run, it returns the same seven hits**, so the conclusion above is unchanged and only the scope claim was wrong. The mitochondrial genome has since been screened directly against all 78 unconflicted pathogenic ClinVar `MT` records and carries none of them. See `track2/reanalysis/R12_mitochondrial_and_bub1b_body.md`.
+
 ## What R7 changes
 
 | | |

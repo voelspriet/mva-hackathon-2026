@@ -34,6 +34,17 @@ def keep_sig(sig):
     return any(x in sig for x in KEEP)
 
 
+# ClinVar names the mitochondrial contig MT; the working VCF names it chrM. Prefixing
+# blindly produced "chrMT", which matches nothing. bcftools -R does not warn when a
+# region names a contig that does not exist, so the screen returned a clean zero for a
+# compartment it never read. See track2/reanalysis/R12_mitochondrial_and_bub1b_body.md.
+CONTIG = {"MT": "chrM", "M": "chrM"}
+
+
+def contig(c):
+    return CONTIG.get(c, "chr" + c)
+
+
 def clinvar_plp(path, bed_path):
     """Write a BED of unique positions carrying an unconflicted P/LP assertion."""
     seen = set()
@@ -59,7 +70,7 @@ def clinvar_plp(path, bed_path):
                 continue
             seen.add(key)
             pos = int(f[1])
-            bed.write("chr%s\t%d\t%d\n" % (f[0], pos - 1, pos))
+            bed.write("%s\t%d\t%d\n" % (contig(f[0]), pos - 1, pos))
     return total, kept, len(seen)
 
 
@@ -117,7 +128,7 @@ def main():
         fh.write("\t".join(["chrom", "pos", "ref", "alt", "qual", "gt", "ad", "dp",
                             "gq", "gene", "clnsig", "revstat", "mc", "rs", "clndn"]) + "\n")
         for r in rows:
-            chrom = r[0].replace("chr", "")
+            chrom = "MT" if r[0] in ("chrM", "chrMT") else r[0].replace("chr", "")
             for alt in r[3].split(","):
                 d = alleles.get((chrom, r[1], r[2], alt))
                 if not d:
