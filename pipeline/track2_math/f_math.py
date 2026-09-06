@@ -1,4 +1,4 @@
-"""Track 2 quantitative appendix. All numbers in track2/creative/F_math.md come from here.
+"""Track 2 quantitative appendix. All numbers in archive/creative/F_math.md come from here.
 Run: python3 f_math.py"""
 import math, json, os
 from math import log, exp, sqrt

@@ -1,0 +1,22 @@
+# gemini-3.1-pro-preview / pass4_reuse
+
+- **Suijkerbuijk 2010 (PMID 20516114)**
+  - "all five biallelic BUB1B families in Hanks et al. 2004 (PMID 15475955) carried one truncating allele and one missense allele, and every kinase-domain missense allele UniProt records for MVA1 (R814H, L844F, I909T, Q921H, L1012P) occurs in that configuration." (`REPORT_track1.md`)
+  - "Patient cells show impaired checkpoint, misalignment and low BubR1, rescued by ectopic BubR1; the model is quantitative, instability following low BubR1 abundance (shown; Suijkerbuijk 2010, PMID 20516114)." (`REPORT_track2.md`)
+  - "Both truncated proteins are expressed once NMD is bypassed by plasmid-driven expression (Suijkerbuijk 2010)." (`REPORT_track2.md`)
+  - "Q921H sits in the kinase domain and was indistinguishable from wild type on level and function (Suijkerbuijk 2010, Fig 4D)." (`REPORT_track2.md`)
+  - "Cycloheximide chase and forced-expression rescue on p.ALLELE_B, Suijkerbuijk 2010 design." (`REPORT_track2.md`)
+  - "kinase-domain missense BubR1 is degraded faster in an HSP90-dependent, proteasome-mediated way, with I909T and R727C showing roughly two-fold increased turnover and 5 to 10 fold lower steady-state levels (Suijkerbuijk 2010, PMID 20516114; human patient cells)." (`archive/creative/B_consequence_tissue_schedule.md`)
+  - "parental lines show intermediate BubR1 by quantitative immunoblot (Suijkerbuijk 2010, PMID 20516114)." (`archive/creative/C_analogies_nondrug_trials.md`)
+  - "forced expression of poorly expressed MVA missense alleles to wild-type levels fully restored the nocodazole response (Suijkerbuijk 2010, PMID 20516114)." (`archive/creative/C_analogies_nondrug_trials.md`)
+  - "Suijkerbuijk, Kops et al., Cancer Res 2010 (PMC2887387, "Molecular causes for BUBR1 dysfunction in the human cancer predisposition syndrome mosaic variegated aneuploidy") is the closest anyone has come. They used MVA patient LCLs and SV40-transformed fibroblasts of genotypes 731X/Y155C, 753X/R814H, 386X/R727C. They found full-length mutant BubR1 "decreased 2-6 fold compared to wild-type alleles"" (`track2/gate/G1_biobank_and_data.md`)
+  - "Suijkerbuijk et al., Cancer Res 2010;70:4891. PMID 20516114, PMC2887387" (`track2/gate/G2_nmd_prediction.md`)
+  - "Full-length substitution-mutant BUBR1 in patient lines ... "decreased 2-6 fold"" (`track2/gate/G3_dose_response.md`)
+  - "386X and 731X proteins are undetectable in patient cells but reappear when NMD is bypassed (Suijkerbuijk 2010, PMID 20516114)." (`archive/panel2/round1_labgeneticist.md`)
+  - "Suijkerbuijk 2010 splits MVA missense alleles into a destabilising class (HSP90-dependent, proteasome-mediated) and one behaving like wild type" (`archive/panel2/round1_labgeneticist.md`)
+  - "Both patient alleles act by lowering protein amount, not by making a poison (Suijkerbuijk 2010, PMID 20516114; 01 §1.3, §2.2)" (`archive/panel/round1_cellbiologist.md`)
+  - "Q921H sits in the same domain and behaved as wild type in Suijkerbuijk 2010 (PMID 20516114)." (`archive/panel/round1_geneticist.md`)
+  - "HSP90-dependent turnover governs destabilised BubR1 missense protein (Suijkerbuijk 2010, PMID 20516114)." (`archive/panel/round2_geneticist.md`)
+  - "Both patient alleles act by lowering protein amount, not by making a poison (Suijkerbuijk 2010, PMID 20516114)" (`archive/panel/round2_pharmacologist.md`)
+  - "Suijkerbuijk SJE et al. Molecular causes for BUBR1 dysfunction in the human cancer predisposition syndrome mosaic variegated aneuploidy. Cancer Res 2010;70:4891-900." (`archive/verify/V1_tang_suijkerbuijk.md`)
+  - "LAP-731X restored mitotic checkpoint activity, chromosome segregation and chromosome alignment in BUBR1-depleted cells (Suijkerbuijk

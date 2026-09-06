@@ -1,6 +1,6 @@
 # Response to the external read
 
-`track2/audit/PROMPT_E_external_read.md` was run on Fable 5.1 against a de-identified package of the supplied phenotype, the anomaly measurements, the primary-data re-analysis and the synthesis. Output at `vertex/out/promptE__anthropic.md`.
+`archive/audit/PROMPT_E_external_read.md` was run on Fable 5.1 against a de-identified package of the supplied phenotype, the anomaly measurements, the primary-data re-analysis and the synthesis. Output at `archive/vertex/out/promptE__anthropic.md`.
 
 **It found more errors in this project's own material in one pass than the two cross-model passes found all day**, because it was pointed at the derived files rather than at claims about the literature. Everything below was checkable from data in hand, and was checked.
 
@@ -90,4 +90,4 @@ The thirteen smaller gaps run 150 to 203 kb. Five are on the X chromosome, where
 
 ## Note on the method
 
-The read was run on the model that refused this project's corpus twice earlier today. It did not refuse this package. The package differs in being derived measurements and summaries rather than a dossier of individualised therapeutic reasoning, which is consistent with the pattern recorded in `vertex/REFUSAL_EXPERIMENT.md`. The first attempt returned 2,642 characters and stopped at the output limit; raising the limit to 40,000 tokens produced a complete answer of 34,735 characters.
+The read was run on the model that refused this project's corpus twice earlier today. It did not refuse this package. The package differs in being derived measurements and summaries rather than a dossier of individualised therapeutic reasoning, which is consistent with the pattern recorded in `archive/vertex/REFUSAL_EXPERIMENT.md`. The first attempt returned 2,642 characters and stopped at the output limit; raising the limit to 40,000 tokens produced a complete answer of 34,735 characters.

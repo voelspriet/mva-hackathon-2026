@@ -1,6 +1,6 @@
 # R8. What does this genome say about the drugs this child may receive, and about the family's own history?
 
-**Asked 6 September 2026.** A 40-gene pharmacogenomic and renal BED file, `work/track2/genes_pgx.bed`, was built earlier in this project and **never systematically scanned**. The string `genes_pgx` appears nowhere else in the repository. What exists instead is three spot checks in `track2/creative/D_compute.md`: G6PD, one *DPYD* allele and one *SLC34A1* allele. This is the scan.
+**Asked 6 September 2026.** A 40-gene pharmacogenomic and renal BED file, `work/track2/genes_pgx.bed`, was built earlier in this project and **never systematically scanned**. The string `genes_pgx` appears nowhere else in the repository. What exists instead is three spot checks in `archive/creative/D_compute.md`: G6PD, one *DPYD* allele and one *SLC34A1* allele. This is the scan.
 
 ## Method, and two errors it produced first
 
@@ -11,7 +11,7 @@
 1. **It matched on rsID.** 423,432 of the 4,740,790 PASS calls in this VCF, **8.9 percent**, carry no rsID at all, and the unlabelled set includes Factor V Leiden and *CYP3A5\*3*. An rsID join reported both as not carried. Everything is now matched on coordinate and allele, with the rsID used only as a label.
 2. **Its fallback query used the wrong contig names.** The supplied VCF names contigs `1`, `2`, `3`; the working copy adds the `chr` prefix. Every fallback lookup silently returned nothing, so every absent variant was reported as reference.
 
-Both faults produced confident output. Neither raised an error. The scan was caught only because an independent genome-wide ClinVar drug-response screen, run first, had already found Factor V Leiden by coordinate. **A pharmacogenomic report that says "absent" without distinguishing "not carried" from "not looked at" is the specific failure this file is now built to prevent**, and it is the same failure as the missing PASS filter in `DATA_CLAIM_CHECKS.md` and the unaudited exclusions in `SIMULATED_PANELS.md`: absence asserted from a filter rather than measured.
+Both faults produced confident output. Neither raised an error. The scan was caught only because an independent genome-wide ClinVar drug-response screen, run first, had already found Factor V Leiden by coordinate. **A pharmacogenomic report that says "absent" without distinguishing "not carried" from "not looked at" is the specific failure this file is now built to prevent**, and it is the same failure as the missing PASS filter in `DATA_CLAIM_CHECKS.md` and the unaudited exclusions in `archive/SIMULATED_PANELS.md`: absence asserted from a filter rather than measured.
 
 The current script resolves every absent panel variant a second way, against the unfiltered source VCF, and reports a filtered record as filtered rather than as reference.
 

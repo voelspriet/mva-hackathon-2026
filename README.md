@@ -1,92 +1,58 @@
 # MVA Hackathon 2026 (henkvaness)
 
-Two tracks for one child with mosaic variegated aneuploidy caused by biallelic *BUB1B* variants.
+One child, a whole-genome VCF and eight clinical features. Two tracks: name the cause, then say what could be done about it.
 
-## Track 1: variant identification
+## Results
 
-`pipeline/run.sh data/<sample>.vcf.gz work/` runs in 61 seconds and produces the ranked CSV, the evidence and the figures. Steps: header facts; consequences and ClinVar for the known MVA genes, annotated offline; gnomAD v4.1 frequencies by HTTP range read of public sites files; a genome-wide recessive scan with no gene list; a mosaic aneuploidy profile computed from the VCF's own allele depths; an ACMG SF v3.2 secondary-findings screen; CSV construction by a written rule; and a rehearsal against the challenge's own scorer before upload.
+**Track 1.** The cause is two changes in *BUB1B*, c.2210T>G p.Leu737Ter and c.3006T>G p.Asn1002Lys, compound heterozygous. Scored 100.0 rank points, F-max 1.000, on the challenge scorer. The same pair ranks first genome-wide under phenotype-driven prioritisation with no gene list. Report: `REPORT_track1.md`.
 
-Result: *BUB1B* c.2210T>G p.Leu737Ter with c.3006T>G p.Asn1002Lys. Scored 100.0 rank points, F-max 1.000. Model 2 confirms the pair ranks first genome-wide under phenotype-driven prioritisation with no gene list (`pipeline/exomiser_analysis.yml`).
+**Track 2.** No approved medicine acts on BubR1, and this project found no treatment. What it produced instead: four additions to existing surveillance that add no visit, a renal work-up before any renal drug, the measurements that would show whether any gene-directed idea has a target in this child at all, and a prescribing question the report labels a hypothesis. Two candidates that looked good were removed by verification against primary sources. Report: `REPORT_track2.md`. One page for a clinician: `FAMILY_CARD.md`.
 
-Report: `REPORT_track1.md`. Submission: `submissions/`.
-
-## Track 2: drug repurposing
-
-Report: `REPORT_track2.md`. The short version: no approved medicine acts on BubR1. What survives is not a treatment. It is four surveillance additions that add no visit and no cost, a renal work-up before any renal drug, a measurement gate, and a prescribing rule that the report labels a **hypothesis for follow-up** rather than an established finding, with a carve-out so it can never be read as a reason to change cancer treatment. Two attractive candidates were removed by verification and refereeing rather than by opinion.
-
-Two later findings are the most directly usable and are in the lay summary. Cancer risk in this syndrome tracks how severely the mitotic checkpoint fails rather than the aneuploidy itself, and this child's gene is one of the two that break it, for which the source recommends close surveillance in those words; the same result makes the gate's mitotic-arrest measurement prognostic. Separately, the supplied phenotype dates the renal finding to birth while both causes the report considers are postnatal, so one date from the records decides between two opposite prescriptions.
-
-How it was produced, in `track2/`:
-
-| Directory | Contents |
-|---|---|
-| `research/` | Five cited dossiers: mechanism and models, clinical care and drug landscape, family perspective, variant context, genome-wide ranking |
-| `creative/` | Ten divergent lenses (allele-directed pharmacology, consequences and tissue, analogies and trial design, two computational, mathematics, open-source investigation, clinical nutrition, dispensing pharmacy, lateral reframing) |
-| `panel/` | Team 1, five specialists, two rounds plus synthesis, the integrated moderator record, and the final objection round from all seats |
-| `panel2/` | Team 2, eight specialists, blind to team 1, two rounds |
-| `verify/` | Three primary-source verification passes, including the supplementary-material lookups that settled two arguments |
-| `referees/` | Three independent referee reports, written without access to the working files |
-
-The verification and referee passes changed the output. What they caught is listed in section 13 of the Track 2 report, including an incorrect survival figure inside a safety clause and a supporting allele that turned out to be a splice variant rather than a nonsense variant.
-
-## What was measured on the child's own genome
-
-Fourteen re-analyses, in `track2/reanalysis/`. Each asked a question this project had not asked, and several were scoped deliberately wider than any gene list.
+**Measured on the child's own genome.** Sixteen re-analyses in `track2/reanalysis/`, summarised in `track2/reanalysis/SUMMARY.md`. Each states its scope.
 
 | Question | Result |
 |---|---|
 | Every pathogenic position in ClinVar, no gene list | 7 heterozygous hits, nothing homozygous, no gene hit twice |
-| Does any other gene look like *BUB1B*? | Only *BUB1B*. Zero competing recessive diagnoses |
+| Does any other gene look like *BUB1B*? | No. Zero competing recessive diagnoses |
 | Is any protein truncated? | Only the known causal allele |
 | The drug-handling genes | Two genotypes recorded, neither acted on |
-| 49 renal and tubular genes | Nothing pathogenic, and no truncating variant of any kind |
+| 49 renal and tubular genes | Nothing pathogenic, no truncating variant |
 | The X chromosome, in a male | No hemizygous loss of function |
-| The mitochondrial genome | None of the 78 pathogenic ClinVar records carried |
-| The introns of the causal gene | One novel deep intronic allele, recorded and not built on |
-| Which population the frequency arguments apply to | West Eurasian. Both causal alleles European-private |
+| The mitochondrial genome | None of 78 pathogenic ClinVar records carried |
+| The introns of the causal gene | One novel deep intronic allele, recorded, not built on |
+| Which population the frequency claims apply to | West Eurasian. Both causal alleles European-private |
 | Mosaic aneuploidy, by depth rather than allele fraction | One copy of each sex chromosome. No mosaic loss of Y |
-| Is the causal gene even well covered? | Yes, 42.3 against a control median of 41.9. Nobody had checked |
+| Is the causal gene well covered? | Yes, 42.3 against a control median of 41.9 |
 
-Almost every row is a negative. Each screen's scope is stated, because a screen that was never run and a screen that found nothing produce the same empty output. This project confused the two three times.
+Three of these corrected the report. One corrected the family card. Two contained faults of this project's own making, recorded in the files.
 
-Three of the fourteen corrected the report. One corrected the family-facing page, which had said a chemotherapy safety result could be looked up in sequencing already done; for the allele that matters there is no call at that position. Two of the scans contained faults of this project's own making, both of which produced confident output with no error message; the faults and their fixes are recorded in the files.
+## Where things are
 
-## Reusable tooling
+| | |
+|---|---|
+| `REPORT_track1.md`, `REPORT_track2.md` | The two reports |
+| `FAMILY_CARD.md` | One page for any prescriber, graded by evidence strength, protection clause first |
+| `pipeline/` | Track 1 end to end, the mosaic profiler, the gnomAD byte-range reader, the genome-wide screens, the drug mapper |
+| `track2/reanalysis/` | The sixteen genome re-analyses, each with its script |
+| `track2/research/`, `track2/gate/`, `track2/anomalies/` | The cited dossiers, the measurement gate, deviations found in the supplied data |
+| `submissions/`, `video/`, `scoring/` | Submitted files, the pitch video with subtitles, an offline rehearsal of the challenge scorer |
+| `archive/` | The working record: simulated panels, audit partitions, verification passes, referee reports, cross-model outputs, prompts. The reports cite it. Map: `archive/README.md` |
 
-- `pipeline/` Track 1 end to end, plus the mosaic aneuploidy profiler, which reads whole-chromosome allele balance and depth from a standard germline VCF with a stated detection limit.
-- `pipeline/track2_drugmap/` gene and mechanism to ranked approved drugs, with an openFDA label harm screen. Config-driven, so it transfers to another gene. Its own top-ranked hit was the wrong direction, which is documented rather than hidden.
-- `pipeline/track2_compute/` and `pipeline/track2_math/` offline variant computation and the quantitative appendix.
-- `scoring/score_local.py` rehearses a Track 1 CSV against the challenge's scorer offline.
+## Reproducing it
+
+`pipeline/run.sh data/<sample>.vcf.gz work/` runs Track 1 in about a minute. Requirements: bcftools/htslib 1.24 with libcurl, Python 3.11 with pysam, matplotlib, openpyxl. Reference data downloads on first run.
 
 ## Data handling
 
-No patient data is committed. `data/` and `work/` are gitignored; the only proband-derived content in this repository is the two submitted variant coordinates, per-chromosome aggregate figures and the reports. Annotation ran offline; public resources were read as static files rather than queried with patient coordinates. All data will be deleted within 30 days of the hackathon close and the deletion confirmed by email, per the rules.
+No patient data is committed. `data/` and `work/` are gitignored; the only proband-derived content here is the two submitted variant coordinates, per-chromosome aggregate figures and the reports. Public resources were read as static files, never queried with patient coordinates. All data will be deleted within 30 days of the Hackathon close from every environment used, and the deletion confirmed by email to RarediseaserealkidMVAhackathon2026@synapse.org. No approach has been made, or will be made, to the family or to the MVA Society.
 
-Generative AI, stated in full because three vendors were used and an earlier version of this line named only one:
+Generative AI, all three vendors named:
 
-- **Anthropic, Claude Code on a Max plan**, model-improvement sharing disabled, no output rating. This did all of the analysis, computation and writing.
-- **Anthropic API, Fable 5.1.** Cross-model checking and an external read of this project's own derived files.
-- **OpenAI API, GPT-5**, and **Google Vertex AI, Gemini 3.1 Pro** (run on the author's own server). Four neutral prompts each, for cross-model checking only. Neither contributed content; both are used as checks and their outputs are in `vertex/out/`.
+- **Anthropic, Claude Code on a Max plan**, model-improvement sharing disabled: all of the analysis, computation and writing.
+- **Anthropic API, Fable 5.1**: cross-model checking and an external read of this project's derived files.
+- **OpenAI API, GPT-5**, and **Google Vertex AI, Gemini 3.1 Pro** on the author's own server: four neutral prompts each, as checks only. Outputs in `archive/vertex/out/`.
 
-**What was sent, and what was not.** No patient data left this machine. The whole-genome VCF was never sent to any model. What was sent to the second, third and fourth of the above is a de-identified corpus of this project's own documents: variant coordinates, protein changes, sample and proband identifiers, HPO identifiers and the named clinical features were replaced with stable tokens before transmission, 331 substitutions across 68 files, leak-checked afterwards, with the substitution counts recorded in `vertex/redaction_report.json` and the script at `vertex/redact.py`. The mapping is kept locally and is not sent.
-
-## Index to the checking
-
-`VERIFICATION_INDEX.md` maps the eighteen entries that record what was checked and what it changed, several of them directories rather than single files, because the checking is the largest part of this submission and it is spread across seven directories.
-
-The short version: 577 claims checked against primary sources with 184 not supported; fourteen re-analyses of the supplied genome, of which three corrected this report and two found faults in the project's own scanning; 13 numbers corrected against the supplied data with no conclusion changed; five exclusions that did not survive an audit nothing else had performed; and three of the four parts of this project's own headline methodological claim withdrawn after it was attacked rather than confirmed. The index also names what was not checked and cannot be, starting with the fact that no clinician has read the report.
-
-## Method note: what the simulated panels were and were not
-
-`SIMULATED_PANELS.md` states the lesson this project learned the hard way. Thirteen simulated specialist seats were good at two things, generating a candidate space no single line of reasoning would reach, and disagreeing with each other productively. They are not a source of evidence, and this project treated them as one when narrowing candidates.
-
-The audit checked 577 claims the report asserts. It never checked what the report dropped, because an exclusion does not present itself as a claim. Checking the exclusions afterwards found five that do not survive, two of them contradicted by files already inside this repository. The rule that follows is to audit exclusions exactly as assertions are audited, and to put that audit after the narrowing rather than only after the writing.
-
-## For the family, and for any doctor who prescribes
-
-`FAMILY_CARD.md` is one page, written to be handed to a clinician who does not know this syndrome. It is graded by evidence strength, because an earlier draft was not and read as an instruction where the report has a hypothesis. Part 1 carries what is well established, and the reason there is the kidney finding rather than the syndrome: it is ordinary practice for any child with calcium deposits in the kidneys. Part 2 states the chromosome-separation question as an open question and says plainly that nobody has tested whether cells from a person with this syndrome are more sensitive, and that the two available lines of laboratory evidence point in opposite directions. Part 3 is three questions for the specialist team. The protection clause is in the first block. Every line is drawn from `REPORT_track2.md` and adds no new claim.
-
-It exists because the most immediately useful thing this project produced for a family was buried inside a seventeen-thousand-word document written for specialists.
+The whole-genome VCF was never sent to any model. What the second, third and fourth received was a de-identified corpus of this project's own documents, with coordinates, protein changes, identifiers, HPO terms and named clinical features replaced by stable tokens before transmission: 331 substitutions across 68 files, leak-checked afterwards, counts in `archive/vertex/redaction_report.json`, script in `archive/vertex/redact.py`. The mapping is kept locally. Full statement: `track2/anomalies/COMPLIANCE.md`.
 
 ## Acknowledgement
 
@@ -96,16 +62,6 @@ Required by the Hackathon rules, reproduced verbatim:
 
 The dataset is to be cited using the reference given on the Hackathon Synapse page at the time of publication.
 
-## Licence and data handling
+## Licence
 
-This submission is released under **CC-BY**, per the Hackathon rules.
-
-No patient data is committed to this repository. `data/` and `work/` are gitignored. The only proband-derived content here is the two submitted variant coordinates, per-chromosome aggregate figures, and the reports.
-
-**Deletion commitment.** All data will be deleted within 30 days of Hackathon close from every environment used, which for this project means the local machine, the author's own server, and the scratch directories listed in `track2/anomalies/COMPLIANCE.md`. Deletion will be confirmed by email to **RarediseaserealkidMVAhackathon2026@synapse.org**, the address given in the official rules.
-
-**No recontact.** No approach has been made, or will be made, to the data subject, the family, or any contact at the MVA Society. Where this project's outputs name a next step that would ordinarily involve the family, it is written for the treating team to consider rather than as an approach to be made.
-
-What was sent to third-party model providers, and what was not, is set out in `track2/anomalies/COMPLIANCE.md`.
-
-Requirements: bcftools/htslib 1.24 with libcurl, Python 3.11 with pysam, matplotlib, openpyxl. Reference data downloads on first run.
+CC-BY, per the Hackathon rules.

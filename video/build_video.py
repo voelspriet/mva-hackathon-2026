@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build the Track 2 pitch video (mp4 + vtt) from the script in track2/video_script.md.
+"""Build the Track 2 pitch video (mp4 + vtt) from the script in archive/video_script.md.
 
 Re-runnable. Reads OPENAI_API_KEY from ~/.env.digging at runtime; nothing secret
 is stored in this file. Intermediates go to video/out/, which is gitignored.
@@ -222,8 +222,8 @@ def slide_3(s):
     s.line("Thirteen seats. Blind to each other.", "bold", 36, color=ACCENT)
     s.gap(26)
     cols(s, [
-        ("track2/panel/", "Team 1, five seats", listing("track2/panel", 19)),
-        ("track2/panel2/", "Team 2, eight seats", listing("track2/panel2", 19)),
+        ("archive/panel/", "Team 1, five seats", listing("archive/panel", 19)),
+        ("archive/panel2/", "Team 2, eight seats", listing("archive/panel2", 19)),
     ], size=22)
 
 
@@ -234,9 +234,9 @@ def slide_4(s):
     s.line("Three referees, all returned major revision.", "bold", 36, color=ACCENT)
     s.gap(26)
     cols(s, [
-        ("track2/creative/", "ten divergent files", listing("track2/creative")),
-        ("track2/verify/", "verification passes", listing("track2/verify")),
-        ("track2/referees/", "three referee reports", listing("track2/referees")),
+        ("archive/creative/", "ten divergent files", listing("archive/creative")),
+        ("archive/verify/", "verification passes", listing("archive/verify")),
+        ("archive/referees/", "three referee reports", listing("archive/referees")),
     ], size=22)
 
 
@@ -389,7 +389,7 @@ def slide_12(s):
     s.gap(24)
     s.line("$ python pipeline/track2_drugmap/drugmap.py \\", "mono", 26)
     s.line("      --config pipeline/track2_drugmap/targets_bub1b.json \\", "mono", 26)
-    s.line("      --out track2/creative/E_drugmap_output", "mono", 26)
+    s.line("      --out archive/creative/E_drugmap_output", "mono", 26)
     s.gap(16)
     rows = [
         ("rank", "drug", "harm flags"),

@@ -4,7 +4,7 @@ track2_drugmap: gene + mechanism description -> ranked table of market-approved
 drugs with a label-based harm screen. Public APIs only, no patient data.
 
 Usage
-    python3.11 drugmap.py --config targets_bub1b.json --out ../../track2/creative/E_drugmap_output
+    python3.11 drugmap.py --config targets_bub1b.json --out ../../archive/creative/E_drugmap_output
     python3.11 drugmap.py --gene TP53 --targets "MDM2:MDM2,CDKN1A" --out /tmp/tp53
 
 Steps

@@ -1,6 +1,6 @@
 # Anomaly analysis
 
-Run under `track2/audit/PROMPT_D_anomaly.md`, over the whole-genome VCF, the clinical phenotype document and the dataset documentation. Expectations were stated before each measurement and are recorded here whether or not the measurement matched them.
+Run under `archive/audit/PROMPT_D_anomaly.md`, over the whole-genome VCF, the clinical phenotype document and the dataset documentation. Expectations were stated before each measurement and are recorded here whether or not the measurement matched them.
 
 ---
 

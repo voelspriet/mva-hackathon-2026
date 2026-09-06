@@ -22,7 +22,7 @@ The question here has no gene list at all. It asks the child's genome against ev
 
 1. Keep every ClinVar record whose `CLNSIG` contains Pathogenic or Likely_pathogenic and does not contain Conflicting.
 2. Reduce to unique positions and write a BED.
-3. Query the proband with `bcftools query -i 'FILTER="PASS"' -R`, so failing records cannot enter. This project has already been bitten once by a missing PASS filter, and the correction is recorded in `track2/audit/DATA_CLAIM_CHECKS.md`.
+3. Query the proband with `bcftools query -i 'FILTER="PASS"' -R`, so failing records cannot enter. This project has already been bitten once by a missing PASS filter, and the correction is recorded in `archive/audit/DATA_CLAIM_CHECKS.md`.
 4. Require an **exact reference and alternate allele match** in Python. `bcftools -R` matches positions, not alleles, so without this step a hit means only that ClinVar has some record somewhere at that coordinate.
 5. Look up each surviving hit in gnomAD v4.1 by byte-range read, and re-read its full ClinVar record locally for consequence and review status.
 
@@ -82,8 +82,8 @@ The conclusion does not change, but the reason for it does, and the reason is th
 
 Two things are true at once, and both were already on disk:
 
-- `track2/creative/D_compute.md` lines 163 to 167 **found this variant**, ran a 1q21.1 dosage screen, established there is no deletion in trans, and reasoned from the allele's frequency to normal NMD. That working file did the job properly.
-- The audit could not check it. `track2/audit/AUDIT_fg_genetics_stats.md` B54 marks the gnomAD figures **UNVERIFIABLE**, "Not re-queried in this audit".
+- `archive/creative/D_compute.md` lines 163 to 167 **found this variant**, ran a 1q21.1 dosage screen, established there is no deletion in trans, and reasoned from the allele's frequency to normal NMD. That working file did the job properly.
+- The audit could not check it. `archive/audit/AUDIT_fg_genetics_stats.md` B54 marks the gnomAD figures **UNVERIFIABLE**, "Not re-queried in this audit".
 
 **B54 is now verified.** gnomAD v4.1 returns AF 0.026 with 583 homozygotes in exomes, and AF 0.0184 with 33 homozygotes in genomes. The working file said "AF 2.6 percent with 583 homozygotes". Exact.
 
@@ -91,7 +91,7 @@ Two things are true at once, and both were already on disk:
 
 **The correction.** The EJC core is not variant-free. It carries one common hypomorphic allele in the heterozygous state. NMD should still be assumed normal, but because 583 people in gnomAD are homozygous for this allele without a reported decay phenotype, not because nothing was found. The report has been changed to say that.
 
-This is the third time in this project that a claim of absence turned out to be a claim about a filter. It is the same failure the exclusion audit describes in `SIMULATED_PANELS.md`: the information was already in the repository and nobody was asked a question that would surface it.
+This is the third time in this project that a claim of absence turned out to be a claim about a filter. It is the same failure the exclusion audit describes in `archive/SIMULATED_PANELS.md`: the information was already in the repository and nobody was asked a question that would surface it.
 
 ## *LZTR1*: a real variant that does not earn a recommendation
 

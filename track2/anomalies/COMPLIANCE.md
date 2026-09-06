@@ -24,7 +24,7 @@ Written so that a judge, or Sage Bionetworks' Privacy and Compliance Office, can
 | Google Vertex AI, Gemini 3.1 Pro, run on the author's own server | The same 68 documents | De-identified before transmission |
 | Anthropic API, Fable 5.1 | Four files: the supplied phenotype document, and three of this project's own derived summaries | De-identified before transmission |
 
-**The de-identification.** `vertex/redact.py` replaces variant coordinates, protein changes, sample and proband identifiers, HPO identifiers and the named clinical features with stable tokens. 331 substitutions across 68 files, counts recorded in `vertex/redaction_report.json`, output checked afterwards for leaks. The substitution mapping is kept locally and was not sent.
+**The de-identification.** `archive/vertex/redact.py` replaces variant coordinates, protein changes, sample and proband identifiers, HPO identifiers and the named clinical features with stable tokens. 331 substitutions across 68 files, counts recorded in `archive/vertex/redaction_report.json`, output checked afterwards for leaks. The substitution mapping is kept locally and was not sent.
 
 ## The reasoning, and the one item that is a judgement call
 
@@ -38,7 +38,7 @@ The position taken here is that this is processing under a no-training arrangeme
 
 - This machine: `data/`, `work/`, and the scratch directories under `/private/tmp/claude-501/`.
 - The author's own server at `/root/mva_check/`, which holds the de-identified bundle and the Gemini outputs.
-- `vertex/bundle/` and `vertex/pkg/` on this machine, which hold the de-identified corpus. **These are gitignored and not committed**, because they are regenerable from `vertex/redact.py` and there is no reason to distribute a second copy of the project's own documents. `vertex/out/` is committed, since it holds the third-party models' responses rather than any input.
+- `archive/vertex/bundle/` and `archive/vertex/pkg/` on this machine, which hold the de-identified corpus. **These are gitignored and not committed**, because they are regenerable from `archive/vertex/redact.py` and there is no reason to distribute a second copy of the project's own documents. `archive/vertex/out/` is committed, since it holds the third-party models' responses rather than any input.
 - Copies of publisher articles downloaded during verification are gitignored; they are not ours to redistribute.
 
 Deletion confirmation goes to **RarediseaserealkidMVAhackathon2026@synapse.org**.
