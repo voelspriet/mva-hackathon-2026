@@ -48,7 +48,7 @@ which is what `mosaic_baf.py` and `mosaic_robust.py` invert. The per-bin statist
 
     delta_min = sigma0 * sqrt( z * sqrt(2/N) )
 
-**N.** From work/mosaic.json divided by the bin counts in work/mosaic_robust.json, autosomal 5 Mb bins hold 3,500 to 4,760 heterozygous sites; the median is about **3,900**, and `mosaic_robust.py` already discards bins below 500.
+**N.** Recounted directly from PASS single-nucleotide calls at depth 20 to 120: 563 autosomal 5 Mb bins hold 500 or more heterozygous sites, 536 of them also pass the depth-ratio filter, and their **median is 3,865**, which is the 3,900 used below. **The spread is much wider than an earlier version of this line stated.** It gave a range of 3,500 to 4,760, which is close to the interquartile range of 3,318 to 4,523 but is not the range: the true span across kept bins is **542 to 15,129**. That matters because the threshold scales as N to the power minus one quarter, so **the sparsest bin carries a floor 1.64 times the quoted one** and the densest 0.71 times it. The figures below are therefore a floor at the median bin, not a floor everywhere, which is the same qualification `track2/anomalies/ANOMALIES.md` reaches from the other direction.
 
 | Test level | N or bins | delta_min | f_min |
 |---|---|---|---|

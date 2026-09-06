@@ -79,6 +79,23 @@ The anomaly analysis was computed from a query that did not restrict to `FILTER=
 
 **Running total across the anomaly and re-analysis work: nine numbers corrected, no conclusion changed.** Every fault has the same cause and the same shape.
 
+
+---
+
+## `track2/creative/F_math.md` — five inputs exact, one range wrong
+
+| Claim | Recomputed | Verdict |
+|---|---|---|
+| Baseline standard deviation `sigma0 = 0.09456` | Pipeline output: **0.09456** | **Exact** |
+| "observed autosomal median depth of 44x" | Pipeline output: **44** | **Exact** |
+| Binomial standard deviation at that depth, 0.0754 | sqrt(0.25/44) = **0.0754** | **Exact** |
+| Overdispersion factor 1.574 | Measured variance over binomial variance = **1.574** | **Exact** |
+| "Bonferroni over 563 bins" | Autosomal 5 Mb bins with 500 or more heterozygous sites: **563**; 536 also pass the depth-ratio filter | **Exact** |
+| Median heterozygous sites per bin, about 3,900 | **3,865** | **Exact to the rounding used** |
+| "autosomal 5 Mb bins hold 3,500 to 4,760 heterozygous sites" | Interquartile range is 3,318 to 4,523. **The true range is 542 to 15,129** | **Wrong. A central range presented as the full range** |
+
+**Why the range matters.** The detection threshold scales as N to the power minus one quarter, so the sparsest bin carries a floor **1.64 times** the quoted one and the densest **0.71 times** it. Quoting a narrow range hid that the published per-bin floor is a floor at the median bin rather than a floor everywhere. This is the same weakness the anomaly analysis found from the other direction, reached independently, and the appendix now states it.
+
 ---
 
 ## Still to check
