@@ -57,7 +57,7 @@ The report does address the growth and nutrition axis functionally, through mid-
 
 **Expectation.** Under reference bias the low tail exceeds the high tail modestly. Contamination produces a genome-wide excess; mapping artefact produces a regional one.
 
-**Measurement.** Of heterozygous calls at depth 20 or more: 4.34 percent below allele balance 0.25, against 0.62 percent above 0.75. Localised, 43 percent of the low tail sits in fifteen 5 Mb bins, every one centromeric or acrocentric.
+**Measurement, recomputed on PASS calls only.** An earlier version of this entry used a query that did not filter on FILTER=PASS and so included about 155,000 failing records, which are concentrated in exactly the low-mappability regions this entry reasons about. On the 2,751,363 PASS heterozygous calls at depth 20 or more: **2.86 percent below allele balance 0.25 against 0.58 percent above 0.75**, a ratio of 4.9. The earlier figures were 4.34 and 0.62 at a ratio of 7.0. Calls below 0.20 number **43,584**, half the 85,649 counted before filtering, and the fifteen busiest 5 Mb bins hold **34 percent** of them rather than 43 percent, every one centromeric or acrocentric.
 
 **Class: ARTEFACT.** Regional, not global, which is the discriminator. Supported by D3's normal global metrics.
 
@@ -71,12 +71,12 @@ The report does address the growth and nutrition axis functionally, through mid-
 
 | Region | Median depth | Median allele balance |
 |---|---|---|
-| T-cell receptor beta, chr7:142.3 to 142.8 Mb | 45 | 0.277 |
+| T-cell receptor beta, chr7:142.3 to 142.8 Mb | 46 | 0.311 |
 | Flank, chr7:141.0 to 141.5 Mb | 43 | 0.510 |
-| Immunoglobulin lambda, chr22:22.0 to 22.5 Mb | 45 | 0.400 |
-| Flank, chr22:23.5 to 24.0 Mb | 43 | 0.412 |
-| Major histocompatibility complex, chr6:32.0 to 32.5 Mb | 46 | 0.444 |
-| Flank, chr6:34.0 to 34.5 Mb | 42 | 0.500 |
+| Immunoglobulin lambda, chr22:22.0 to 22.5 Mb | 44 | 0.419 |
+| Flank, chr22:23.5 to 24.0 Mb | 44 | 0.429 |
+| Major histocompatibility complex, chr6:32.0 to 32.5 Mb | 46 | 0.455 |
+| Flank, chr6:34.0 to 34.5 Mb | 43 | 0.500 |
 
 Against a genome median of 42, **depth is not reduced at any of the three**, so no somatic deletion is detectable. The T-cell receptor skew is large with depth intact, which is the mismapping signature, and the immunoglobulin skew is barely distinguishable from its own flank.
 
@@ -86,7 +86,7 @@ Against a genome median of 42, **depth is not reduced at any of the three**, so 
 
 **Expectation.** One Y in a male gives about half the autosomal depth.
 
-**Measurement by region.** The male-specific single-copy region, 3 to 22 Mb, runs at median 17 to 21, which is half of autosomal. The excess comes from three blocks: Y 10 to 11 Mb, Y 26 Mb, and Y 56 Mb at median 138 with 94 percent of calls heterozygous. Pseudoautosomal Y 2 Mb shows 21 percent heterozygosity as expected.
+**Measurement by region, PASS calls.** Non-pseudoautosomal X gives 103,068 calls at **median depth 21** against an autosomal 43, with **1.3 percent heterozygous**; the pre-filter figures were 20 and 2.5 percent, and filtering makes the one-X reading cleaner rather than weaker. The male-specific single-copy region of Y, 3 to 22 Mb, runs at median 17 to 21, which is half of autosomal. The excess comes from three blocks: Y 10 to 11 Mb, Y 26 Mb, and Y 56 Mb at median 138 with 94 percent of calls heterozygous. Pseudoautosomal Y 2 Mb shows 21 percent heterozygosity as expected.
 
 **Class: ARTEFACT.** A mean across repeat blocks. **The X chromosome settles the karyotype, and was not measured in the earlier version of this entry**: non-pseudoautosomal X gives 107,895 calls at median depth 20 against an autosomal 42, a ratio of 0.48, with 2.5 percent heterozygous, where two X chromosomes would give a ratio near 1.0 and heterozygosity near 50 percent. One X and one Y, so 46,XY.
 
@@ -94,7 +94,7 @@ Against a genome median of 42, **depth is not reduced at any of the three**, so 
 
 **Expectation.** At a mean spacing near 600 bp, a gap of 150 kb is roughly 250 times the mean and should not occur outside assembly gaps and heterochromatin.
 
-**Measurement.** 33 such gaps, 59.7 Mb in total. Every one of the twenty largest is a known heterochromatic block or centromere: 1q12, 9q12, 16q11, the acrocentric short arms of 13, 14, 21 and 22, and the centromeres of 2, 5, 17 and 19.
+**Measurement, PASS calls only.** **78 such gaps, 71.7 Mb in total.** An earlier version counted 33 gaps over 59.7 Mb, on an unfiltered query; removing failing calls opens further gaps, and it opens them precisely where only failing calls existed, which is low-mappability sequence. The six largest are unchanged and are the same heterochromatic blocks: 1q12 at 18.0 Mb, 9q12 at 15.0 Mb, 16q11 at 8.1 Mb, and the centromeres or acrocentric arms of 19, 5 and 22.
 
 **Class: ARTEFACT.** All 33 are now classified, not the 20 largest only: the thirteen smaller gaps run 150 to 203 kb, five of them on the hemizygous X where lower call density is expected and the rest pericentromeric or acrocentric. None sits in autosomal unique sequence, so no evidence of a large homozygous deletion.
 

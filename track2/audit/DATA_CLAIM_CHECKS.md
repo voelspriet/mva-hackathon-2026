@@ -44,8 +44,28 @@ Those are the claims a judge can check fastest, because the data is in their han
 
 **Note on the error found.** It was in text written the same day, by the same process that is auditing it, and it arose the same way as several of the errors this project found in its own earlier work: a query run without a filter that the surrounding argument assumed. The correct figures were one command away and nobody ran it.
 
+
+---
+
+## `track2/anomalies/` — a systematic filter fault, six measurements, no conclusion changed
+
+The anomaly analysis was computed from a query that did not restrict to `FILTER="PASS"`. That swept in roughly 155,000 failing records, and those failures are concentrated in exactly the low-mappability regions the analysis reasons about, so the fault is not random with respect to the argument. Every measurement recomputed on PASS calls.
+
+| Measurement | Unfiltered, as published | PASS only | Conclusion |
+|---|---|---|---|
+| Allele balance below 0.25 | 4.34 percent | **2.86 percent** | Unchanged, but the asymmetry is smaller: ratio 4.9 against the 7.0 reported |
+| Allele balance above 0.75 | 0.62 percent | **0.58 percent** | Unchanged |
+| Calls below 0.20 | 85,649 | **43,584** | **Half of the low tail was failing calls** |
+| Share of that tail in the 15 busiest bins | 43 percent | **34 percent** | Still regional, less concentrated |
+| Contamination, reference reads at homozygous-alternate sites | mean 0.0005, median 0.0000 | **mean 0.0005, median 0.0000** | Identical. The only measurement filtering does not move |
+| Non-PAR X depth and heterozygosity | 20, 2.5 percent | **21, 1.3 percent** | 46,XY, and cleaner after filtering |
+| No-call gaps of 150 kb or more | 33 gaps, 59.7 Mb | **78 gaps, 71.7 Mb** | More gaps, because removing failing calls opens gaps precisely where only failing calls existed. The six largest are the same heterochromatic blocks |
+| Immune-locus depth against flanks | 45, 45, 46 against 43, 43, 42 | **46, 44, 46 against 43, 44, 43** | Unchanged. Depth is not reduced, so the withdrawal of the positive control stands on filtered data too |
+
+**No conclusion changes. Several numbers do, one by a factor of two.** The pattern is worth naming: an unfiltered query does not bias a measurement randomly when the excluded records cluster in the regions under discussion. Here it inflated exactly the signal the entry was explaining away, which would have made the artefact argument look stronger than the data supports.
+
 ---
 
 ## Still to check
 
-`REPORT_track2.md` remaining claims, `FAMILY_CARD.md`, `track2/anomalies/*`, `track2/reanalysis/*`, `track2/creative/F_math.md`, `track2/gate/*`, and the remaining files that assert something about the supplied data. Then the external sources those files cite, which the audit partitions covered for the literature but not for the database records retrieved live.
+`REPORT_track2.md` remaining claims, `FAMILY_CARD.md`, `track2/reanalysis/*`, `track2/creative/F_math.md`, `track2/gate/*`, and the remaining files that assert something about the supplied data. Then the external sources those files cite, which the audit partitions covered for the literature but not for the database records retrieved live.

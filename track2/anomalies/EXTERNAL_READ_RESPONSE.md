@@ -20,13 +20,15 @@
 | Median | 0.0000 | |
 | Sites above 0.02 | 1.29 percent | |
 
+**Recomputed on PASS calls only**: 1,295,341 sites, mean reference-read fraction 0.0005, median 0.0000. Unchanged. This is the one anomaly measurement that filtering does not move at all.
+
 **Contamination is excluded.** The low-allele-balance tail is not foreign DNA, and no contamination term is needed in the mosaicism floor or in the appendix's allele-depth model.
 
 ### 2. The sex is 46,XY, which was asserted without the X measurement
 
 **Asked because** the read noted that Y at half autosomal depth is consistent with both 46,XY and 47,XXY, and that X was never reported.
 
-**Measurement.** Non-pseudoautosomal X: 107,895 calls, median depth 20 against an autosomal 42, a ratio of 0.48, with **2.5 percent heterozygous**. Two X chromosomes would give a ratio near 1.0 and heterozygosity near 50 percent.
+**Measurement.** Non-pseudoautosomal X, PASS calls: **103,068 calls, median depth 21 against an autosomal 43**, with **1.3 percent heterozygous**. An earlier unfiltered pass gave 107,895 calls at median 20 with 2.5 percent heterozygous; filtering makes the reading cleaner. Two X chromosomes would give a ratio near 1.0 and heterozygosity near 50 percent.
 
 **One X and one Y.** The claim now rests on a measurement rather than on the Y alone.
 
