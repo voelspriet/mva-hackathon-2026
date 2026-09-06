@@ -24,3 +24,10 @@ docs/
 
 # gnomAD tabix indexes, downloaded reference data, regenerable
 *.vcf.bgz.tbi
+
+# the organisers' scorer modules, copied from the challenge Space for local
+# rehearsal only. Their code, not ours to redistribute; see scoring/README.md
+scoring/evaluation.py
+scoring/faq.py
+scoring/groundtruth.py
+scoring/utils.py

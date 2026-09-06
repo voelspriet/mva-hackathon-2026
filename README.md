@@ -35,7 +35,7 @@ Three of these corrected the report. One corrected the family card. Two containe
 | `pipeline/` | Track 1 end to end, the mosaic profiler, the gnomAD byte-range reader, the genome-wide screens, the drug mapper |
 | `track2/reanalysis/` | The sixteen genome re-analyses, each with its script |
 | `track2/research/`, `track2/gate/`, `track2/anomalies/` | The cited dossiers, the measurement gate, deviations found in the supplied data |
-| `submissions/`, `video/`, `scoring/` | Submitted files, the pitch video with subtitles, an offline rehearsal of the challenge scorer |
+| `submissions/`, `video/`, `scoring/` | Submitted files, the pitch video with subtitles, and an offline rehearsal of the challenge scorer, which needs the organisers' own scorer modules placed beside it; see `scoring/README.md` |
 | `archive/` | The working record: simulated panels, audit partitions, verification passes, referee reports, cross-model outputs, prompts. The reports cite it. Map: `archive/README.md` |
 
 ## Reproducing it
