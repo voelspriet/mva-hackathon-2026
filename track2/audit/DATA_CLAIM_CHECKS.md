@@ -96,6 +96,36 @@ The anomaly analysis was computed from a query that did not restrict to `FILTER=
 
 **Why the range matters.** The detection threshold scales as N to the power minus one quarter, so the sparsest bin carries a floor **1.64 times** the quoted one and the densest **0.71 times** it. Quoting a narrow range hid that the published per-bin floor is a floor at the median bin rather than a floor everywhere. This is the same weakness the anomaly analysis found from the other direction, reached independently, and the appendix now states it.
 
+
+---
+
+## Gate files and external database records
+
+### The decay prediction, recomputed from the Ensembl exon structure
+
+The most load-bearing prediction in the report is that allele 1 triggers nonsense-mediated decay, which rests entirely on where the stop sits relative to the last exon junction. Recomputed from `ENST00000287598` in the local Ensembl 116 annotation:
+
+| Claim | Recomputed | Verdict |
+|---|---|---|
+| 23 exons | **23** | **Exact** |
+| Premature stop codon at transcript positions 2,361 to 2,363 | Variant at genomic 40,209,701 maps to transcript **2,362**, the middle base of the codon, so the codon spans **2,361 to 2,363** | **Exact** |
+| Last exon junction at transcript 3,109 | Junctions end at **2,830, 3,002, 3,109** | **Exact** |
+| Six downstream junctions | **6** | **Exact** |
+| "747 nucleotides upstream of the last exon junction" | From the **last base** of the stop: 3,109 − 2,363 = **746**. From the first base: **748**. From the variant base itself: 747 | **Underspecified, corrected.** The rule is stated from the last base of the stop, so the figure is 746. GPT-5's cross-model pass flagged this ambiguity and it is now resolved |
+
+**The prediction itself is unaffected and is comfortably clear of the threshold.** The 50 to 55 nucleotide rule needs the stop more than about 55 nucleotides upstream of the last junction; it is 746.
+
+### ClinVar, retrieved live
+
+| Claim | Record | Verdict |
+|---|---|---|
+| Allele 1 is Pathogenic or Likely pathogenic, 2 submitters, no conflicts, MVA syndrome 1 | `CLNSIG=Pathogenic/Likely_pathogenic`, `CLNREVSTAT=criteria_provided,_multiple_submitters,_no_conflicts`, two submission accessions, `CLNDN` includes `Mosaic_variegated_aneuploidy_syndrome_1` | **Exact on every element** |
+| c.3006T>G, this child's allele 2, is not in ClinVar | No record at that allele | **Exact** |
+| The same protein change by a different nucleotide, c.3006T>A, is a VUS, VCV004600147 | `40220612 T>A`, variation ID **4600147**, `CLNSIG=Uncertain_significance`, single submitter | **Exact** |
+| "The only other allele deposited at that base is the synonymous c.3006T>C, likely benign" | `40220612 T>C`, `CLNSIG=Likely_benign` | **Exact** |
+
+**All four ClinVar claims verify.** Combined with the three gnomAD frequencies checked earlier by byte-range read, every external database record the two reports rely on has now been retrieved and matched.
+
 ---
 
 ## Still to check
