@@ -2,7 +2,7 @@
 
 Prompt A asked for this file and the five partitions were delivered without it. It is built from the partition tables by script, so it cannot drift from them. Build: `track2/audit/build_summary.py`.
 
-**179 non-supported verdicts appear as table rows here, against the 185 the five partitions count.** The difference is claims the partitions recorded in a prose list rather than in a table row: 4 in partition (a), 2 in partition (fg). Split verdicts, where one half of a sentence is supported and the other is not, are filed under the half that failed, which is the counting rule the partitions used.
+**178 non-supported verdicts appear as table rows here, against the 184 the five partitions count.** The difference is claims the partitions recorded in a prose list rather than in a table row: 4 in partition (a), 2 in partition (fg). Split verdicts, where one half of a sentence is supported and the other is not, are filed under the half that failed, which is the counting rule the partitions used.
 
 | Verdict | Count |
 |---|---|
@@ -10,7 +10,7 @@ Prompt A asked for this file and the five partitions were delivered without it. 
 | MISATTRIBUTED | 8 |
 | OVERSTATED | 45 |
 | NO SOURCE CITED | 42 |
-| UNVERIFIABLE | 40 |
+| UNVERIFIABLE | 39 |
 
 Ordering is by the weight a claim carries, which here means the file it sits in: the two reports first, then the gate files, then the verification and referee files, then the dossiers and the divergent lenses. Within each, by verdict severity.
 
@@ -172,7 +172,6 @@ Ordering is by the weight a claim carries, which here means the file it sits in:
 | de.71 | UNVERIFIABLE | "the UK SACN target of 2 g salt/day at 1 to 3 years, 3 g at 4 to 6 years (SACN 2003)" | creative/H:7 | SACN 2003 report | not reached | The SACN Salt and Health report PDF was not retrieved within this pass. Route tried: the assets.publishing.service.gov.uk URL printed in the file. | working file, left as the record |
 | de.74 | UNVERIFIABLE | "cooked spinach (about 755 mg oxalate per half cup), rhubarb (541), ... cocoa (about 117 mg/100 g) (UCI table)" | creative/H:11 | UC Irvine kidney stone centre food table | not reached as a primary source | The source is a clinic handout rather than a primary measurement, and it was not retrieved. Route tried: the ucikidneystonecenter.com PDF URL. | working file, left as the record |
 | de.78 | UNVERIFIABLE | "plus a pooled 39% reduction in upper respiratory infection across three studies (Cawood et al.)" | creative/H:23 | Cawood 2025 | publisher abstract | The abstract states only "Data suggested an association between ONS use and reduced infections"; the 39% pooled figure is not in it and the full text was not reached. Route tried: PubMed abstract, SAGE full-text URL. | working file, left as the record |
-| fg.B54 | UNVERIFIABLE | "**RBM8A c.-21G>A (rs139428292), heterozygous** ... gnomAD gives AF 2.6 percent with 583 homozygotes" | creative/D_compute.md:163-167 | gnomAD | not retrieved | Not re-queried in this audit; flagged so it is not recorded as checked. | working file, left as the record |
 | fg.B55 | UNVERIFIABLE | "**SLC34A1 p.Ala133Val (rs148976897)** ... resolves to Likely benign in 7 of 8 submissions, with gnomAD AF 0.41 percent and 21 homozygotes" | creative/D_compute.md:170-173 | ClinVar and gnomAD | not retrieved | Not re-queried in this audit. | working file, left as the record |
 | fg.H6 | UNVERIFIABLE | "`mosaic_robust.py` already discards bins below 500" | creative/F_math.md:51 | own script | script not re-read line by line | Not checked in this audit; the kept-bin counts in `mosaic_robust.json` are consistent with some such filter (536 kept of 563 autosomal bins) but the threshold value was not confirmed. | appendix corrected |
 | fg.I26 | UNVERIFIABLE | "against under 2% in unrelated controls" | creative/F_math.md:141 | Kajii 2001 | abstract only; full text paywalled | The control figure is not in the retrievable abstract, and the full text was not reached. | appendix corrected |

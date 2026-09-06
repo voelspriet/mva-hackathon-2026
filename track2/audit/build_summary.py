@@ -11,7 +11,9 @@ from collections import Counter
 KEYS = ['CONTRADICTED', 'MISATTRIBUTED', 'OVERSTATED', 'NO SOURCE CITED', 'UNVERIFIABLE']
 VMAP = {'S': 'SUPPORTED', 'O': 'OVERSTATED', 'C': 'CONTRADICTED',
         'M': 'MISATTRIBUTED', 'U': 'UNVERIFIABLE'}
-STATED = {'a': 28, 'b': 22, 'c': 31, 'de': 54, 'fg': 50}   # each partition's own count
+STATED = {'a': 28, 'b': 22, 'c': 31, 'de': 54, 'fg': 49}   # each partition's own count
+# fg was 50 until 6 Sep 2026. Row fg.B54 (RBM8A gnomAD frequencies) moved UNVERIFIABLE to
+# SUPPORTED when the figures were retrieved; see track2/reanalysis/R7_genomewide_clinvar.md.
 
 
 def bucket(v):

@@ -22,7 +22,7 @@ This is obvious when stated and easy to forget in practice, because the output l
 
 ## The failure mode, measured
 
-This project audited 577 claims against primary sources across five partitions. **185 did not hold.** That audit examined what the report *asserts*.
+This project audited 577 claims against primary sources across five partitions. **184 did not hold.** That audit examined what the report *asserts*.
 
 It never examined what the report *dropped*. The exclusions were made by simulated seats writing the word "excluded" followed by a reason, and those reasons entered the record and were never tested. Checking them afterwards, five did not survive:
 

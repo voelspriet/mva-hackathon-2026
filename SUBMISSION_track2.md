@@ -14,7 +14,7 @@ Suggested note for judges:
 
 > This submission records what checking it changed, not only what it concluded. Section 13 lists what three independent referees and three primary-source verification passes caught that thirteen expert seats had missed, including a survival figure that was wrong inside the safety clause and an allele that proved to be a splice variant rather than a nonsense variant. Two candidates were then removed from the ranked list on that evidence rather than demoted.
 >
-> Five audit partitions afterwards checked 577 claims against primary sources; 185 did not hold, and `track2/audit/AUDIT_SUMMARY.md` lists every one with the sentence that replaced it. Two other model families were run over a de-identified corpus as a cross-check. A later pass against the supplied phenotype document found that it dates the renal finding to birth while both causes the report considers are postnatal, which one date from the records would settle.
+> Five audit partitions afterwards checked 577 claims against primary sources; 184 did not hold, and `track2/audit/AUDIT_SUMMARY.md` lists every one with the sentence that replaced it. Two other model families were run over a de-identified corpus as a cross-check. A later pass against the supplied phenotype document found that it dates the renal finding to birth while both causes the report considers are postnatal, which one date from the records would settle.
 >
 > The project also verified its own headline methodological claim and had to withdraw three of its four parts, which is recorded in `track2/synthesis/VERIFY_headline_claim.md` rather than removed. Every working file, every prompt and every correction is in the repository.
 

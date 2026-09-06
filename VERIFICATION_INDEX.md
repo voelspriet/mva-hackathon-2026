@@ -26,7 +26,7 @@ Five, none of which names a gene or a disease, so all five transfer.
 
 | File | Scope | Result |
 |---|---|---|
-| `track2/audit/AUDIT_a` … `AUDIT_fg` | Five partitions by source domain | **577 claims checked, 185 not supported**: 44 contradicted, 45 overstated, 42 with no source, 40 unverifiable, 8 misattributed |
+| `track2/audit/AUDIT_a` … `AUDIT_fg` | Five partitions by source domain | **577 claims checked, 184 not supported.** 178 of those are table rows in the summary and 6 sit in partition prose; the rows split as 44 contradicted, 45 overstated, 42 with no source, 39 unverifiable, 8 misattributed |
 | `track2/audit/AUDIT_SUMMARY.md` | All non-supported verdicts in one table | Generated from the partitions by `build_summary.py`, so it cannot drift from them |
 
 ### Claims against the supplied data
@@ -35,7 +35,7 @@ Five, none of which names a gene or a disease, so all five transfer.
 |---|---|---|
 | `track2/audit/DATA_CLAIM_CHECKS.md` | Every claim about the VCF, the phenotype document, or a retrievable database record | **13 numbers corrected, no conclusion changed.** Track 1 was 10 of 11 exact. Nine corrections came from one fault, a query run without the PASS filter, which matters because the excluded records concentrate in the regions the analyses were reasoning about |
 | `track2/anomalies/ANOMALIES.md` | Deviations found without a prior hypothesis | The supplied phenotype dates the renal finding to birth while both causes the report considers are postnatal. One date from the records settles it |
-| `track2/reanalysis/` | Six questions the project had never asked of the genome | Six negatives: no readable phase, no runs of homozygosity of consequence, no copy-number event, no mitochondrial explanation, no modifier, and the mosaicism method's floor fails where mapping is poor |
+| `track2/reanalysis/` | Seven questions the project had never asked of the genome | Six negatives: no readable phase, no runs of homozygosity of consequence, no copy-number event, no mitochondrial explanation, no modifier, and the mosaicism method's floor fails where mapping is poor. A seventh, added 6 September, drops the gene list entirely and screens the whole genome against the whole of ClinVar: seven heterozygous hits, nothing homozygous, no gene hit twice, so no second diagnosis |
 
 ### The project's own reasoning
 
@@ -62,7 +62,7 @@ Five, none of which names a gene or a disease, so all five transfer.
 | | |
 |---|---|
 | Claims checked against primary sources | 577 |
-| Not supported | 185 |
+| Not supported | 184 |
 | Numbers corrected against the supplied data | 13 |
 | Exclusions that did not survive | 5 |
 | Parts of this project's own headline claim withdrawn | 3 of 4 |
