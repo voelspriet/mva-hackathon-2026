@@ -8,7 +8,7 @@ The panel judges on **scientific rigor, potential impact, innovation and scalabi
 
 ## Scientific rigor
 
-**Strong. The candidate space, measured rather than asserted.** The compound-heterozygote pattern is not rare on its own: 224 genes in this genome carry two coding variants absent from the common catalogue. Applying the candidate's own frequency threshold (gnomAD < 1e-4 on both) leaves 8. Adding four call-quality measurements (coverage ratio, allele balance, genotype quality, inter-variant distance) leaves **2**: *ADGRA3* and *BUB1B*. Neither filter uses the phenotype, a gene panel or any disease knowledge. `R15`, `R21`
+**Strong. The candidate space, measured rather than asserted.** The compound-heterozygote pattern is not rare on its own: 218 genes in this genome carry two coding variants absent from the caller's dbSNP build, and on measured gnomAD frequency 19 of those carry two variants that are actually rare at AF < 1%. Applying the candidate's own threshold (gnomAD < 1e-4 on both) leaves 8. Adding four call-quality measurements (coverage ratio, allele balance, genotype quality, inter-variant distance) leaves **2**: *ADGRA3* and *BUB1B*. Neither filter uses the phenotype, a gene panel or any disease knowledge. `R15`, `R21`
 
 **Strong. A heuristic of ours, falsified by measurement.** Genes were first labelled artefact-prone by name prefix. Tested against measurement on 164 genes, that label disagreed 79 times, and 78 of those were false clearances: genes marked "worth examining" that four measurements dispose of. A heuristic that fails safe is tolerable; this one failed open. Reporting it is worth more than hiding it. `R21`
 
@@ -36,7 +36,7 @@ The panel judges on **scientific rigor, potential impact, innovation and scalabi
 
 ## Innovation
 
-**Strong. Read-backed phase used as an eliminator, not a check.** `PGT`/`PID` are in every GATK VCF and are conventionally used to check one candidate. Applied across the whole candidate list they become a filter: 79 of 151 genes eliminated with proof because both variants sit on one haplotype and the other allele is intact, including *KIR3DL3*, the only other gene meeting the strictest frequency threshold. Seconds of compute, no new data. `R15`, `R18`
+**Strong. Read-backed phase used as an eliminator, not a check.** `PGT`/`PID` are in every GATK VCF and are conventionally used to check one candidate. Applied across the whole candidate list they become a filter: 79 of 151 genes eliminated with proof because both variants sit on one haplotype and the other allele is intact, including *KIR3DL3*, one of the eight meeting the candidate's own frequency threshold. Seconds of compute, no new data. `R15`, `R18`
 
 **Solid. The enumeration protocol itself.** 2,013 candidate observations produced by rule across thirteen classes, with the phenotype document excluded and the known candidate genes given no special treatment, each line carrying class, locus, measurement, comparator and status. The value is coverage and auditability, not insight: it is a written record of what was looked at, including everything that was nothing. `OBSERVATIONS_2000.md`, `PROMPT_2000_observations.md`
 
@@ -54,6 +54,9 @@ The panel judges on **scientific rigor, potential impact, innovation and scalabi
 
 ## What must not be claimed
 
+- **Do not call the 218 or 224 genes 'rare'.** They carry two coding variants absent from the caller's dbSNP build, and `AUDIT_05` measured that file to be 81.6% common variants. On measured frequency the genuinely rare compound-heterozygote field is 19. `AUDIT_06`
+- **Do not name *BUB1B* and *KIR3DL3* as the AF < 1e-5 survivors.** Each carries a second allele near 7e-5, so under the stated rule neither qualifies. The two that do are *SERPINA1* and *VPS41*, both artefacts. `AUDIT_06`
+
 - **The 2,013 observations are not findings.** They are a screening layer, 1,372 unexamined by design. Any sentence implying two thousand results is false and checkable.
 - **ADGRA3 is not a rival diagnosis.** It is the only other gene surviving two measured filters, which makes it a candidate for explicit exclusion, nothing more.
 - **The SMN result is negative.** Two copies of *SMN1* is normal.
@@ -64,7 +67,7 @@ The panel judges on **scientific rigor, potential impact, innovation and scalabi
 
 ## The three sentences to put in the methods form
 
-> The compound-heterozygous pattern is not rare in isolation: 224 genes in this genome carry two rare coding variants. Applying the candidate's own frequency threshold leaves 8, and adding four call-quality measurements leaves 2, of which *BUB1B* is one; neither filter uses the phenotype or a gene panel.
+> Of 218 genes carrying two coding variants absent from the caller's dbSNP build, only 19 carry two that are rare at AF < 1% on measured gnomAD frequency. The candidate's own threshold of AF < 1e-4 on both alleles leaves 8, and four call-quality measurements leave 2, of which *BUB1B* is one; neither filter uses the phenotype or a gene panel.
 
 > Read-backed phase (`PGT`/`PID`) was applied genome-wide as an eliminator rather than as a check on the candidate, removing 79 of 151 genes with proof that both variants lie on one haplotype.
 

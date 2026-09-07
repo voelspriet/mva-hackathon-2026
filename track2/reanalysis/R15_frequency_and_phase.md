@@ -44,3 +44,16 @@ It does not change the diagnosis, and it does not overturn R14. It replaces one 
 It cannot resolve *BUB1B* itself. Those two variants are 10,911 bp apart, far beyond read-backed phasing, exactly as R1 established. Parental genotyping or a long-read amplicon remains the only route.
 
 **Reproduce:** `pipeline/alien/fetch_gnomad_af.py` (batched gnomAD v4.1 API queries, 20 variants per request), then the phase test on `PGT`/`PID` in the supplied VCF.
+
+
+---
+
+## Correction, 7 September 2026 (`AUDIT_06`)
+
+Two statements above are wrong. They are left in place with this note rather than edited away.
+
+**The AF < 1e-5 row is not reproducible.** It names *BUB1B* and *KIR3DL3*. Under the rule stated in this note, both variants below the threshold, neither qualifies: *BUB1B* carries 7.87e-5 alongside 6.84e-7, and *KIR3DL3* carries 7.32e-5 alongside 6.84e-7. The 7.9e-5 figure is reported in this very note, so the row contradicts its own numbers. The two genes that do meet AF < 1e-5 on both alleles are *SERPINA1* and *VPS41*, and both fail the call-quality filter in `R21`. The sentence calling *KIR3DL3* 'the only other gene meeting the strictest threshold' falls with it.
+
+**The AF < 1e-4 row and everything downstream stand.** The eight genes reproduce exactly and `R21`'s two-gene result is unaffected.
+
+The error was mine: I read the two smallest values off the eight-gene list and named those genes, instead of applying the rule I had written a paragraph earlier.
